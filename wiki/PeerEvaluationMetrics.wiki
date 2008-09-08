@@ -1,34 +1,26 @@
 #summary Metrics for Peer Evaluation
 
-= Introduction =
-
-* Timeliness
-** Regularly attends meetings, is on time and prepared
-** Work is completed and checked in on time
-** All materials given to the correct person by their specified time
-*** i.e. if project manager wants documentation by a certain time
-** Responds to emails in a few days, responds to calls even faster - I see calling as a last chance to contact someone
-* Quality of Work
-** Work is in good quality as determined by other peers
-** Comments/Documentation have none to little grammar/spelling errors
-** Q/A tests pass
-* Participation
-** Participates in feature debates
-*** i.e. should we include this feature or that feature
-** Contributes opinions on new features/implementations
-** Generates ideas
-* Communicates
-** Informs other peers if he has a busy week and can't do much work
-*** i.e. four tests back to back
-** Offers to perform more work one week if they have more free time
-*** Gives an opportunity to make up for the first bullet
-** Quickly describes problems that would impede their work
-** Weekly status update of their progress
-
-
 = Details =
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+  * Timeliness
+    * Regularly attends meetings, is on time and prepared
+    * Work is completed and checked in on time
+    * All materials given to the correct person by their specified time
+      * i.e. if project manager wants documentation by a certain time
+    * Responds to emails in a few days, responds to calls even faster - I see calling as a last chance to contact someone
+  * Quality of Work
+    * Work is in good quality as determined by other peers
+    * Comments/Documentation have none to little grammar/spelling errors
+    * Q/A tests pass
+  * Participation
+    * Participates in feature debates
+      * i.e. should we include this feature or that feature
+    * Contributes opinions on new features/implementations
+    * Generates ideas
+  * Communicates
+    * Informs other peers if he has a busy week and can't do much work
+      * i.e. four tests back to back
+    * Offers to perform more work one week if they have more free time
+      * Gives an opportunity to make up for the first bullet
+    * Quickly describes problems that would impede their work
+    * Weekly status update of their progress
