@@ -1,0 +1,33 @@
+#summary The pros and cons of having a Website for this versus an Application
+#labels Featured
+
+= Website =
+Web application developed in PHP
+== Pros ==
+  # Easy language to learn
+  # Fairly simple to make HTML/CSS interfaces that look good and are easy to change
+  # Allows users to interact with each other
+  # Simple enough to be done in 10 weeks
+  # Lots of tools available
+    # PHP Unit for unit testing
+    # Doctrine - ORM for PHP
+== Cons ==
+  # Requires setup of Apache/PHP/Database on the developer's machine
+  # Need a way for users to 'upload' their collection details to the website
+    # Being a website we have no access to the user's hard drive so we cannot scan it from the website.  So we will have to devise a plan to get music information from the user's hard drive up to the website.  We could create a program in Java/Python to do this.  -- We should think about this a lot.
+
+= Application =
+== Pros ==
+  # If done in Java it is very similar to C/C++ which all of us know
+  # Does not require installation of a web server
+  # We have less constraints than with web applications
+    # Meaning we can access the user's hard drive directly to import music
+  # Tons of tools available
+    # Famous JUnit for unit testing
+    # Hibernate - ORM
+    # Eclipse IDE
+
+== Cons ==
+  # Java GUI programs are a pain in the but to develop - and even harder to customized compared to doing HTML/CSS
+  # User's won't be able to interact with each other
+  # Depending on fast we create the GUI it could take longer than 10 weeks
