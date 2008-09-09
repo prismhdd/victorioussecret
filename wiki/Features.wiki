@@ -1,0 +1,11 @@
+#summary Features we would like to have in the final product.
+#labels Featured
+
+= Major Features =
+These features will be present in the final product.
+
+= Minor Features =
+Most of these features should be present.
+
+= Optional Features =
+If we have time to implement more features this is where they will come from.
