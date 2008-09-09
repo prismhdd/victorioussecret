@@ -16,5 +16,5 @@ Most of these features should be present.
 If we have time to implement more features this is where they will come from.
 
   * Suggests similar artist by using tools from Last.fm or pandora
-  * Integrate with other music services
+  * Integrate with other music services (i.e. Amazon to allow purchasing of media)
   * Allow users to rate their albums and send their ratings to metacritic or something
