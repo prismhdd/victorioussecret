@@ -5,11 +5,16 @@
 These features will be present in the final product.
 
   * Notify users of new album releases from their favorite artist
+  * Grid view of albums with corresponding album art
+  * Sorting/Searching/Browsing of albums/artist 
+    * Elaboration needed on this
   * Show rating of albums (could use the metacritic feed)
+  * User management - signing up, loging in, etc.
 
 = Minor Features =
 Most of these features should be present.
 
+  * Allow users to 'share' what albums they have
   * Inform users of artist news, i.e., if they are going on tour or starting to record a new cd
 
 = Optional Features =
@@ -18,3 +23,5 @@ If we have time to implement more features this is where they will come from.
   * Suggests similar artist by using tools from Last.fm or pandora
   * Integrate with other music services (i.e. Amazon to allow purchasing of media)
   * Allow users to rate their albums and send their ratings to metacritic or something
+    * Also could having tagging of albums/track for their preference
+  * Add a 'friends' notion to the User Management or possible integration with a Social Stalking Networking Site
