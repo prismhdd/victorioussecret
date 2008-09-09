@@ -1,0 +1,18 @@
+#summary Some tools that we could use for development.
+
+= Integrated Development Environments (IDE) =
+  * Eclipse with PHPEclipse plugin
+  * Notepad++
+
+= Database ==
+  * MySQL
+  * PostgreSQL
+
+== Database Management ==
+Instead of writing SQL queries we will use Object Relational Mapping (ORM), now depending on which programming language we choose will determine which ORM we use.
+  * PHP - Doctrine - http://www.doctrine-project.org/
+  * Java - Hibernate - http://www.hibernate.org/
+
+= Web Server =
+If we decide to make a website with PHP a web server will need to be installed to host the web pages
+  * Apache
