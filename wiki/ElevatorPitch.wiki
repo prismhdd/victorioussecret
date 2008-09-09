@@ -7,7 +7,7 @@ other artist related news.  We have also thought of integrating it
 with popular internet radio sites like last.fm or pandora.  Lastly we
 will strive to make it user friendly so that even your grandma can use
 it - and be graphically impressed with it (meaning making it look
-pretty
+pretty).  
 
 First-draft high level overview.
 http://victorioussecret.googlecode.com/files/Overview%20v1%209-9-08.jpg
