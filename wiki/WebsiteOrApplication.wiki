@@ -17,6 +17,7 @@ Web application developed in PHP
     # Being a website we have no access to the user's hard drive so we cannot scan it from the website.  So we will have to devise a plan to get music information from the user's hard drive up to the website.  We could create a program in Java/Python to do this.  -- We should think about this a lot.
 
 = Application =
+Stand alone application developed in Java
 == Pros ==
   # If done in Java it is very similar to C/C++ which all of us know
   # Does not require installation of a web server
