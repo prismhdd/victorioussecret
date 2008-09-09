@@ -5,12 +5,20 @@ see http://code.google.com/p/victorioussecret/wiki/ElevatorPitch
 
 = Business Case =
 == Competition ==
+[Note:Elaborate on why/what they offer/don't offer]
+Last.fm
+Pandora
+Artist Fan Clubs
+
 == Market Space ==
 == Similar Products ==
 
 = Stakeholders =
+Team Victorious Secret
+Professors
 
 = Major Features =
+Automatic alerting of new music
 
 = Major Risks =
   * RIAA
