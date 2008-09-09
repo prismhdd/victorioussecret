@@ -1,0 +1,22 @@
+#summary Vision Statement
+
+= Elevator Pitch (Unfinished) =
+We plan on developing an application that would allow you to stay in
+touch with your artist.  It would notify you of new album releases and
+other artist related news.  We have also thought of integrating it
+with popular internet radio sites like last.fm or pandora.  Lastly we
+will strive to make it user friendly so that even your grandma can use
+it - and be graphically impressed with it (meaning making it look
+pretty
+
+= Business Case =
+== Competition ==
+== Market Space ==
+== Similar Products ==
+
+= Stakeholders =
+
+= Major Features =
+
+= Major Risks =
+  * RIAA
