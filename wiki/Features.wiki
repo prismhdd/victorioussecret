@@ -5,6 +5,7 @@
 These features will be present in the final product.
 
   * Notify users of new album releases from their favorite artist
+  * Show rating of albums (could use the metacritic feed)
 
 = Minor Features =
 Most of these features should be present.
@@ -16,3 +17,4 @@ If we have time to implement more features this is where they will come from.
 
   * Suggests similar artist by using tools from Last.fm or pandora
   * Integrate with other music services
+  * Allow users to rate their albums and send their ratings to metacritic or something
