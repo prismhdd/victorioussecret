@@ -9,5 +9,10 @@ These features will be present in the final product.
 = Minor Features =
 Most of these features should be present.
 
+  * Inform users of artist news, i.e., if they are going on tour or starting to record a new cd
+
 = Optional Features =
 If we have time to implement more features this is where they will come from.
+
+  * Suggests similar artist by using tools from Last.fm or pandora
+  * Integrate with other music services
