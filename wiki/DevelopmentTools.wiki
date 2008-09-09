@@ -16,3 +16,9 @@ Instead of writing SQL queries we will use Object Relational Mapping (ORM), now 
 = Web Server =
 If we decide to make a website with PHP a web server will need to be installed to host the web pages
   * Apache
+
+= Inputs =
+Some potential input sources I found
+  * Amazon search results
+  * Metacritic RSS - http://www.metacritic.com/rss/
+  * iTunes RSS - http://phobos.apple.com/WebObjects/MZStoreServices.woa/wa/MRSS/rssGenerator
