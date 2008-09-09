@@ -4,6 +4,8 @@
 = Major Features =
 These features will be present in the final product.
 
+  * Notify users of new album releases from their favorite artist
+
 = Minor Features =
 Most of these features should be present.
 
