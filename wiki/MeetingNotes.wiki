@@ -1,6 +1,12 @@
 #summary Meeting Minutes
 
 = 9/10/08 = 
+===Agenda===
+  # ~~Peer Evaluation Metrics~~
+  # ~~Vision Statement~~
+  # Project Name
+  # Logo
+
 Potential project names:
   * Music Mania Manager
   * Artist Updater
