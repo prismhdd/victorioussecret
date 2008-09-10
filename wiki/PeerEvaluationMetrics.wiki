@@ -17,6 +17,8 @@
       * i.e. should we include this feature or that feature
     * Contributes opinions on new features/implementations
     * Generates ideas
+    * Readily accepts an equal share of work
+    * Helped others to understand lectures and technologies used
   * Communicates
     * Informs other peers if he has a busy week and can't do much work
       * i.e. four tests back to back
