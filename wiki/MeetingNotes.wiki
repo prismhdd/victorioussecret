@@ -1,0 +1,9 @@
+#summary Meeting Minutes
+
+= 9/10/08 = 
+Potential project names:
+  * Music Mania Manager
+  * Artist Updater
+  * Artist Alert(er)
+  * Argos
+  * 
