@@ -5,7 +5,7 @@
   # ~~Peer Evaluation Metrics~~
   # ~~Vision Statement~~
   # ~~Project Name~~
-  # Logo
+  # ~~Logo~~
 
 Potential project names:
   * Music Mania Manager
