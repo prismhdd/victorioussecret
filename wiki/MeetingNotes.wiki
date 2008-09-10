@@ -5,7 +5,7 @@
   # ~~Peer Evaluation Metrics~~
   # ~~Vision Statement~~
   # ~~Project Name~~
-  # ~~Logo~~
+  # ~~Logo~~ Deferring this to a later date
 
 Potential project names:
   * Music Mania Manager
@@ -13,3 +13,7 @@ Potential project names:
   * *Artist Alert(er)*
   * Argos
   * I Have No Idea
+
+Misc.
+
+For development we will use the PHP programming language, Apache Web Server, Postgre SQL Database, Doctrine ORM Framework, and Eclipse IDE.  More detailed setup instructions will appear on the Wiki in the coming days.
