@@ -1,0 +1,12 @@
+#summary How to setup your computer for development
+#labels Featured
+
+= Table Of Contents
+  * Installing Programs
+    * PHP
+    * Apache
+    * PostgreSQL
+    * Eclipse (Optional)
+    * phppgadmin (Optional)
+
+= Installing PHP =
