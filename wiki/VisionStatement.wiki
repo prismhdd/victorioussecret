@@ -20,6 +20,7 @@ see http://code.google.com/p/victorioussecret/wiki/ElevatorPitch
 
 = Major Features =
   * Automatic alerting of new music
+  * For more see http://code.google.com/p/victorioussecret/wiki/Features
 
 = Major Risks =
   * RIAA
