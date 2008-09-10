@@ -12,4 +12,4 @@ Potential project names:
   * Artist Updater
   * Artist Alert(er)
   * Argos
-  * 
+  * I Have No Idead
