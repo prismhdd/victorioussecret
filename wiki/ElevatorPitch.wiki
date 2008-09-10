@@ -1,13 +1,7 @@
 #summary Our Elevator Pitch
 
 = Work in Progress =
-We plan on developing an application that would allow you to stay in
-touch with your artist.  It would notify you of new album releases and
-other artist related news.  We have also thought of integrating it
-with popular internet radio sites like last.fm or pandora.  Lastly we
-will strive to make it user friendly so that even your grandma can use
-it - and be graphically impressed with it (meaning making it look
-pretty).  
+We plan on developing a web-app that allows a user to better follow releases from their favorite artists.  After scanning a users music library, our solution will compare upcoming releases to the current library and inform the user of potentially interesting albums. Integration with internet music websites such as Pandora or Last.fm could increase the amount of artist information available.  Keeping the system as user-friendly as possible is a high priority in order increase usability.  
 
 First-draft high level overview.
 http://victorioussecret.googlecode.com/files/Overview%20v1%209-9-08.jpg
