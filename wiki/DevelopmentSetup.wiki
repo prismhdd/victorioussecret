@@ -26,6 +26,18 @@ This is still a work in progress so all steps may not work
 
 = Installing PHP =
   # Download from http://www.php.net/downloads.php
+  # Start the installer when it asks you for Web Server Setup choose Apache 2.2.x Module
+  # Next it will ask you for the directory of the Apache Configuration files 
+    # The directory is C:\Program Files\Apache Software Foundation\Apache2.2\conf\
+  # After that it will allow you to choose which extensions to install choose PDO (and under PDO choose the PostgreSQL driver), PostgreSQL, XML-RPC, we may need more extensions later on but for now those should be good.
+  # Restart the Apache Server again
+  # navigate to C:\Program Files\Apache Software Foundation\Apache2.2\htdocs and create a file called index.php
+  # within the file put the following
+{{{
+<?php phpinfo(); ?>
+}}}
+  # Now in your web browser go to http://localhost/index.php you should see a page that says PHP Version 5.2.6, that means that everything it working correctly
+  
 
 = Installing Postgre SQL =
   # Download it here http://www.postgresql.org/download/
