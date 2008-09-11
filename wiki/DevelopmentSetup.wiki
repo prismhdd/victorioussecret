@@ -56,4 +56,4 @@ This is still a work in progress so all steps may not work
   # After clicking Ok the URL should show up in the list on the left, just check the checkbox next to it and click the Install button
 
 == Installing PHPEclipse ==
-  # Perform the same steps as for Subclipse except use the following URL http://update.sourceforge.net/update/stable/1.2.x 
+  # Perform the same steps as for Subclipse except use the following URL http://update.phpeclipse.net/update/stable/1.2x
