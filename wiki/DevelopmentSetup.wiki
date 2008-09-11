@@ -57,3 +57,7 @@ This is still a work in progress so all steps may not work
 
 == Installing PHPEclipse ==
   # Perform the same steps as for Subclipse except use the following URL http://update.phpeclipse.net/update/stable/1.2.x
+
+= Final Changes =
+
+Once all of that is done it is necessary to setup Eclipse for the project along with Apache see http://code.google.com/p/victorioussecret/wiki/ProjectSetup
