@@ -4,3 +4,7 @@ PHP
  a widely-used general-purpose scripting language that is especially suited for Web development and can be embedded into HTML - http://www.php.net/
 ORM (Object Relational Mapping)
  is a programming technique for converting data between incompatible type systems in relational databases and object-oriented programming languages - http://en.wikipedia.org/wiki/Object-relational_mapping
+RSS (Really Simple Syndication)
+ RSS is a family of Web feed formats used to publish frequently updated works such as blog entries, news headlines, audio, and video in a standardized format. A standardized XML file format allows the information to be published once and viewed by many different programs. - http://en.wikipedia.org/wiki/Rss
+XML (Extensible Markup Language)
+ general-purpose specification for creating custom markup languages. Its primary purpose is to help information systems share structured data, particularly via the Internet - http://en.wikipedia.org/wiki/XML
