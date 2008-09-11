@@ -17,4 +17,8 @@
 
 = Using SVN from within Eclipse =
   * To update the project with the latest code just right click on the project and go to Team->Synchronize With Repository
-  * 
+  * It should show you incoming/outgoing changes, right click on the project and select Update to update, and Commit to send you changes to the Repository
+  * If there is a conflict there are two things you can do
+    * Override and Update - this will overwrite your changes with the latest from the repository
+    * Mark as Merged - this is used after you have merged the changes together
+       * After doing this you should commit the merged changes
