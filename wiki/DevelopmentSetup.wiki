@@ -22,6 +22,7 @@ This is still a work in progress so all steps may not work
     # Go to Start->Programs->Apache HTTP Server->Configure Apache Server->Edit httpd.conf
     # Find the line "Listen 80"
     # Change it to "Listen localhost:80"
+    # The Apache Server needs to be restarted for changes to take effect
 
 = Installing PHP =
   # Download from http://www.php.net/downloads.php
