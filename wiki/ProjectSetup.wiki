@@ -39,5 +39,4 @@ Alias /artist_alerter /home/anthony/workspaces/personal/artist_alerter
         Allow from all
 </Directory>
 }}}
-}}}
   * Make sure you change /home/anthony/workspaces/personal/artist_alerter to be the path of your project (should be something like C:\\Documents and Settings\\MyUsername\\workspace\\artist_alerter
