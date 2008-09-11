@@ -3,10 +3,28 @@
 
 = Table Of Contents =
   * Installing Programs
-    * PHP
     * Apache
+    * PHP
     * PostgreSQL
-    * Eclipse (Optional)
-    * phppgadmin (Optional)
+    * Eclipse (Recommended IDE)
+
+= Installing Apache =
 
 = Installing PHP =
+
+= Installing Postgre SQL =
+
+= Installing Eclipse = 
+  # Go to http://www.eclipse.org/downloads/
+  # Choose Eclipse IDE for Java Developers (84 MB)
+  # Run the installer program and verify that you can start it up
+
+== Installing Subclipse ==
+  # Start up Eclipse
+  # Go to Help->Software Updates...
+  # Click Add Site (button on right hand side)
+  # For the URL enter http://subclipse.tigris.org/update_1.4.x
+  # After clicking Ok the URL should show up in the list on the left, just check the checkbox next to it and click the Install button
+
+== Installing PHPEclipse ==
+  # Perform the same steps as for Subclipse except use the following URL http://update.sourceforge.net/update/stable/1.2.x 
