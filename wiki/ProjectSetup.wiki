@@ -22,3 +22,22 @@
     * Override and Update - this will overwrite your changes with the latest from the repository
     * Mark as Merged - this is used after you have merged the changes together
        * After doing this you should commit the merged changes
+
+= Setting up Apache with the Project =
+  * In order to host the project the Apache configuration file needs to be modified
+  * Go to Start->Programs->Apache Web Server->Configure Apache Server->Edit httpd.conf
+  * Scroll down to the bottom and add this
+{{{
+Alias /artist_alerter /home/anthony/workspaces/personal/artist_alerter
+
+<Directory "/home/anthony/workspaces/personal/artist_alerter">
+        Options Indexes FollowSymLinks
+        AllowOverride All
+
+        # Controls who can get stuff from this server.
+        Order allow,deny
+        Allow from all
+</Directory>
+}}}
+}}}
+  * Make sure you change /home/anthony/workspaces/personal/artist_alerter to be the path of your project (should be something like C:\\Documents and Settings\\MyUsername\\workspace\\artist_alerter
