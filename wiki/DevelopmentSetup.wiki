@@ -13,6 +13,8 @@
 = Installing PHP =
 
 = Installing Postgre SQL =
+  # Download it here http://www.postgresql.org/download/
+  # Since we don't have any databases or tables you just need to install it
 
 = Installing Eclipse = 
   # Go to http://www.eclipse.org/downloads/
