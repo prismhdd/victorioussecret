@@ -1,6 +1,9 @@
 #summary How to setup your computer for development
 #labels Featured
 
+= NOTE: =
+This is still a work in progress so all steps may not work
+
 = Table Of Contents =
   * Installing Programs
     * Apache
@@ -9,8 +12,12 @@
     * Eclipse (Recommended IDE)
 
 = Installing Apache =
+  # Download from http://httpd.apache.org/download.cgi
+  # You want version 2.2.9
+  # Follow the installation through accepting defaults
 
 = Installing PHP =
+  # Download from http://www.php.net/downloads.php
 
 = Installing Postgre SQL =
   # Download it here http://www.postgresql.org/download/
