@@ -15,6 +15,13 @@ This is still a work in progress so all steps may not work
   # Download from http://httpd.apache.org/download.cgi
   # You want version 2.2.9
   # Follow the installation through accepting defaults
+  # Once it is completed in your task tray (next to clock) you should see an icon that looks like a feather with a green play button.  That is to control Apache
+  # To verify that the server works correctly open up your web browser and type localhost into the address bar
+  # It should say something like "It Works!"
+  # By default if you do not have a fire wall people from the outside will be able to access your web server do prevent this do the following
+    # Go to Start->Programs->Apache HTTP Server->Configure Apache Server->Edit httpd.conf
+    # Find the line "Listen 80"
+    # Change it to "Listen localhost:80"
 
 = Installing PHP =
   # Download from http://www.php.net/downloads.php
