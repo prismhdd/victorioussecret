@@ -1,4 +1,10 @@
 #summary Use Case 1
 #labels Use-Case
 
-||Use Case: UC1||
+||Use Case: Signing Up||
+||Indentifier: || UC1 ||
+||Description: || ||
+||Actors: || ||
+||Preconditions: || ||
+||Flow of Events: || ||
+||Postconditions: || ||
