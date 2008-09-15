@@ -6,8 +6,5 @@
 ||Description: || Models a user wanting to sign up at the site ||
 ||Actors: || User ||
 ||Preconditions: || None ||
-||Flow of Events: ||
-  # step 1
-  # step 2
- ||
+||Flow of Events: ||  # step 1  # step 2 ||
 ||Postconditions: || User now has an account in which they can login into ||
