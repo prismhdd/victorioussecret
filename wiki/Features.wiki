@@ -9,13 +9,14 @@ These features will be present in the final product.
   * Sorting/Searching/Browsing of albums/artist 
     * Elaboration needed on this
   * Show rating of albums (could use the metacritic feed)
-  * User management - signing up, loging in, etc.
+  * User management - signing up, logging in, etc.
 
 = Minor Features =
 Most of these features should be present.
 
   * Allow users to 'share' what albums they have
   * Inform users of artist news, i.e., if they are going on tour or starting to record a new cd
+  * Allow users to recommend albums to each other
 
 = Optional Features =
 If we have time to implement more features this is where they will come from.
