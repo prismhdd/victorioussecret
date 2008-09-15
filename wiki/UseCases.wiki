@@ -1,3 +1,12 @@
 #summary Use Cases
 
-Unfinished
+This is just a list of Use Cases we should have
+
+  * Signing up at the site
+  * User wants to add artist to be alerted about
+    * This should be two separate ones because the user can add artist through the web site or through an external application
+  * User wants to rate a new album they purchased legally
+  * User wants to purchase an album
+  * User is notified of a new album releases
+  * User recommends an album to another user
+  * User received a recommendation from another user
