@@ -10,7 +10,7 @@ These features will be present in the final product.
     * Elaboration needed on this
   * Show rating of albums (could use the metacritic feed)
   * User management - signing up, logging in, etc.
-  * Integrate with outside music services for expanded artist information
+  * Integrate with outside music services for expanded artist information (Last.fm)
 
 = Minor Features =
 Most of these features should be present.
