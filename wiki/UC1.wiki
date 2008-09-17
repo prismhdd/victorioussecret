@@ -5,6 +5,12 @@
 ||Indentifier: || UC1 ||
 ||Description: || Models a user wanting to sign up at the site ||
 ||Actors: || User ||
-||Preconditions: || None ||
-||Flow of Events: || Can't figure out how to get a list in here  ||
+||Preconditions: || User has internet access and is able to navigate to the URL||
+||Stakeholders: || User: Wishes to easily register with the website. || VS: Efficiently store incoming user data ||
+||Flow of Events: || See below  ||
 ||Postconditions: || User now has an account in which they can login into ||
+
+  # User selects option to register at website
+  # User provides the required information
+  # System verifies the requested information
+  # User confirms the registration information
