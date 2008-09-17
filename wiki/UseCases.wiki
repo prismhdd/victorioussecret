@@ -3,7 +3,6 @@
 This is just a list of Use Cases we should have
 
   * Signing up at the site
-  * User wants to add artist to be alerted about
   * Adding artists through Uploading Application
   * Adding artists manually through the website
   * User wants to purchase an album
