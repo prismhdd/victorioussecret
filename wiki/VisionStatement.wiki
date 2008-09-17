@@ -23,7 +23,7 @@ see http://code.google.com/p/victorioussecret/wiki/ElevatorPitch
   * For more see http://code.google.com/p/victorioussecret/wiki/Features
 
 = Major Risks =
-  * RIAA
+  * ~~RIAA~~
   * Unable to retrieve new album release info through 3rd parties
-  * Will stress server too much making the site unbearable for users
+  * ~~Will stress server too much making the site unbearable for users~~
   * User's won't want to import their artist/albums to the site
