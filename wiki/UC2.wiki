@@ -1,15 +1,23 @@
 #summary Use Case 2
 
-||Use Case: Adding artists via Uploading Application||
-||Indentifier: || UC2 ||
-||Description: || Models a user uploading information from their local music library to their account ||
-||Actors: || User ||
-||Preconditions: || UC1 - User has an account with the website and is logged in ||
-||Stakeholders: || User: Wishes to retrieve the Uploading Application and then transfer their library to the website || VS: Efficiently store incoming user data ||
-||Flow of Events: || See below  ||
-||Postconditions: || Users account has been updated with new artists ||
+*Use Case: * Adding artists via Uploading Application
 
-  # User chooses download and run the Uploading Application
-  # User chooses folder(s) for the Uploading Application to scan through
-  # System handles the uploading of information
-  # User acknowledges/confirms the uploaded information
+*Indentifier: * UC2
+
+*Description: * Models a user uploading information from their local music library to their account
+
+*Actors: * User
+
+*Preconditions: * UC1 - User has an account with the website and is logged in 
+
+*Stakeholders: * _User:_ Wishes to retrieve the Uploading Application and then transfer their library to the website _Victorious Secret:_ Efficiently store incoming user data 
+
+*Flow of Events:*
+ # User chooses to download the Uploading Application to their local machine
+  * User runs the application and chooses a folder to scan
+  * The application scans the selected folder and outputs a data file
+ # User uploads the data file to their account
+ # System accepts the file and adds all data to the user account
+ # User acknowledges/confirms the new information in their account
+
+*Postconditions:* User's account has been updated with new artists 
