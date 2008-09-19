@@ -8,3 +8,5 @@ RSS (Really Simple Syndication)
  RSS is a family of Web feed formats used to publish frequently updated works such as blog entries, news headlines, audio, and video in a standardized format. A standardized XML file format allows the information to be published once and viewed by many different programs. - http://en.wikipedia.org/wiki/Rss
 XML (Extensible Markup Language)
  general-purpose specification for creating custom markup languages. Its primary purpose is to help information systems share structured data, particularly via the Internet - http://en.wikipedia.org/wiki/XML
+API (Application Programming Interface)
+ a set of functions, procedures or classes that an operating system, library or service provides to support requests made by computer programs - http://en.wikipedia.org/wiki/Application_programming_interface
