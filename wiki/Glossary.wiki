@@ -12,3 +12,5 @@ API (Application Programming Interface)
  a set of functions, procedures or classes that an operating system, library or service provides to support requests made by computer programs - http://en.wikipedia.org/wiki/Application_programming_interface
 ID3v2 
  a metadata container most often used in conjunction with the MP3 audio file format, storing information such as the title, artist, album, and track number - http://en.wikipedia.org/wiki/ID3
+AJAX (noun)
+ stands for asynchronous JavaScript and XML, typically is used to describe a website that communicates with the server in the background without forcing the client to wait for a response, examples include fetching a list of Artists while the user fills in other form fields [this may need to be rewritten, let me know if you guys understand the definition]
