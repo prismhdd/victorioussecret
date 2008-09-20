@@ -11,4 +11,4 @@ XML (Extensible Markup Language)
 API (Application Programming Interface)
  a set of functions, procedures or classes that an operating system, library or service provides to support requests made by computer programs - http://en.wikipedia.org/wiki/Application_programming_interface
 ID3v2 
- a metadata container most often used in conjunction with the MP3 audio file format, storign information such as the title, artist, album, and track number - http://en.wikipedia.org/wiki/ID3
+ a metadata container most often used in conjunction with the MP3 audio file format, storing information such as the title, artist, album, and track number - http://en.wikipedia.org/wiki/ID3
