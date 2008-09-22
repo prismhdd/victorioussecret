@@ -5,7 +5,7 @@
   # ~~Establish all use cases~~
   # ~~Fully detail 20% of use cases for Inception deliverables~~
   # ~~Make sure Vision Statement is complete~~
-  # Glossary - *consult with instructors*
+  # ~~Glossary~~
   # Schedule - *Anthony*
   # ~~Budget~~
 
