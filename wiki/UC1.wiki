@@ -17,7 +17,7 @@ _Victorious Secret_: Efficiently store incoming user data
   # User selects option to register from homepage
   # System presents empty fields for required information
   # User enters all required information into the fields
-  # System verifies the requested information
+  # System verifies the requested information and creates an account for the user
   # User confirms the registration information
 
 *Postconditions: * User now has an account in which they can login into
