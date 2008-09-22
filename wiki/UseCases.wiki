@@ -2,9 +2,9 @@
 
 Full list of use cases
 
-  * Signing up for a user account at the website
-  * Adding artists through Uploading Application
-  * Adding artists manually through the website
+  * *Signing up for a user account at the website*
+  * *Adding artists through Uploading Application*
+  * *Adding artists manually through the website*
   * User wants to purchase an album
   * User receives a notification of new information
   * User can share and receive recommendations
