@@ -18,6 +18,6 @@
   * The application scans the selected folder and outputs a data file
  # User uploads the data file to their account
  # System accepts the file and adds all data to the user account
- # User acknowledges/confirms the new information in their account
+ # System shows summary of all the changes made to the user's account
 
 *Postconditions:* User's account has been updated with new artists 
