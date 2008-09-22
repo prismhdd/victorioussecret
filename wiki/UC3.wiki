@@ -10,7 +10,7 @@
 
 *Preconditions: * UC1 - User has an account with the website and is logged in 
 
-*Stakeholders: * _User:_ Wishes to add an artist or album to the collection already stored in their account _Victorious Secret:_ Efficiently handle incoming user data 
+*Stakeholders: * _User:_ Wishes to add an artist or album to the collection already stored in their account directly via website _Victorious Secret:_ Efficiently handle incoming user data 
 
 *Flow of Events:*
  # User chooses the 'Update Collection' option on the website
