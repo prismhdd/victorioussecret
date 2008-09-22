@@ -7,7 +7,8 @@ These features will be present in the final product.
   * Notify users of new album releases from their favorite artist
   * Grid view of albums with corresponding album art
   * Sorting/Searching/Browsing of albums/artist 
-    * Elaboration needed on this
+    * Provide overview summary of album art
+    * See what's currently popular with other users
   * Show rating of albums (could use the metacritic feed)
   * User management - signing up, logging in, etc.
   * Integrate with outside music services for expanded artist information (Last.fm)
