@@ -2,8 +2,11 @@
 
 = 9/24/08 = 
 ===Agenda===
+  # Finalize Inception document
+   # Status/Contribution Section
+   # Schedule
   # Submit Project Inception
-
+  
 = 9/17/08 = 
 ===Agenda===
   # ~~Establish all use cases~~
