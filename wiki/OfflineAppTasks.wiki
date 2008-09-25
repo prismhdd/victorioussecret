@@ -18,7 +18,11 @@
 
 *Roles*
 Make UI -> Charlie
- Add actions to buttons -> Willy
- Sending/receiving results from dialogs, Testing -> Woojoon
- Traverse directories and scan tags -> Anthony
- Artwork -> Charlie
+
+Add actions to buttons -> Willy
+
+Sending/receiving results from dialogs, Testing -> Woojoon
+
+Traverse directories and scan tags -> Anthony
+
+Artwork -> Charlie
