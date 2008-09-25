@@ -1,0 +1,24 @@
+#summary One-sentence summary of this page.
+
+== Scan UI ==
+ # Make UI elements and positons
+ # Adding actions to buttons
+ 
+
+== Scanning ==
+ # Recursively traverse the directories for music files and updating progress bar
+ # Reading ID3 tags
+ # Sending information to Results dialog
+
+== Results UI ==
+ # Make elements and position
+ # Adding actions to buttons/list
+ # Handling results from scan dialog
+
+
+*Roles*
+Make UI -> Charlie
+Add actions to buttons -> Willy
+Sending/receiving results from dialogs, Testing -> Woojoon
+Traverse directories and scan tags -> Anthony
+Artwork -> Charlie
