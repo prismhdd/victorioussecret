@@ -13,6 +13,9 @@
 *Stakeholders: * _User:_ Wishes to purchase an album they received a notification about 
 
 *Flow of Events:*
+ # User selects option to purchase album from alert
+ # User is redirected to third-party website
+ # User's library is updated with new album information
 
 
 *Postconditions:* User has purchased album and their library has been updated appropriately
