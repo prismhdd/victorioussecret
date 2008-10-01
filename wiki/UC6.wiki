@@ -1,0 +1,19 @@
+#summary Use Case 6
+
+*Use Case: * Receiving and sending recommendations
+
+*Indentifier: * UC6
+
+*Description: * Models a user sending a recommendation to another user
+
+*Actors: * User1, User2
+
+*Preconditions: * UC1 - Users both have accounts with the website
+
+*Stakeholders: * _User:_ Wishes to recommend another user of an album
+
+*Flow of Events:*
+
+
+
+*Postconditions:* 
