@@ -2,7 +2,7 @@
 
 *Use Case: * Adding artists via Uploading Application
 
-*Indentifier: * UC2
+*Identifier: * UC2
 
 *Description: * Models a user uploading information from their local music library to their account
 
