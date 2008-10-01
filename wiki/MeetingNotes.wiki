@@ -6,7 +6,7 @@
   # 60% of Use Cases
   # Tasks for Elaboration
     * Charlie - Domain Model Diagram
-    * Anthony - Deployment Diagram
+    * Anthony - Deployment Diagram, Work Breakdown Structure
     * Willy - System Sequence Diagram
     * Woojoon - System Sequence Diagram 
     * 10/8 Meeting - Supplemental Instruction, 80% Use Cases
