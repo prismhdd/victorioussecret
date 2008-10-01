@@ -12,4 +12,4 @@ Full list of use cases
   * User wants to rate a new album they purchased
   * User can see an overview of his collection
   * User can see statistics of what's popular with other users
- 
+  * User recommends an album to a unregistered user
