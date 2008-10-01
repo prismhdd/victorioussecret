@@ -14,7 +14,7 @@
 
 *Flow of Events:*
   # System compares new releases to user's library
-  # System finds albums new for the user
+  # System finds new albums for the user
   # System notifies user of found albums
   # User is notified of new album
 
