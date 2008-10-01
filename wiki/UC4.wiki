@@ -10,9 +10,13 @@
 
 *Preconditions: * UC1 - User has an account with the website and is logged in, UC2/3 - User has a library populated with artists
 
-*Stakeholders: * _User:_ Wishes to purchase an album they received a notification about 
+*Stakeholders: * _User:_ Needs 
 
 *Flow of Events:*
+  # System compares new releases to user's library
+  # System finds albums new for the user
+  # System notifies user of found albums
+  # User is notified of new album
 
 
 *Postconditions:* User has successfully received a notification alerting them to a new album
