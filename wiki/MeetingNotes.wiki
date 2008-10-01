@@ -1,5 +1,12 @@
 #summary Meeting Minutes
 
+
+= 10/1/08 = 
+===Agenda===
+  # 60% of Use Cases
+  # Tasks for Elaboration
+  # Status update for individual tasks  
+
 = 9/24/08 = 
 ===Agenda===
   # ~~Finalize Inception document~~
