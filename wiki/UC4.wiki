@@ -1,0 +1,18 @@
+#summary Use Case 4
+
+*Use Case: * Purchasing an album
+
+*Indentifier: * UC4
+
+*Description: * Models a user wanting to purchase an album they received a notification about
+
+*Actors: * User
+
+*Preconditions: * UC1 - User has an account with the website and is logged in 
+
+*Stakeholders: * _User:_ Wishes to purchase an album they received a notification about 
+
+*Flow of Events:*
+
+
+*Postconditions:* 
