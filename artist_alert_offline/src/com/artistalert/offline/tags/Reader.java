@@ -5,7 +5,6 @@ import java.io.FilenameFilter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashSet;
 import java.util.Iterator;
 
 import org.farng.mp3.MP3File;
@@ -62,9 +61,11 @@ public class Reader {
 			try {
 				final MP3File mp3 = new MP3File(fileItr.next());
 				if (mp3.getID3v2Tag() != null)
-					System.out.println(mp3.getID3v2Tag().getAlbumTitle());
+					System.out.println(mp3.getID3v2Tag().getLeadArtist() + " -" + mp3.getID3v2Tag().getAlbumTitle());
 			} catch (TagException te) {
 				//TODO 
+			} catch(IOException ioe) {
+				//TODO
 			}
 		}
 		return artists;
