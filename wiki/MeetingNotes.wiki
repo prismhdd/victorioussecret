@@ -10,7 +10,7 @@
     * Willy - System Sequence Diagram
     * Woojoon - System Sequence Diagram 
     * 10/8 Meeting - Supplemental Instruction, 80% Use Cases
-  # Status update for individual tasks  
+  # ~~Status update for individual tasks~~
 
 = 9/24/08 = 
 ===Agenda===
