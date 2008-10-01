@@ -15,4 +15,4 @@
 *Flow of Events:*
 
 
-*Postconditions:* 
+*Postconditions:* User has purchased album and their library has been updated appropriately
