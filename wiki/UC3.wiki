@@ -2,7 +2,7 @@
 
 *Use Case: * Adding artists via the website
 
-*Indentifier: * UC3
+*Identifier: * UC3
 
 *Description: * Models a user updating their artist information directly from the website
 
