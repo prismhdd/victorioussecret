@@ -6,7 +6,7 @@
  * Window - Preferences - PHPeclipse - PHP - Code Templates
  */
  
- //Charlie testing
+ //Charlie testing 9/30
  
  phpinfo();
 ?>
