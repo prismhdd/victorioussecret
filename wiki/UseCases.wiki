@@ -7,7 +7,7 @@ Full list of use cases
   * *Adding artists manually through the website*
   * *User receives a notification of new information*
   * *User wants to purchase an album*
-  * User can share and receive recommendations
+  * *User can share and receive recommendations*
   * User can set account preferences
   * User wants to rate a new album they purchased
   * User can see an overview of his collection
