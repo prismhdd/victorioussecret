@@ -8,6 +8,7 @@ import java.util.Collection;
  * @author anthony
  * 
  */
+@Deprecated
 public class Artist {
 	/** The name of the artist/band */
 	private String name;
