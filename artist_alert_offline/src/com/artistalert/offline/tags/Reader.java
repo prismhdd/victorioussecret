@@ -5,12 +5,12 @@ import java.io.FilenameFilter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Map;
 
 import org.farng.mp3.MP3File;
 import org.farng.mp3.TagException;
-
-import com.artistalert.offline.model.Artist;
 
 /**
  * The Reader class reads a directory for MP3 files and is able to return the
@@ -49,26 +49,68 @@ public class Reader {
 	/**
 	 * Scans the directory for MP3 files and returns the found artists/albums
 	 * 
-	 * @return
+	 * @return a map with keys as Artist/Band names, and the values as the
+	 * 	artist names
 	 * @throws TagException
 	 * @throws IOException
 	 */
-	public Collection<Artist> scan() throws IOException, TagException {
-		final Collection<Artist> artists = new ArrayList<Artist>();
+	public Map<String, Collection<String>> scan() {
+		final Map<String, Collection<String>> artists = new HashMap<String, Collection<String>>();
 		final Collection<File> mp3Files = getMp3Files(new File(directory));
 		final Iterator<File> fileItr = mp3Files.iterator();
 		while (fileItr.hasNext()) {
 			try {
 				final MP3File mp3 = new MP3File(fileItr.next());
-				if (mp3.getID3v2Tag() != null)
-					System.out.println(mp3.getID3v2Tag().getLeadArtist() + " -" + mp3.getID3v2Tag().getAlbumTitle());
+				final String album = getAlbum(mp3);
+				final String artist = getArtist(mp3);
+				System.out.println(artist + " - " + album);
 			} catch (TagException te) {
-				//TODO 
-			} catch(IOException ioe) {
-				//TODO
+				// TODO
+			} catch (IOException ioe) {
+				// TODO
 			}
 		}
 		return artists;
+	}
+
+	/**
+	 * Returns the artist extracted from the mp3 file's tags
+	 * 
+	 * @param mp3
+	 * 		the mp3 file we want the tags from
+	 * @return the artist name
+	 */
+	private String getArtist(final MP3File mp3) {
+		if (mp3.getID3v2Tag() != null)
+			return mp3.getID3v2Tag().getLeadArtist();
+		else if (mp3.getID3v1Tag() != null)
+			return mp3.getID3v1Tag().getLeadArtist();
+		else if (mp3.getLyrics3Tag() != null)
+			return mp3.getLyrics3Tag().getLeadArtist();
+		else if (mp3.getFilenameTag() != null)
+			return mp3.getFilenameTag().getLeadArtist();
+		else
+			return "";
+	}
+
+	/**
+	 * Returns the album extracted from the mp3 file's tag
+	 * 
+	 * @param mp3
+	 * 		the mp3 file we want the tags from
+	 * @return the album
+	 */
+	private String getAlbum(final MP3File mp3) {
+		if (mp3.getID3v2Tag() != null)
+			return mp3.getID3v2Tag().getAlbumTitle();
+		else if (mp3.getID3v1Tag() != null)
+			return mp3.getID3v1Tag().getAlbumTitle();
+		else if (mp3.getLyrics3Tag() != null)
+			return mp3.getLyrics3Tag().getAlbumTitle();
+		else if (mp3.getFilenameTag() != null)
+			return mp3.getFilenameTag().getAlbumTitle();
+		else
+			return "";
 	}
 
 	/**
@@ -102,14 +144,6 @@ public class Reader {
 
 	public static void main(String[] args) {
 		final Reader reader = new Reader(args[0]);
-		try {
-			reader.scan();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (TagException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		reader.scan();
 	}
 }
