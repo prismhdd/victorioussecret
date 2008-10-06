@@ -1,5 +1,13 @@
 #summary Meeting Minutes
 
+=10/8/08=
+===Agenda===
+  # Discuss Inception
+  # 80% of Use Cases
+  # Finalize Elaboration
+    # Status Report
+    # Contribution Summary
+  # Assign tasks for next iteration and start thinking about next deliverable
 
 = 10/1/08 = 
 ===Agenda===
