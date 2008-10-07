@@ -16,4 +16,4 @@
  # Some chracters are not recognizable (e.g. french characters)
 
 == Notes ==
- To test this application, you should provide a directory of your music library as an argument of UI_scan.java
+ To test current version of application, you should provide a directory of your music library as an argument of UI_scan.java
