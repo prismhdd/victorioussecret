@@ -1,0 +1,4 @@
+#summary Summary of Database Tables
+
+= users =
+Columns for users who are a part of the system.
