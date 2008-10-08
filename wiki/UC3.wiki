@@ -14,7 +14,7 @@
 
 *Flow of Events:*
  # User chooses the 'Update Collection' option on the website
- # System presents empty fields for required information
+ # System presents empty fields for required information (artists and/or albums)
  # User enters all required information into the fields
  # System accepts the given information and modifies the users account
  # System provides summary of the changes made
