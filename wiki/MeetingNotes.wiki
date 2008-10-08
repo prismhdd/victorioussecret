@@ -10,7 +10,7 @@
   # Assign tasks for next iteration and start thinking about next deliverable
 
 ===Notes===
-  # put on due dates for elaboration deliverables
+  # put on due dates for Elaboration deliverables
 
 = 10/1/08 = 
 ===Agenda===
