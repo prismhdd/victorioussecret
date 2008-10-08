@@ -9,6 +9,9 @@
     # Contribution Summary
   # Assign tasks for next iteration and start thinking about next deliverable
 
+===Notes===
+  # put on due dates for elaboration deliverables
+
 = 10/1/08 = 
 ===Agenda===
   # ~~60% of Use Cases~~
