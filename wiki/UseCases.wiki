@@ -8,7 +8,7 @@ Full list of use cases
   * *User receives a notification of new information*
   * *User wants to purchase an album*
   * *User can share and receive recommendations*
-  * User can set account preferences
+  * *User can set account preferences*
   * User wants to rate a new album they purchased
   * User can see an overview of his collection
   * User can see statistics of what's popular with other users
