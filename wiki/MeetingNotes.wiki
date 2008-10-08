@@ -5,8 +5,8 @@
   # ~~Discuss Inception~~
   # ~~80% of Use Cases~~
   # Finalize Elaboration
-    # Status Report
-    # Contribution Summary
+    # Status Report - Deferred to 10/9
+    # Contribution Summary - Deferred to 10/9
   # Assign tasks for next iteration and start thinking about next deliverable
 
 ===Notes===
