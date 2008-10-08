@@ -1,4 +1,3 @@
-
 == Scan UI ==
  # Make UI elements and positons
  # Adding actions to buttons
@@ -13,6 +12,7 @@
  # Make elements and position
  # Adding actions to buttons/list
  # Handling results from scan dialog
+ # Exporting the artists/albums to an XML file
 
 
 *Roles*
@@ -25,3 +25,5 @@ Sending/receiving results from dialogs, Testing -> Woojoon
 Traverse directories and scan tags -> Anthony
 
 Artwork -> Charlie
+
+Exporting -> Jenet
