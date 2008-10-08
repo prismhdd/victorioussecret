@@ -1,0 +1,22 @@
+#summary Use Case 7
+
+*Use Case: * User can set account preferences
+
+*Indentifier: * UC7
+
+*Description: * Models a user updating their preferences
+
+*Actors: * User
+
+*Preconditions: * UC1 - Users both have accounts with the website
+
+*Stakeholders: * _User:_ Wishes to change their account preferences, _System:_ Wishes to stay up-to-date
+
+*Flow of Events:*
+ # User selects option to update their preferences
+ # System presents available options
+ # User modifies preferences
+ # System verifies changes and modifies user account
+ # System displays all changes made
+ 
+*Postconditions:* User's changes have been made to the account
