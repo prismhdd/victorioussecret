@@ -2,8 +2,8 @@
 
 =10/8/08=
 ===Agenda===
-  # Discuss Inception
-  # 80% of Use Cases
+  # ~~Discuss Inception~~
+  # ~~80% of Use Cases~~
   # Finalize Elaboration
     # Status Report
     # Contribution Summary
