@@ -1,0 +1,20 @@
+#summary Use Case 8
+
+*Use Case: * User wants to rate an album
+
+*Indentifier: * UC8
+
+*Description: * Models a user rating an album they own
+
+*Actors: * User
+
+*Preconditions: * UC1 - User has an account with the website, UC2/3 - The album the user wishes to rate is in their library 
+
+*Stakeholders: * _User:_ Wishes to rate an album, _Community:_ All users can see album ratings
+
+*Flow of Events:*
+ # User selects an album to rate
+ # User gives album a rating
+ # System updates the album's rating
+
+*Postconditions:* User has rated the album 
