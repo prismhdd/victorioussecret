@@ -15,7 +15,7 @@ _Victorious Secret_: Efficiently store incoming user data
 
 *Flow of Events:*   
   # User selects option to register from homepage
-  # System presents empty fields for required information
+  # System presents empty fields for required information (email, username, first/last name, password)
   # User enters all required information into the fields
   # System verifies the requested information and creates an account for the user
   # User confirms the registration information
