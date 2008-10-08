@@ -8,7 +8,7 @@
 
 *Actors: * User
 
-*Preconditions: * UC1 - Users both have accounts with the website
+*Preconditions: * UC1 - User has an account with the website
 
 *Stakeholders: * _User:_ Wishes to change their account preferences, _System:_ Wishes to stay up-to-date
 
