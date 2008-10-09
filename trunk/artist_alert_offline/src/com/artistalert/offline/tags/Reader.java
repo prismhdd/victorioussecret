@@ -63,14 +63,42 @@ public class Reader {
 				final MP3File mp3 = new MP3File(fileItr.next());
 				final String album = getAlbum(mp3);
 				final String artist = getArtist(mp3);
-				System.out.println(artist + " - " + album);
+				if (artists.containsKey(artist)) {
+					artists.get(artist).add(album);
+				} else {
+					final Collection<String> albums = new ArrayList<String>();
+					albums.add(album);
+					artists.put(artist, albums);
+				}
 			} catch (TagException te) {
-				// TODO
+				// Skip any errors
+				// te.printStackTrace();
 			} catch (IOException ioe) {
-				// TODO
+				// Skip any errors
+				// ioe.printStackTrace();
 			}
 		}
+		printArtists(artists);
 		return artists;
+	}
+
+	/**
+	 * Prints the artists/albums that were found
+	 * 
+	 * @param artists
+	 * 		the found artists/albums
+	 */
+	private void printArtists(final Map<String, Collection<String>> artists) {
+		final Iterator<String> artistItr = artists.keySet().iterator();
+		while (artistItr.hasNext()) {
+			final String artist = artistItr.next();
+			System.out.println(artist);
+			final Collection<String> albums = artists.get(artist);
+			final Iterator<String> albumItr = albums.iterator();
+			while (albumItr.hasNext()) {
+				System.out.println("\t" + albumItr.next());
+			}
+		}
 	}
 
 	/**
