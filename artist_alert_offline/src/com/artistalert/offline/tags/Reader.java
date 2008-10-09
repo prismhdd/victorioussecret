@@ -18,6 +18,9 @@ import org.farng.mp3.TagException;
  * 
  * @author anthony
  * 
+ * modified to test sending data between frames
+ * @author Woojoon
+ * 
  */
 public class Reader {
 
@@ -170,8 +173,8 @@ public class Reader {
 		}
 	}
 
-	public static void main(String[] args) {
-		final Reader reader = new Reader(args[0]);
-		reader.scan();
-	}
+//	public static void main(String[] args) {
+//		final Reader reader = new Reader(args[0]);
+//		reader.scan();
+//	}
 }

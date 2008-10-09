@@ -1,4 +1,7 @@
-package com.artistalert.offline.displaytest;
+package com.artistalert.offline.ui.scan;
+
+import com.artistalert.offline.tags.Reader;
+import com.artistalert.offline.ui.results.ResultsDialog;
 
 
 
@@ -10,16 +13,16 @@ package com.artistalert.offline.displaytest;
  * @author Woojoon
  * 
  */
-public class UI_Scan extends javax.swing.JFrame {
+public class ScanDialog extends javax.swing.JFrame {
 
 	private String directory;
 	
 	/** Creates new form scan_ui */
-	public UI_Scan() {
+	public ScanDialog() {
 		initComponents();
 	}
 	/** TEST constructor w/ directory as argument */
-	public UI_Scan(String directory) {
+	public ScanDialog(String directory) {
 		initComponents();
 		this.directory = directory;
 	}
@@ -199,7 +202,7 @@ public class UI_Scan extends javax.swing.JFrame {
 		 *  
 		 */
 		final Reader reader = new Reader(this.directory);
-		new UI_Results(reader.scan()).setVisible(true);
+		new ResultsDialog(reader.scan()).setVisible(true);
 
 	}// GEN-LAST:event_buttonScanActionPerformed
 
@@ -211,7 +214,7 @@ public class UI_Scan extends javax.swing.JFrame {
 		
 		java.awt.EventQueue.invokeLater(new Runnable() {
 			public void run() {
-				new UI_Scan(args[0]).setVisible(true);
+				new ScanDialog(args[0]).setVisible(true);
 			}
 		});
 	}
