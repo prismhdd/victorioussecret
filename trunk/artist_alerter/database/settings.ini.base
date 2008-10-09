@@ -1,0 +1,10 @@
+; To setup the database first copy this file
+; and rename it to settings.ini
+; then fill in your correct username/password for the
+; database.
+; Usuallly username is postgres, and the password
+; would be the password it asked you for when you
+; first installed the database server
+[database]
+username=postgres
+password=
