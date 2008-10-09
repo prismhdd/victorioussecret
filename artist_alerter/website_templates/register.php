@@ -11,7 +11,7 @@
 	<div id="sidebar">
 		<div id="menu">
 			<ul>
-				<li<a href="index.php">Home</a></li>
+				<li><a href="index.php">Home</a></li>
 				<li><a href="download.php">Download</a></li>
 				<li><a href="about.php">About Us</a></li>
 			</ul>
