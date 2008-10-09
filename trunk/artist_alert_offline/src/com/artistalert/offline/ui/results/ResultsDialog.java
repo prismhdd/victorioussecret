@@ -1,15 +1,12 @@
-package com.artistalert.offline.displaytest;
-import java.awt.Component;
-import java.io.File;
+package com.artistalert.offline.ui.results;
 import java.util.Collection;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 import java.util.Map.Entry;
-import javax.swing.*;
 
-import org.farng.mp3.MP3File;
+import javax.swing.DefaultListModel;
+import javax.swing.JList;
 
 
 
@@ -21,7 +18,7 @@ import org.farng.mp3.MP3File;
  * @author Woojoon
  * 
  */
-public class UI_Results extends javax.swing.JFrame {
+public class ResultsDialog extends javax.swing.JFrame {
 
 	/** Creates new form results_uc */
 //	public UI_Results() {
@@ -29,7 +26,7 @@ public class UI_Results extends javax.swing.JFrame {
 //	}
 	
 	/** TEST constructor w/ reader */
-	public UI_Results(Map<String, Collection<String>> data) {
+	public ResultsDialog(Map<String, Collection<String>> data) {
 		initComponents(data);
 	}
 
