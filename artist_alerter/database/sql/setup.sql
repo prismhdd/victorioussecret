@@ -5,4 +5,5 @@ CREATE DATABASE artist_alert WITH OWNER=postgres;
 
 \c artist_alert;
 
+\i users.sql
 \i artist_albums.sql
