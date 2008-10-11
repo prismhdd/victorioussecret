@@ -1,4 +1,13 @@
 #summary Summary of Database Tables
 
+= Setting up the database =
+  # Install PostgreSQL
+  # Go to Start -> Programs -> PostgreSQL -> psql  (I don't know the exact location but it is called psql)
+  #  ??
+
 = users =
 Columns for users who are a part of the system.
+
+= artists =
+
+= albums =
