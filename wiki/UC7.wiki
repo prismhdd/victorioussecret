@@ -2,7 +2,7 @@
 
 *Use Case: * User can set account preferences
 
-*Indentifier: * UC7
+*Identifier: * UC7
 
 *Description: * Models a user updating their preferences
 
