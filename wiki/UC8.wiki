@@ -2,7 +2,7 @@
 
 *Use Case: * User wants to rate an album
 
-*Indentifier: * UC8
+*Identifier: * UC8
 
 *Description: * Models a user rating an album they own
 
