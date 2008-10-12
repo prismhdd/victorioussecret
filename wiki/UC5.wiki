@@ -2,7 +2,7 @@
 
 *Use Case: * Purchasing an album
 
-*Indentifier: * UC5
+*Identifier: * UC5
 
 *Description: * Models a user wanting to purchase an album they received a notification about
 
