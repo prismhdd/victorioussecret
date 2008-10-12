@@ -2,7 +2,7 @@
 
 *Use Case: * Receiving and sending recommendations
 
-*Indentifier: * UC6
+*Identifier: * UC6
 
 *Description: * Models a user sending a recommendation to another user
 
