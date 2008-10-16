@@ -2,7 +2,7 @@
 
 =Deployment Diagram=
 
-http://victorioussecret.googlecode.com/files/deployment_diagram.png
+http://victorioussecret.googlecode.com/files/deployment_diagram2.png
 
  With this setup the hardware and software components can be separated into the System and the Client.  For the     client all that is required hardware wise is a computer that is able to execute the Sun Java 1.5 JRE and a web browser.   The client also needs to have an Internet connection in order to communicate with the System.  As for the software, the client needs to be running either Linux, Windows, or a Mac and for applications the Sun Java 1.5 JRE and a compatible web browser, i.e. Firefox or Internet Explorer are required.  
 
