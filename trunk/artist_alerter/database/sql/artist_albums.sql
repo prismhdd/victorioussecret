@@ -5,13 +5,15 @@ CREATE SEQUENCE album_seq;
 
 CREATE TABLE artists (
 	artist_id int8 NOT NULL DEFAULT nextval('artist_seq') CONSTRAINT artists_pk PRIMARY KEY,
-	name varchar(512) NOT NULL CONSTRAINT artist_name_unique UNIQUE
+	name varchar(512) NOT NULL CONSTRAINT artist_name_unique UNIQUE,
+	date_added date NOT NULL DEFAULT now()
 ) WITHOUT OIDS;
 
 CREATE TABLE albums (
 	album_id int8 NOT NULL DEFAULT nextval('album_seq') CONSTRAINT albums_pk PRIMARY KEY,
 	artist_id int8 NOT NULL CONSTRAINT artist_id_fk REFERENCES artists(artist_id) ON DELETE CASCADE,
-	name varchar(512) NOT NULL
+	name varchar(512) NOT NULL,
+date_added date NOT NULL DEFAULT now()
 ) WITHOUT OIDS;
 
 --Contains what users have what artists
