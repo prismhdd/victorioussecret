@@ -12,5 +12,14 @@ abstract class BaseAlbum extends Doctrine_Record
     $this->hasColumn('artist_id', 'integer', 8, array('type' => 'integer', 'length' => 8, 'notnull' => true));
     $this->hasColumn('name', 'string', 512, array('type' => 'string', 'length' => '512', 'notnull' => true));
   }
+  
+  public function setUp()
+  {
+  	$this->hasOne('Artist as Artist', array('local' => 'artist_id',
+                                                    'foreign' => 'artist_id'));
+    $this->hasMany('User', array('local' => 'album_id',       // <- these are the column names
+                                     'foreign' => 'user_id',      // <- in the association table
+                                     'refClass' => 'UserAlbum')); // <- the following line is needed in many-to-many relations!
+  }
 
 }

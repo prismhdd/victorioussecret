@@ -17,7 +17,7 @@ abstract class RssFeed {
 	 * Fetches the feed data from $url, throws an exception if there was an error
 	 * @return the data from the feed
 	 */
-	public function getFeedData() {
+	protected function getFeedData() {
 		//Fetch the http data
 		$http_result = HttpCommunicator::getInstance()->getRemoteFile($this->url);
 		$http_data = HttpCommunicator::getInstance()->getHttpData($http_result);
