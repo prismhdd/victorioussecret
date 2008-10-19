@@ -13,7 +13,7 @@ CREATE TABLE albums (
 	album_id int8 NOT NULL DEFAULT nextval('album_seq') CONSTRAINT albums_pk PRIMARY KEY,
 	artist_id int8 NOT NULL CONSTRAINT artist_id_fk REFERENCES artists(artist_id) ON DELETE CASCADE,
 	name varchar(512) NOT NULL,
-date_added date NOT NULL DEFAULT now()
+	date_added date NOT NULL DEFAULT now()
 ) WITHOUT OIDS;
 
 --Contains what users have what artists
@@ -27,5 +27,6 @@ CREATE TABLE user_artists (
 CREATE TABLE user_albums (
 	user_id int8 NOT NULL CONSTRAINT user_id_fk REFERENCES users(user_id),
 	album_id int8 NOT NULL CONSTRAINT album_id_fk REFERENCES albums(album_id),
+	rating int2, --rating from the user for this album on a scale from 1-10
 	CONSTRAINT user_albums_pk PRIMARY KEY (user_id, album_id)
 ) WITHOUT OIDS;
