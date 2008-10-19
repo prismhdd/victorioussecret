@@ -1,11 +1,8 @@
-
 <html><head>
 <title>Artist Alert - SD&D </title><link href="default.css" rel="stylesheet" type="text/css"></head>
 <body>
 
-<div style="height: 100px;" id="logo">
-	<img src="images/banner.jpg">
-</div>
+<?php require_once('header.php'); ?>
 
 <div id="content">
 	<div id="sidebar">
@@ -13,6 +10,7 @@
 			<ul>
 				<li><a href="index.php">Home</a></li>
 				<li><a href="download.php">Download</a></li>
+				<li><a href="library.php">Library</a></li>
 				<li><a href="about.php">About Us</a></li>
 			</ul>
 		</div>
@@ -33,64 +31,42 @@
 				</form>
 			</div>
 		</div>
-		<div id="updates" class="boxed">
-			<h2 class="title">Recent Updates</h2>
-			<div class="content">
-				<ul>
-					<li>
-						<h3>October 5, 2008</h3>
-						<p><a href="index.php">Website work has begun</a></p>
-					</li>
-				</ul>
-			</div>
-		</div>
+		
+		<?php require_once('updates.php'); ?>
+		
 	</div>
 	<div id="main">
 		<div id="welcome">
 			<h2 class="title">User Registration</h2>
 				<form>	      
-                <table id="signupfields" cellspacing="0" cellpadding="0" border="0">
+                <table id="signupfields">
                     <tr>
-                        <th><label for="username">Username:</label></th>
-                        <td width="420px">
-                            <input id="username" type="text" name="username" maxlength="15" onkeypress="clearField('username');"  />
-                            <span id="username_status" class="formstatus">&nbsp;</span><br />
-                        </td>
+                        <th align="left" width="200px"><label for="firstname">First Name:</label></th>
+                        <td><input id="firstname" type="text" name="firstname"/></td>
+                    </tr>
+					<tr>
+                        <th align="left"><label for="username">Last Name:</label></th>
+                        <td><input id="lastname" type="text" name="lastname"/></td>
                     </tr>
                     <tr>
-                        <th><label for="email" dir="ltr">Email:</label></th>
-                        <td>
-                            <input type="text" name="email" id="email"/>
-                            <span id="email_status" class="formstatus">&nbsp;</span>
-                        </td>
+                        <th align="left"><label for="email" dir="ltr">Email:</label></th>
+                        <td><input type="text" name="email" id="email"/></td>
                     </tr>
                     <tr>
-                        <th><label for="pword">Password:</label></th>
-                        <td>
-                            <input  type="password" name="pword" id="pword"/>
-                            <span id="password_status" class="formstatus">&nbsp;</span>
-                        </td>
+                        <th align="left"><label for="pword">Password:</label></th>
+                        <td><input  type="password" name="pword" id="pword"/></td>
                     </tr>					
                     <tr>
-                        <th><label for="confirmpw">Confirm password:</label></th>
-                        <td>
-                            <input type="password" name="confirmpw" id="confirmpw"/>
-                            <span id="confirmpw_status" class="formstatus">&nbsp;</span>
-                        </td>
-                    </tr>
-                                                            
-                        <td>
-                            <input type="submit" id="createprofile" name="createprofile" value="Create My Account" />
-                        </td>
+                        <th align="left"><label for="confirmpw">Confirm Password:</label></th>
+                        <td><input type="password" name="confirmpw" id="confirmpw"/></td>
+                    </tr>                                                          
+                        <td><input type="submit" id="createprofile" name="createprofile" value="Create My Account"/></td>
                 </table>            
             </form>		
 		</div>		
 	</div>
 </div>
 
-<div id="footer">
-	<p style="margin-left: 0px; width: 800px;" id="legal">Team Victorious Secret<br/>2008 SD&D
-</p></div>
+<?php require_once('footer.php'); ?>
 
-
-</body><.php>
+</body></html>

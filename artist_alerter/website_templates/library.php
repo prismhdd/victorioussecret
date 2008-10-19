@@ -1,18 +1,16 @@
-
 <html><head>
 <title>Artist Alert - SD&D</title><link href="default.css" rel="stylesheet" type="text/css"></head>
 <body>
 
-<div style="height: 100px;" id="logo">
-	<img src="images/banner.jpg">
-</div>
+<?php require_once('header.php'); ?>
 
 <div id="content">
 	<div id="sidebar">
 		<div id="menu">
 			<ul>
 				<li><a href="index.php">Home</a></li>
-				<li class="active"><a href="download.php">Download</a></li>
+				<li><a href="download.php">Download</a></li>
+				<li class="active"><a href="library.php">Library</a></li>
 				<li><a href="about.php">About Us</a></li>
 			</ul>
 		</div>
@@ -32,21 +30,13 @@
 				</form>
 			</div>
 		</div>
-		<div id="updates" class="boxed">
-			<h2 class="title">Recent Updates</h2>
-			<div class="content">
-				<ul>
-					<li>
-						<h3>October 5, 2008</h3>
-						<p><a href="index.php">First iteration of website</a></p>
-					</li>
-				</ul>
-			</div>
-		</div>
+		
+		<?php require_once('updates.php'); ?>
+		
 	</div>
 	<div id="main">
 		<div id="welcome" class="post">
-			<h2 class="title">Download</h2><a href="offline.exe">Uploading Application</a>
+			<h2 class="title">MyLibrary</h2>
 			
 		</div>
 		
@@ -54,9 +44,7 @@
 	</div>
 </div>
 
-<div id="footer">
-	<p style="margin-left: 0px; width: 800px;" id="legal">Team Victorious Secret<br/>2008 SD&D
-</p></div>
+<?php require_once('footer.php'); ?>
 
 
 </body></html>
