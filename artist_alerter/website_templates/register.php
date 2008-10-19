@@ -17,18 +17,7 @@
 		<div id="login" class="boxed">
 			<h2 class="title">MyLibrary</h2>
 			<div class="content">
-				<form action="">
-					<fieldset>
-					<label for="inputtext1">User Name:</label>
-					<input id="inputtext1" name="inputtext1" type="text">
-					<label for="inputtext2">Password:</label>
-					<input id="inputtext2" name="inputtext2" type="password">
-					<input id="inputsubmit1" name="inputsubmit1" value="Sign In" type="submit"><br/>
-					<a href="register.php">Need an account?</a>
-					<p>
-					</p>
-					</fieldset>
-				</form>
+				<?php require_once('login.php'); ?>
 			</div>
 		</div>
 		
