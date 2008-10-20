@@ -1,5 +1,6 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html><head>
-<title>Artist Alert - SD&D </title><link href="default.css" rel="stylesheet" type="text/css"></head>
+<title>Artist Alert - SD&amp;D </title><link href="default.css" rel="stylesheet" type="text/css"></head>
 <body>
 
 <?php require_once('header.php'); ?>
@@ -22,19 +23,18 @@
 		</div>
 		
 		<?php require_once('updates.php'); ?>
-		
 	</div>
 	<div id="main">
 		<div id="welcome">
 			<h2 class="title">User Registration</h2>
-				<form>	      
+				<form action="register.php">	      
                 <table id="signupfields">
                     <tr>
-                        <th align="left" width="200px"><label for="firstname">First Name:</label></th>
+                        <th align="left"><label for="firstname">First Name:</label></th>
                         <td><input id="firstname" type="text" name="firstname"/></td>
                     </tr>
 					<tr>
-                        <th align="left"><label for="username">Last Name:</label></th>
+                        <th align="left"><label for="lastname">Last Name:</label></th>
                         <td><input id="lastname" type="text" name="lastname"/></td>
                     </tr>
                     <tr>
@@ -49,8 +49,10 @@
                         <th align="left"><label for="confirmpw">Confirm Password:</label></th>
                         <td><input type="password" name="confirmpw" id="confirmpw"/></td>
                     </tr>                                                          
-                        <td><input type="submit" id="createprofile" name="createprofile" value="Create My Account"/></td>
-                </table>            
+                    <tr>
+						<td><input type="submit" id="createprofile" name="createprofile" value="Create My Account"/></td>
+					</tr>
+			   </table>            
             </form>		
 		</div>		
 	</div>
