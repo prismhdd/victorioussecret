@@ -14,7 +14,7 @@ $artists = $feed->getArtists();
 			        ->from('Artist a')
 			        ->where('a.name=?', array(trim($artist)))
 			        ->fetchOne();
-			     if (!$db_artist->exists()) {
+			     if (!$db_artist) {
 					$db_artist = new Artist();
 					$db_artist['name'] = trim($artist);
 					$db_artist->save();
@@ -28,7 +28,7 @@ $artists = $feed->getArtists();
 						        ->from('Album a')
 						        ->where('a.name=? and a.artist_id=?', array(trim($album), $db_artist['artist_id']))
 						        ->fetchOne(); 
-						     if (!$db_album->exists()) {
+						     if (!$db_album) {
 								$db_album = new Album();
 								$db_album['name'] = trim($album);
 								$db_album['Artist'] = $db_artist;
