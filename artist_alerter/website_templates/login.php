@@ -10,19 +10,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		          ->from('User u')
 		          ->where('u.email_address=? AND u.password=?', array($email_address, $password))
 		          ->fetchOne();
-	if ($user) {
-		$_SESSION['user'] = $user;
-		header('Location: '. $_GET['lastpage'] );
+	if ($user) {		
+		session_start();
+		$_SESSION['user'] = array('first_name' => $user['first_name'], 'user_id' => $user['user_id']);
+		print '<META HTTP-EQUIV=REFRESH CONTENT="2; URL='. $_GET['lastpage'].'"> Redirecting to ' . $_GET['lastpage'];
+		session_write_close();
 	} else {
-		unset($_SESSION['user']);
 		$error = 'Invalid Credentials';
 		header('Location: '. $_GET['lastpage'] . '?error=' . $error . '&username=' . $email_address );
 	}
-	//After verfying credentials we just send them to the page they click Sign In on
-	
 }
 ?>
-<?php if (!isset($_SESSION['user'])) {
+<?php if (!isset($_SESSION['user']) || !$_SESSION['user']) {
 	print $_GET['error']; ?>
 <form method="post" action="login.php?lastpage=<?php print $_SERVER['PHP_SELF'] ?>">
 		<fieldset>
@@ -36,8 +35,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		</p></fieldset>
 </form>
 <?php } else { ?>
+	
 	<!-- stuff for when the user is logged in -->
-	Welcome <?php print $_SESSION['user']['first_name']; ?>
+	Welcome <?php
+		$user = $_SESSION['user'];
+		print $user['first_name']; 
+	 ?>
 	
 	
 <?php } ?>
