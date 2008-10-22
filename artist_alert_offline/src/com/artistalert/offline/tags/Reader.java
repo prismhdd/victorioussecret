@@ -39,6 +39,8 @@ public class Reader {
 			return name.toLowerCase().endsWith(".mp3");
 		}
 	};
+	
+	final Map<String, Collection<String>> artists;
 
 	/**
 	 * Creates a new reader for the specified directory
@@ -47,6 +49,7 @@ public class Reader {
 	 */
 	public Reader(String directory) {
 		this.directory = directory;
+		artists = new HashMap<String, Collection<String>>();
 	}
 
 	/**
@@ -58,7 +61,7 @@ public class Reader {
 	 * @throws IOException
 	 */
 	public Map<String, Collection<String>> scan() {
-		final Map<String, Collection<String>> artists = new HashMap<String, Collection<String>>();
+		
 		final Collection<File> mp3Files = getMp3Files(new File(directory));
 		final Iterator<File> fileItr = mp3Files.iterator();
 		while (fileItr.hasNext()) {
