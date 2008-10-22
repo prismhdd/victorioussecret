@@ -1,4 +1,7 @@
 package com.artistalert.offline.ui.results;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.Map;
@@ -6,8 +9,10 @@ import java.util.Set;
 import java.util.Map.Entry;
 
 import javax.swing.DefaultListModel;
+import javax.swing.JFileChooser;
 import javax.swing.JList;
 
+import com.artistalert.offline.tags.Reader;
 
 
 /**
@@ -38,7 +43,7 @@ public class ResultsDialog extends javax.swing.JFrame {
 	@SuppressWarnings("unchecked")
 	// <editor-fold defaultstate="collapsed"
 	// desc="Generated Code">//GEN-BEGIN:initComponents
-	private void initComponents(Map<String, Collection<String>> artists) {
+	private void initComponents(final Map<String, Collection<String>> artists) {
 
 		paneArtists = new javax.swing.JScrollPane();
 		listArtists = new javax.swing.JList();
@@ -119,8 +124,23 @@ public class ResultsDialog extends javax.swing.JFrame {
 		labelAlbums.setText("Albums (Y)");
 
 		buttonExport.setText("Export");
+		buttonExport.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent evt) {
+				try {
+					buttonExportActionPerformed(evt, artists);
+				} catch (FileNotFoundException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		});
 
 		buttonExit.setText("Exit");
+		buttonExit.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent evt) {
+				buttonExitActionPerformed(evt);
+			}
+		});
 
 		javax.swing.GroupLayout layout = new javax.swing.GroupLayout(
 				getContentPane());
@@ -214,6 +234,7 @@ public class ResultsDialog extends javax.swing.JFrame {
 	/**
 	 * @param args
 	 *            the command line arguments
+	 * @throws FileNotFoundException 
 	 */
 //	public static void main(String args[]) {
 //		java.awt.EventQueue.invokeLater(new Runnable() {
@@ -222,6 +243,49 @@ public class ResultsDialog extends javax.swing.JFrame {
 //			}
 //		});
 //	}
+	
+	private void buttonExportActionPerformed(java.awt.event.ActionEvent evt, Map<String, Collection<String>> artists) throws FileNotFoundException {// GEN-FIRST:event_buttonExportActionPerformed
+
+		File file = new File("export.xml");
+		try {
+			file.createNewFile();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		if(file.canWrite())
+		{
+			java.io.PrintWriter output = new java.io.PrintWriter(file);		
+			output.println("<artists>");
+			final Iterator<String> artistItr = artists.keySet().iterator();
+			while (artistItr.hasNext()) {
+				final String artist = artistItr.next();
+				output.println("\t<artist>");
+				output.println("\t\t"+artist);
+				output.println("\t\t<albums");
+				final Iterator<String> albumItr = artists.get(artist).iterator();
+				while(albumItr.hasNext())
+				{
+					final String album = albumItr.next();
+					output.println("\t\t\t<album>");
+					output.println("\t\t\t\t"+album);
+					output.println("\t\t\t<\\album>");
+				}
+				output.println("\t<\\artist>");
+			}
+
+			output.print("</artist>");
+			output.close();
+		
+		}
+
+	}// GEN-LAST:event_buttonChooseActionPerformed
+
+	private void buttonExitActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_buttonExitActionPerformed
+
+		System.exit(0);
+
+	}// GEN-LAST:event_buttonExitActionPerformed
 
 	// Variables declaration - do not modify//GEN-BEGIN:variables
 	private javax.swing.JButton buttonExit;
