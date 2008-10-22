@@ -2,6 +2,7 @@ package com.artistalert.offline.ui.scan;
 
 import com.artistalert.offline.tags.Reader;
 import com.artistalert.offline.ui.results.ResultsDialog;
+import javax.swing.JFileChooser;
 
 
 
@@ -16,6 +17,8 @@ import com.artistalert.offline.ui.results.ResultsDialog;
 public class ScanDialog extends javax.swing.JFrame {
 
 	private String directory;
+	
+	private Reader reader;
 	
 	/** Creates new form scan_ui */
 	public ScanDialog() {
@@ -59,9 +62,7 @@ public class ScanDialog extends javax.swing.JFrame {
 			}
 		});
 
-		labelDirectory.setText("Directory Chosen");
-
-		labelProgress.setText("Scanning x/y");
+		labelDirectory.setText("Please choose a directory");
 
 		buttonExit.setText("Exit");
 		buttonExit.addActionListener(new java.awt.event.ActionListener() {
@@ -181,28 +182,40 @@ public class ScanDialog extends javax.swing.JFrame {
 
 	private void buttonChooseActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_buttonChooseActionPerformed
 
-		// Choose directory code here
+		JFileChooser chooser = new JFileChooser();
+		chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+		chooser.showOpenDialog(getParent());
+		directory = chooser.getCurrentDirectory().getName();
+		labelDirectory.setText("Directory: " + directory);
+		reader = new Reader(chooser.getCurrentDirectory().getAbsolutePath() );
 
 	}// GEN-LAST:event_buttonChooseActionPerformed
 
 	private void buttonExitActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_buttonExitActionPerformed
 
-		// just a test, Remove for actual code
 		System.exit(0);
 
 	}// GEN-LAST:event_buttonExitActionPerformed
 
 	private void buttonScanActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_buttonScanActionPerformed
 
-		// just a test, Remove for actual code
-		barProgress.setValue(75);
+		if(reader != null)
+		{
+			labelProgress.setText("Scanning " + directory);
+			new ResultsDialog(reader.scan()).setVisible(true);
+		}
+		else
+		{
+			labelProgress.setText("ERROR: Please choose a directory");	
+		}
+		//barProgress.setValue(75);
 		
 		/**
 		 * Test display - loads a UI_Result with Reader class
 		 *  
 		 */
-		final Reader reader = new Reader(this.directory);
-		new ResultsDialog(reader.scan()).setVisible(true);
+		//final Reader reader = new Reader(this.directory);
+		
 
 	}// GEN-LAST:event_buttonScanActionPerformed
 
