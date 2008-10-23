@@ -90,19 +90,19 @@
 					    }
 					    
 					 	// checking query for duplicates
-					 	/*
+					 	
 					 	$sql = Doctrine_Query::create()
 								  ->from('User u')
-						          ->where('u.email_address=?', $email_address);
+						          ->where('u.email_address=?', $email);
 				    	
-				    	$checking = Doctrine::getTable('User u')->search($sql);
+				    	$checking = $sql->fetchOne();
 				    	if ($checking) {
 				    		$error ++;
-				      		echo $error . ". The username '".$username."' already exist!<br>";
+				      		echo $error . ". The username '".$email."' already exist!<br>";
 				    	}
 				    	else
 				    		echo "what are you doing";
-				    	*/
+				    	
 					    
 					    // insert query to matching field
 					    if ($error == 0) {
