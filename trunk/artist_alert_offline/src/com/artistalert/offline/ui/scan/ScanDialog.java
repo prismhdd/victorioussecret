@@ -185,9 +185,9 @@ public class ScanDialog extends javax.swing.JFrame {
 		JFileChooser chooser = new JFileChooser();
 		chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
 		chooser.showOpenDialog(getParent());
-		directory = chooser.getCurrentDirectory().getName();
+		directory = chooser.getSelectedFile().getAbsolutePath();
 		labelDirectory.setText("Directory: " + directory);
-		reader = new Reader(chooser.getCurrentDirectory().getAbsolutePath() );
+		reader = new Reader(directory);
 
 	}// GEN-LAST:event_buttonChooseActionPerformed
 
@@ -202,7 +202,15 @@ public class ScanDialog extends javax.swing.JFrame {
 		if(reader != null)
 		{
 			labelProgress.setText("Scanning " + directory);
-			new ResultsDialog(reader.scan()).setVisible(true);
+			new Thread() {
+				public void run() {
+					new ResultsDialog(reader.scan(barProgress)).setVisible(true);
+					buttonChoose.setEnabled(true);
+					buttonScan.setEnabled(true);
+				}
+			}.start();
+			buttonChoose.setEnabled(false);
+			buttonScan.setEnabled(false);
 		}
 		else
 		{
@@ -227,7 +235,7 @@ public class ScanDialog extends javax.swing.JFrame {
 		
 		java.awt.EventQueue.invokeLater(new Runnable() {
 			public void run() {
-				new ScanDialog(args[0]).setVisible(true);
+				new ScanDialog().setVisible(true);
 			}
 		});
 	}
