@@ -7,3 +7,4 @@ CREATE DATABASE artist_alert;
 
 \i users.sql
 \i artist_albums.sql
+\i recommendations.sql

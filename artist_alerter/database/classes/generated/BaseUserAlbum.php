@@ -12,5 +12,11 @@ abstract class BaseUserAlbum extends Doctrine_Record
     $this->hasColumn('album_id', 'integer', 8, array('type' => 'integer', 'length' => 8, 'notnull' => true));
     $this->hasColumn('rating', 'integer', 2, array('type' => 'integer', 'length' => 2));
   }
+  
+  public function setUp() 
+  {
+  	$this->hasOne('Album as Album', array('local' => 'album_id',
+                                                    'foreign' => 'album_id'));
+  }
 
 }
