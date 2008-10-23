@@ -28,7 +28,7 @@
 	<div id="main">
 		<div id="welcome">
 			<h2 class="title">User Registration</h2>
-				<form action="register.php">	      
+				<form method="POST">	      
                 <table id="signupfields">
                     <tr>
                         <th align="left"><label for="firstname">First Name:</label></th>
@@ -53,7 +53,87 @@
                     <tr>
 						<td><input type="submit" id="createprofile" name="createprofile" value="Create My Account"/></td>
 					</tr>
-			   </table>            
+			   </table>
+			   <?php
+					  if($_POST['createprofile']){
+					    
+					    $fname = $_POST['firstname'];
+					    $lname = $_POST['lastname'];
+					    $email = $_POST['email'];
+					    $password = $_POST['pword'];
+					    $confirmpw = $_POST['confirmpw'];
+					    $error = 0;
+					    
+					    
+					    
+					  	if(!$fname) {
+					      $error ++;
+					      echo $error . ". You didn't enter first name!<Br>\n";
+					    }
+					    if(!$lname) {
+					      $error ++;
+					      echo $error . ". You didn't enter last name!<Br>\n";
+					    }
+					    if(!$password) {
+					      $error ++;
+					      echo $error . ". You didn't enter a password!<Br>\n";
+					    }
+					    if(!$confirmpw) {
+					      $error ++;
+					      echo $error . ". You didn't enter a confirm password!<Br>\n";
+					    }
+					    
+					    //password checking
+					    if($password != $confirmpw) {
+					      $error ++;
+					      echo $error . ". You should enter a same password!<Br>\n";
+					    }
+					    
+					 	// checking query for duplicates
+					 	/*
+					 	$sql = Doctrine_Query::create()
+								  ->from('User u')
+						          ->where('u.email_address=?', $email_address);
+				    	
+				    	$checking = Doctrine::getTable('User u')->search($sql);
+				    	if ($checking) {
+				    		$error ++;
+				      		echo $error . ". The username '".$username."' already exist!<br>";
+				    	}
+				    	else
+				    		echo "what are you doing";
+				    	*/
+					    
+					    // insert query to matching field
+					    if ($error == 0) {
+					      
+					      /* test output
+					      echo "Fist Name : $fname<Br>\n" ."Last Name : $lname<Br>\n" .
+					      		"User Name : $username<Br>\n" ."Email : $email<Br>\n" .
+								"Password : $password<Br>\n" ."Confirm : $confirmpw<Br>\n";
+					      */
+				      
+					      require_once('../database/config.php');
+							
+							$conn = Doctrine_Manager :: connection(DSN);
+							
+							$user = new User();
+							
+							$user['first_name'] = $fname;
+							$user['last_name'] = $lname;
+							$user['password'] = md5($password);
+							$user['email_address'] = $email;
+					    	
+							try {
+								$user->save();
+								echo "Your account is now created.";
+							} catch (Doctrine_Connection_Pgsql_Exception $e) {
+								echo "Error";
+								print $e;
+							}
+					    }
+					  }
+				?>           
             </form>		
 		</div>		
 	</div>
