@@ -9,6 +9,8 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
+import javax.swing.JProgressBar;
+
 import org.farng.mp3.MP3File;
 import org.farng.mp3.TagException;
 
@@ -60,11 +62,16 @@ public class Reader {
 	 * @throws TagException
 	 * @throws IOException
 	 */
-	public Map<String, Collection<String>> scan() {
+	public Map<String, Collection<String>> scan(final JProgressBar barProgress) {
 		
 		final Collection<File> mp3Files = getMp3Files(new File(directory));
 		final Iterator<File> fileItr = mp3Files.iterator();
+		barProgress.setMinimum(0);
+		barProgress.setMaximum(mp3Files.size());
+		barProgress.setValue(0);
 		while (fileItr.hasNext()) {
+			barProgress.setValue(barProgress.getValue()+1);
+			barProgress.setStringPainted(true);
 			try {
 				final MP3File mp3 = new MP3File(fileItr.next());
 				final String album = getAlbum(mp3);
