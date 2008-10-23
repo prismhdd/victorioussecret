@@ -8,7 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && !$_POST['createprofile']) {
 	$password = $_POST['password'];
 	$user = Doctrine_Query::create()
 		          ->from('User u')
-		          ->where('u.email_address=? AND u.password=?', array($email_address, $password))
+		          ->where('u.email_address=? AND u.password=?', array($email_address, md5($password)))
 		          ->fetchOne();
 	if ($user) {		
 		session_start();
