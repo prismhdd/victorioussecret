@@ -5,15 +5,13 @@
  # UI elements and positions
  # Scanning and save to database structure
  # Handling results from scan window to result window (need to be tested more)
+ # Adding actions to buttons (e.g. exit buttons, choose dir, ...)
 
 == Work in progress ==
- # Adding actions to buttons (e.g. exit buttons, choose dir, ...)
- # Elaboration of windows
  # Matching correspond items in lists
+ # Name of an application
+ # deploying to executable file (JAR)
 
 == Found bugs ==
- # Some of ID3tags are not recognizable (e.g. ID3tags from iTunes)
- # Some chracters are not recognizable (e.g. french characters)
-
-== Notes ==
- To test current version of application, you should provide a directory of your music library as an argument of UI_scan.java
+ # UTF-16 encoded tags
+ # ID3tags from iTunes (e.g. tag line - <ENCODED BY> iTunes v7.6.0.29)
