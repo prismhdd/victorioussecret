@@ -10,6 +10,8 @@
   # Coding Standards
   # More Communication
 
+Notes: Add user name, use Last.fm as validation for user entries, can browse/search by user name for recommendations
+
 =10/15/08=
 ===Agenda===
   # Finish Elaboration
