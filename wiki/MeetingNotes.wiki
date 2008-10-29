@@ -2,6 +2,16 @@
 
 =10/15/08=
 ===Agenda===
+  # Discuss Construction Deliverables
+    # Assign task for deliverables
+  # Discuss content of Anthony's Email
+  # Create some tasks
+  # Wrap up what needs to be done with the offline application
+  # Coding Standards
+  # More Communication
+
+=10/15/08=
+===Agenda===
   # Finish Elaboration
   # Work Breakdown structure
   # Assign tasks
