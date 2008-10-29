@@ -12,6 +12,8 @@
 
 Notes: Add user name, use Last.fm as validation for user entries, can browse/search by user name for recommendations
 
+Can't alert user multiple times
+
 =10/15/08=
 ===Agenda===
   # Finish Elaboration
