@@ -244,9 +244,20 @@ public class ResultsDialog extends javax.swing.JFrame {
 //		});
 //	}
 	
+	@SuppressWarnings("static-access")
 	private void buttonExportActionPerformed(java.awt.event.ActionEvent evt, Map<String, Collection<String>> artists) throws FileNotFoundException {// GEN-FIRST:event_buttonExportActionPerformed
 
-		File file = new File("export.xml");
+		JFileChooser saver = new JFileChooser();
+		saver.setFileSelectionMode(JFileChooser.SAVE_DIALOG);
+		//saver.setSelectedFile(new File("export.xml"));
+		saver.showSaveDialog(getParent());
+		
+		//while(saver.getSelectedFile() == saver.CANCEL_OPTION)
+		//	saver.showSaveDialog(getParent());
+		File file = saver.getSelectedFile();
+		
+		System.out.println(file.getName());
+		//File file = new File("export.xml");
 		try {
 			file.createNewFile();
 		} catch (IOException e) {
@@ -258,6 +269,7 @@ public class ResultsDialog extends javax.swing.JFrame {
 			java.io.PrintWriter output = new java.io.PrintWriter(file);		
 			output.println("<artists>");
 			final Iterator<String> artistItr = artists.keySet().iterator();
+			artistItr.hasNext();
 			while (artistItr.hasNext()) {
 				final String artist = artistItr.next();
 				output.println("\t<artist>");
