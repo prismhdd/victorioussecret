@@ -288,8 +288,8 @@ public class ResultsDialog extends javax.swing.JFrame {
 
 			output.print("</artist>");
 			output.close();
-		
 		}
+		System.exit(0);
 
 	}// GEN-LAST:event_buttonChooseActionPerformed
 
