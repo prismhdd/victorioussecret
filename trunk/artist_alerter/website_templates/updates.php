@@ -3,6 +3,10 @@
 	<div class="content">
 		<ul>
 			<li>
+				<h3>October 23, 2008</h3>
+				<p><a href="index.php">User registration and login are in place</a></p>
+			</li>				
+			<li>
 				<h3>October 5, 2008</h3>
 				<p><a href="index.php">Website work has begun</a></p>
 			</li>
