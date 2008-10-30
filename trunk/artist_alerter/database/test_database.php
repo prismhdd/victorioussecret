@@ -11,7 +11,6 @@
 	
 	$conn = Doctrine_Manager :: connection(DSN);
 	
-	
 	$user = new User();
 	
 	$user['first_name'] = 'test';
