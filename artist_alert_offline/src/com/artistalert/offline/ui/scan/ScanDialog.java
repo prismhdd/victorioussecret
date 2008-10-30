@@ -15,8 +15,6 @@ import com.artistalert.offline.tags.Reader;
 import com.artistalert.offline.ui.results.ResultsDialog;
 import javax.swing.JFileChooser;
 
-
-
 /**
  * 
  * @author Charlie
@@ -28,9 +26,9 @@ import javax.swing.JFileChooser;
 public class ScanDialog extends javax.swing.JFrame {
 
 	private String directory;
-	
+
 	private Reader reader;
-	
+
 	/** Creates new form scan_ui */
 	public ScanDialog() {
 		initComponents();
@@ -52,11 +50,11 @@ public class ScanDialog extends javax.swing.JFrame {
 
 		buttonChoose = new javax.swing.JButton();
 		buttonScan = new javax.swing.JButton();
+		buttonExit = new javax.swing.JButton();
 		barProgress = new javax.swing.JProgressBar();
 		labelDirectory = new javax.swing.JLabel();
-		labelProgress = new javax.swing.JLabel();
-		buttonExit = new javax.swing.JButton();
-		
+		labelProgress = new javax.swing.JLabel();		
+
 		setTitle("ArtistAlert");
 
 		setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -74,9 +72,7 @@ public class ScanDialog extends javax.swing.JFrame {
 				buttonScanActionPerformed(evt);
 			}
 		});
-
-		labelDirectory.setText("Please choose a directory");
-
+		
 		buttonExit.setText("Exit");
 		buttonExit.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -84,111 +80,47 @@ public class ScanDialog extends javax.swing.JFrame {
 			}
 		});
 
-		javax.swing.GroupLayout layout = new javax.swing.GroupLayout(
-				getContentPane());
+		labelDirectory.setText("Please choose a directory");
+
+		javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
 		getContentPane().setLayout(layout);
-		layout
-				.setHorizontalGroup(layout
-						.createParallelGroup(
-								javax.swing.GroupLayout.Alignment.LEADING)
-						.addGroup(
-								layout
-										.createSequentialGroup()
-										.addGap(23, 23, 23)
-										.addGroup(
-												layout
-														.createParallelGroup(
-																javax.swing.GroupLayout.Alignment.LEADING)
-														.addGroup(
-																layout
-																		.createSequentialGroup()
-																		.addComponent(
-																				labelProgress,
-																				javax.swing.GroupLayout.PREFERRED_SIZE,
-																				92,
-																				javax.swing.GroupLayout.PREFERRED_SIZE)
-																		.addContainerGap())
-														.addGroup(
-																layout
-																		.createSequentialGroup()
-																		.addGroup(
-																				layout
-																						.createParallelGroup(
-																								javax.swing.GroupLayout.Alignment.LEADING)
-																						.addGroup(
-																								layout
-																										.createSequentialGroup()
-																										.addGroup(
-																												layout
-																														.createParallelGroup(
-																																javax.swing.GroupLayout.Alignment.LEADING)
-																														.addGroup(
-																																layout
-																																		.createSequentialGroup()
-																																		.addComponent(
-																																				buttonChoose)
-																																		.addPreferredGap(
-																																				javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-																																		.addComponent(
-																																				buttonScan))
-																														.addComponent(
-																																labelDirectory,
-																																javax.swing.GroupLayout.DEFAULT_SIZE,
-																																180,
-																																Short.MAX_VALUE))
-																										.addPreferredGap(
-																												javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-																										.addComponent(
-																												buttonExit)
-																										.addGap(
-																												33,
-																												33,
-																												33))
-																						.addGroup(
-																								layout
-																										.createSequentialGroup()
-																										.addComponent(
-																												barProgress,
-																												javax.swing.GroupLayout.PREFERRED_SIZE,
-																												274,
-																												javax.swing.GroupLayout.PREFERRED_SIZE)
-																										.addPreferredGap(
-																												javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-																		.addGap(
-																				27,
-																				27,
-																				27)))));
-		layout
-				.setVerticalGroup(layout
-						.createParallelGroup(
-								javax.swing.GroupLayout.Alignment.LEADING)
-						.addGroup(
-								layout
-										.createSequentialGroup()
-										.addGap(22, 22, 22)
-										.addGroup(
-												layout
-														.createParallelGroup(
-																javax.swing.GroupLayout.Alignment.BASELINE)
-														.addComponent(
-																buttonChoose)
-														.addComponent(
-																buttonScan)
-														.addComponent(
-																buttonExit))
-										.addPreferredGap(
-												javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-										.addComponent(labelDirectory)
-										.addGap(26, 26, 26)
-										.addComponent(
-												barProgress,
-												javax.swing.GroupLayout.PREFERRED_SIZE,
-												29,
-												javax.swing.GroupLayout.PREFERRED_SIZE)
-										.addPreferredGap(
-												javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-										.addComponent(labelProgress)
-										.addContainerGap(50, Short.MAX_VALUE)));
+		layout.setHorizontalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+						.addGroup(layout.createSequentialGroup().
+								addGap(23, 23, 23).
+								addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+										.addGroup(layout.createSequentialGroup()
+												.addComponent(labelProgress,javax.swing.GroupLayout.PREFERRED_SIZE,	javax.swing.GroupLayout.PREFERRED_SIZE,javax.swing.GroupLayout.PREFERRED_SIZE)
+												.addContainerGap())
+												.addGroup(layout.createSequentialGroup()
+														.addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+																.addGroup(layout.createSequentialGroup()
+																		.addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+																				.addGroup(layout.createSequentialGroup()
+																						.addComponent(buttonChoose)
+																						.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+																						.addComponent(buttonScan)
+																						.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+																						.addComponent(buttonExit))
+																						.addComponent(labelDirectory,javax.swing.GroupLayout.DEFAULT_SIZE,180,Short.MAX_VALUE))
+																						.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
+																						.addGroup(layout.createSequentialGroup()
+																								.addComponent(barProgress,javax.swing.GroupLayout.PREFERRED_SIZE,274,javax.swing.GroupLayout.PREFERRED_SIZE)
+																								.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+																								.addGap(27,27,27)))));
+		layout.setVerticalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+				.addGroup(layout.createSequentialGroup()
+						.addGap(22, 22, 22)
+						.addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+								.addComponent(buttonChoose)
+								.addComponent(buttonScan)
+								.addComponent(buttonExit))
+								.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+								.addComponent(labelDirectory)
+								.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+								.addComponent(barProgress,javax.swing.GroupLayout.PREFERRED_SIZE,30,javax.swing.GroupLayout.PREFERRED_SIZE)
+								.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+								.addComponent(labelProgress)
+								.addContainerGap(50, Short.MAX_VALUE)));
 
 		pack();
 	}// </editor-fold>//GEN-END:initComponents
@@ -212,31 +144,27 @@ public class ScanDialog extends javax.swing.JFrame {
 
 	private void buttonScanActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_buttonScanActionPerformed
 
-		if(reader != null)
-		{
+		if (reader != null) {
 			labelProgress.setText("Scanning " + directory);
 			new Thread() {
 				public void run() {
-					new ResultsDialog(reader.scan(barProgress)).setVisible(true);
+					new ResultsDialog(reader.scan(barProgress))
+							.setVisible(true);
 					buttonChoose.setEnabled(true);
 					buttonScan.setEnabled(true);
 				}
 			}.start();
 			buttonChoose.setEnabled(false);
 			buttonScan.setEnabled(false);
+		} else {
+			labelProgress.setText("ERROR: Please choose a directory");
 		}
-		else
-		{
-			labelProgress.setText("ERROR: Please choose a directory");	
-		}
-		//barProgress.setValue(75);
-		
+
 		/**
 		 * Test display - loads a UI_Result with Reader class
-		 *  
+		 * 
 		 */
-		//final Reader reader = new Reader(this.directory);
-		
+		// final Reader reader = new Reader(this.directory);
 
 	}// GEN-LAST:event_buttonScanActionPerformed
 
@@ -245,7 +173,7 @@ public class ScanDialog extends javax.swing.JFrame {
 	 *            the command line arguments
 	 */
 	public static void main(final String args[]) {
-		
+
 		java.awt.EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				new ScanDialog().setVisible(true);

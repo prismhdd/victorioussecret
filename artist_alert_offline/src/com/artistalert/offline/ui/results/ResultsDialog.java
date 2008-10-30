@@ -1,4 +1,5 @@
 package com.artistalert.offline.ui.results;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -14,22 +15,20 @@ import javax.swing.JList;
 
 import com.artistalert.offline.tags.Reader;
 
-
 /**
  * 
  * @author Charlie
  * 
- * modified to test sending data between frames
+ *         modified to test sending data between frames
  * @author Woojoon
  * 
  */
 public class ResultsDialog extends javax.swing.JFrame {
 
 	/** Creates new form results_uc */
-//	public UI_Results() {
-//		initComponents();
-//	}
-	
+	// public UI_Results() {
+	// initComponents();
+	// }
 	/** TEST constructor w/ reader */
 	public ResultsDialog(Map<String, Collection<String>> data) {
 		initComponents(data);
@@ -53,74 +52,74 @@ public class ResultsDialog extends javax.swing.JFrame {
 		labelAlbums = new javax.swing.JLabel();
 		buttonExport = new javax.swing.JButton();
 		buttonExit = new javax.swing.JButton();
-		
+
 		setTitle("ArtistAlert - Scanner");
 
 		setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-		
+
 		/**
 		 * list model defines entries of JList
 		 */
 		DefaultListModel listModelA = new DefaultListModel();
 		DefaultListModel listModelB = new DefaultListModel();
 		/**
-		 * Iterator will traverse the entries in the map "Artist"
-		 * entries will be added to the list models
+		 * Iterator will traverse the entries in the map "Artist" entries will
+		 * be added to the list models
 		 * 
 		 */
 		Set entries = artists.entrySet();
 		Iterator iter = entries.iterator();
-        while (iter.hasNext()) {
-        	Map.Entry curr = (Entry) iter.next();
-        	String key = (String) curr.getKey();
+		while (iter.hasNext()) {
+			Map.Entry curr = (Entry) iter.next();
+			String key = (String) curr.getKey();
 			Collection<String> value = (Collection<String>) curr.getValue();
-			for (int i=0; i<value.size(); i++) {
+			for (int i = 0; i < value.size(); i++) {
 				listModelB.addElement(value);
 			}
 			listModelA.addElement(key);
 		}
-        
-        listArtists = new JList(listModelA);
-//		listArtists.setModel(new javax.swing.AbstractListModel()
-//		{
-//			/**
-//			 * from reader.java
-//			 */
-//	
-//
-//			String[] strings = { "hello 1", "Item 2", "Item 3", "Item 4",
-//					"Item 5" };
-//
-//			public int getSize() {
-//				return strings.length;
-//			}
-//
-//			public Object getElementAt(int i) {
-//				return strings[i];
-//			}
-//		});
+
+		listArtists = new JList(listModelA);
+		// listArtists.setModel(new javax.swing.AbstractListModel()
+		// {
+		// /**
+		// * from reader.java
+		// */
+		//	
+		//
+		// String[] strings = { "hello 1", "Item 2", "Item 3", "Item 4",
+		// "Item 5" };
+		//
+		// public int getSize() {
+		// return strings.length;
+		// }
+		//
+		// public Object getElementAt(int i) {
+		// return strings[i];
+		// }
+		// });
 		listArtists
 				.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
 		paneArtists.setViewportView(listArtists);
 
 		listAlbums = new JList(listModelB);
-//		listAlbums.setModel(new javax.swing.AbstractListModel()
-//		{
-//			String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4",
-//					"Item 5" };
-//
-//			public int getSize() {
-//				return strings.length;
-//			}
-//
-//			public Object getElementAt(int i) {
-//				return strings[i];
-//			}
-//		});
+		// listAlbums.setModel(new javax.swing.AbstractListModel()
+		// {
+		// String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4",
+		// "Item 5" };
+		//
+		// public int getSize() {
+		// return strings.length;
+		// }
+		//
+		// public Object getElementAt(int i) {
+		// return strings[i];
+		// }
+		// });
 		listAlbums
 				.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
 		paneAlbums.setViewportView(listAlbums);
-        
+
 		labelArtists.setText("Artists (X)");
 
 		labelAlbums.setText("Albums (Y)");
@@ -166,7 +165,7 @@ public class ResultsDialog extends javax.swing.JFrame {
 																		.addComponent(
 																				paneArtists,
 																				javax.swing.GroupLayout.PREFERRED_SIZE,
-																				250,
+																				javax.swing.GroupLayout.PREFERRED_SIZE,
 																				javax.swing.GroupLayout.PREFERRED_SIZE)
 																		.addComponent(
 																				labelArtists))
@@ -182,7 +181,7 @@ public class ResultsDialog extends javax.swing.JFrame {
 														.addComponent(
 																paneAlbums,
 																javax.swing.GroupLayout.PREFERRED_SIZE,
-																250,
+																javax.swing.GroupLayout.PREFERRED_SIZE,
 																javax.swing.GroupLayout.PREFERRED_SIZE)
 														.addComponent(
 																buttonExit))
@@ -236,53 +235,53 @@ public class ResultsDialog extends javax.swing.JFrame {
 	/**
 	 * @param args
 	 *            the command line arguments
-	 * @throws FileNotFoundException 
+	 * @throws FileNotFoundException
 	 */
-//	public static void main(String args[]) {
-//		java.awt.EventQueue.invokeLater(new Runnable() {
-//			public void run() {
-//				new UI_Results(reader).setVisible(true);
-//			}
-//		});
-//	}
-	
+	// public static void main(String args[]) {
+	// java.awt.EventQueue.invokeLater(new Runnable() {
+	// public void run() {
+	// new UI_Results(reader).setVisible(true);
+	// }
+	// });
+	// }
 	@SuppressWarnings("static-access")
-	private void buttonExportActionPerformed(java.awt.event.ActionEvent evt, Map<String, Collection<String>> artists) throws FileNotFoundException {// GEN-FIRST:event_buttonExportActionPerformed
+	private void buttonExportActionPerformed(java.awt.event.ActionEvent evt,
+			Map<String, Collection<String>> artists)
+			throws FileNotFoundException {// GEN-FIRST:event_buttonExportActionPerformed
 
 		JFileChooser saver = new JFileChooser();
 		saver.setFileSelectionMode(JFileChooser.SAVE_DIALOG);
-		//saver.setSelectedFile(new File("export.xml"));
+		// saver.setSelectedFile(new File("export.xml"));
 		saver.showSaveDialog(getParent());
-		
-		//while(saver.getSelectedFile() == saver.CANCEL_OPTION)
-		//	saver.showSaveDialog(getParent());
+
+		// while(saver.getSelectedFile() == saver.CANCEL_OPTION)
+		// saver.showSaveDialog(getParent());
 		File file = saver.getSelectedFile();
-		
-		//System.out.println(file.getName());
-		//File file = new File("export.xml");
+
+		// System.out.println(file.getName());
+		// File file = new File("export.xml");
 		try {
 			file.createNewFile();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		if(file.canWrite())
-		{
-			java.io.PrintWriter output = new java.io.PrintWriter(file);		
+		if (file.canWrite()) {
+			java.io.PrintWriter output = new java.io.PrintWriter(file);
 			output.println("<artists>");
 			final Iterator<String> artistItr = artists.keySet().iterator();
 			artistItr.hasNext();
 			while (artistItr.hasNext()) {
 				final String artist = artistItr.next();
 				output.println("\t<artist>");
-				output.println("\t\t"+artist);
+				output.println("\t\t" + artist);
 				output.println("\t\t<albums");
-				final Iterator<String> albumItr = artists.get(artist).iterator();
-				while(albumItr.hasNext())
-				{
+				final Iterator<String> albumItr = artists.get(artist)
+						.iterator();
+				while (albumItr.hasNext()) {
 					final String album = albumItr.next();
 					output.println("\t\t\t<album>");
-					output.println("\t\t\t\t"+album);
+					output.println("\t\t\t\t" + album);
 					output.println("\t\t\t<\\album>");
 				}
 				output.println("\t<\\artist>");
