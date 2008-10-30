@@ -1,3 +1,14 @@
+/* ISSUES
+ * 
+ * extra empty artist in export.xml
+ * can't overwrite export file
+ * in save dialog box you have to type file name
+ * should select all albums from an artist when artist is selected
+ * document everything
+ * iterate through directories properly  (mac)?
+ * 
+ */
+
 package com.artistalert.offline.ui.scan;
 
 import com.artistalert.offline.tags.Reader;
