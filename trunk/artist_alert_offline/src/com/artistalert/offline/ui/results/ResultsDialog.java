@@ -256,7 +256,7 @@ public class ResultsDialog extends javax.swing.JFrame {
 		//	saver.showSaveDialog(getParent());
 		File file = saver.getSelectedFile();
 		
-		System.out.println(file.getName());
+		//System.out.println(file.getName());
 		//File file = new File("export.xml");
 		try {
 			file.createNewFile();

@@ -77,7 +77,8 @@ public class Reader {
 				final String album = getAlbum(mp3);
 				final String artist = getArtist(mp3);
 				if (artists.containsKey(artist)) {
-					artists.get(artist).add(album);
+					if(!artists.get(artist).contains(album))
+						artists.get(artist).add(album);
 				} else {
 					final Collection<String> albums = new ArrayList<String>();
 					albums.add(album);
