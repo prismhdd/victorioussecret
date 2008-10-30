@@ -6,10 +6,10 @@
  # Scanning and save to database structure
  # Handling results from scan window to result window (need to be tested more)
  # Adding actions to buttons (e.g. exit buttons, choose dir, ...)
+ # Title
 
 == Work in progress ==
  # Matching correspond items in lists
- # Name of an application
  # deploying to executable file (JAR)
 
 == Found bugs ==
