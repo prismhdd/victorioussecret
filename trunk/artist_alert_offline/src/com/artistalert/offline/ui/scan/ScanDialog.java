@@ -56,6 +56,8 @@ public class ScanDialog extends javax.swing.JFrame {
 		labelDirectory = new javax.swing.JLabel();
 		labelProgress = new javax.swing.JLabel();
 		buttonExit = new javax.swing.JButton();
+		
+		setTitle("ArtistAlert");
 
 		setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
