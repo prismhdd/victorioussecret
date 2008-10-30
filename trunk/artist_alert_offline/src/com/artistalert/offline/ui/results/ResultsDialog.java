@@ -166,7 +166,7 @@ public class ResultsDialog extends javax.swing.JFrame {
 																		.addComponent(
 																				paneArtists,
 																				javax.swing.GroupLayout.PREFERRED_SIZE,
-																				117,
+																				250,
 																				javax.swing.GroupLayout.PREFERRED_SIZE)
 																		.addComponent(
 																				labelArtists))
@@ -182,7 +182,7 @@ public class ResultsDialog extends javax.swing.JFrame {
 														.addComponent(
 																paneAlbums,
 																javax.swing.GroupLayout.PREFERRED_SIZE,
-																125,
+																250,
 																javax.swing.GroupLayout.PREFERRED_SIZE)
 														.addComponent(
 																buttonExit))
