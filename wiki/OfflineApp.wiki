@@ -14,5 +14,6 @@
  # Matching correspond items in lists
 
 == Found bugs ==
- # UTF-16 encoded tags
- # ID3tags from iTunes (e.g. tag line - <ENCODED BY> iTunes v7.6.0.29)
+ # ~~UTF-16 encoded tags~~
+ # ~~ID3tags from iTunes (e.g. tag line - <ENCODED BY> iTunes v7.6.0.29)~~
+ # We use a different tag reader that can now handle these 
