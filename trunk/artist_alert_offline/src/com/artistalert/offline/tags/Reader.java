@@ -63,7 +63,7 @@ public class Reader {
 	 * Scans the directory for MP3 files and returns the found artists/albums
 	 * 
 	 * @return a map with keys as Artist/Band names, and the values as the
-	 * 	artist names
+	 *  artist names
 	 * @throws TagException
 	 * @throws IOException
 	 */
@@ -116,7 +116,7 @@ public class Reader {
 	 * Prints the artists/albums that were found
 	 * 
 	 * @param artists
-	 * 		the found artists/albums
+	 *      the found artists/albums
 	 */
 	private void printArtists(final Map<String, Collection<String>> artists) {
 		final Iterator<String> artistItr = artists.keySet().iterator();
@@ -135,7 +135,7 @@ public class Reader {
 	 * Returns the artist extracted from the mp3 file's tags
 	 * 
 	 * @param mp3
-	 * 		the mp3 file we want the tags from
+	 *      the mp3 file we want the tags from
 	 * @return the artist name
 	 */
 	private String getArtist(final MP3File mp3) {
@@ -151,7 +151,7 @@ public class Reader {
 	 * Returns the album extracted from the mp3 file's tag
 	 * 
 	 * @param mp3
-	 * 		the mp3 file we want the tags from
+	 *      the mp3 file we want the tags from
 	 * @return the album
 	 */
 	private String getAlbum(final MP3File mp3) {
@@ -182,9 +182,9 @@ public class Reader {
 	 * Adds an array to a collection
 	 * 
 	 * @param directories
-	 * 		the collection
+	 *       the collection
 	 * @param files
-	 * 		the array
+	 *       the array
 	 */
 	private void appendFiles(final Collection<File> mp3Files, final File[] files) {
 		for (File s : files) {

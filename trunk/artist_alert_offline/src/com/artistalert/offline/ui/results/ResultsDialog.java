@@ -268,26 +268,28 @@ public class ResultsDialog extends javax.swing.JFrame {
 		}
 		if (file.canWrite()) {
 			java.io.PrintWriter output = new java.io.PrintWriter(file);
+			output.println("<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?>");
 			output.println("<artists>");
 			final Iterator<String> artistItr = artists.keySet().iterator();
 			artistItr.hasNext();
 			while (artistItr.hasNext()) {
-				final String artist = artistItr.next();
+				final String artist = artistItr.next();				
 				output.println("\t<artist>");
 				output.println("\t\t" + artist);
-				output.println("\t\t<albums");
+				output.println("\t\t<albums>");
 				final Iterator<String> albumItr = artists.get(artist)
 						.iterator();
 				while (albumItr.hasNext()) {
 					final String album = albumItr.next();
 					output.println("\t\t\t<album>");
 					output.println("\t\t\t\t" + album);
-					output.println("\t\t\t<\\album>");
+					output.println("\t\t\t</album>");
 				}
-				output.println("\t<\\artist>");
+				output.println("\t\t</albums>");
+				output.println("\t</artist>");
 			}
 
-			output.print("</artist>");
+			output.print("</artists>");
 			output.close();
 		}
 		System.exit(0);
