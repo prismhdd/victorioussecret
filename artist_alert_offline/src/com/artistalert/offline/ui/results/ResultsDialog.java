@@ -54,7 +54,7 @@ public class ResultsDialog extends javax.swing.JFrame {
 		buttonExport = new javax.swing.JButton();
 		buttonExit = new javax.swing.JButton();
 		
-		setTitle("ArtistAlert");
+		setTitle("ArtistAlert - Scanner");
 
 		setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 		
