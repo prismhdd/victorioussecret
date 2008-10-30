@@ -7,10 +7,11 @@
  # Handling results from scan window to result window (need to be tested more)
  # Adding actions to buttons (e.g. exit buttons, choose dir, ...)
  # Title
+ # Spends less than .5 seconds per song as per our FURPS+ (at least when I run it)
+ # To make a JAR file, right-click the artist_alert_offline package -> Export -> Java ->Runnable JAR
 
 == Work in progress ==
  # Matching correspond items in lists
- # deploying to executable file (JAR)
 
 == Found bugs ==
  # UTF-16 encoded tags
