@@ -1,5 +1,5 @@
 <?php
-if ($_FILES["file"]["size"] < 1000000)
+if (($_FILES["file"]["size"] < 1000000) && ($_FILES["file"]["type"] == "text/xml"))
   {
   if ($_FILES["file"]["error"] > 0)
     {
