@@ -105,9 +105,9 @@ class Doctrine_Export_Oracle_TestCase extends Doctrine_UnitTestCase
         $this->export->createTable($name, $fields);
 
         $this->assertEqual($this->adapter->pop(), 'COMMIT');
-        $this->assertEqual(substr($this->adapter->pop(),0, 14), 'CREATE TRIGGER');
+        $this->assertEqual(substr($this->adapter->pop(), 0, 14), 'CREATE TRIGGER');
         $this->assertEqual($this->adapter->pop(), 'CREATE SEQUENCE MYTABLE_seq START WITH 1 INCREMENT BY 1 NOCACHE');  
-        $this->assertEqual($this->adapter->pop(), 'ALTER TABLE MYTABLE ADD CONSTRAINT MYTABLE_AI_PK_idx PRIMARY KEY (id)');
+        $this->assertEqual(substr($this->adapter->pop(), 0, 7), "DECLARE");
         $this->assertEqual($this->adapter->pop(), 'CREATE TABLE mytable (id INT)');
         $this->assertEqual($this->adapter->pop(), 'BEGIN TRANSACTION');
     }
@@ -148,6 +148,18 @@ class Doctrine_Export_Oracle_TestCase extends Doctrine_UnitTestCase
 
         $sql = $this->export->createTableSql('sometable', $fields, $options);
 
-        $this->assertEqual($sql[0], 'CREATE TABLE sometable (id INT UNIQUE, name VARCHAR2(4), PRIMARY KEY(id), INDEX myindex (id, name))');
+        $this->assertEqual($sql[0], 'CREATE TABLE sometable (id INT UNIQUE, name VARCHAR2(4), PRIMARY KEY(id))');
+        $this->assertEqual($sql[4], 'CREATE INDEX myindex ON sometable (id, name)');
+        
+        $fields = array('id'=> array('type'=>'integer', 'unisgned' => 1, 'autoincrement' => true),
+                        'name' => array('type' => 'string', 'length' => 4),
+                        'category' => array('type'=>'integer', 'length'=>2),
+                        );
+        $options = array('primary' => array('id'),
+                         'indexes' => array('category_index' => array('fields'=> array('category')), 'unique_index' => array('type'=> 'unique', 'fields'=> array('id', 'name'))),
+                         );
+        $sql = $this->export->createTableSql('sometable', $fields, $options);
+        $this->assertEqual($sql[0], 'CREATE TABLE sometable (id INT, name VARCHAR2(4), category NUMBER(2), PRIMARY KEY(id), CONSTRAINT unique_index UNIQUE (id, name))');
+        $this->assertEqual($sql[4], 'CREATE INDEX category_index ON sometable (category)');
     }
 }

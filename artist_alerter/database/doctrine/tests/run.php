@@ -26,6 +26,7 @@ $test = new DoctrineTest();
 // If you write a ticket testcase add it to the bottom of the list, with the ticket number in it
 $tickets = new GroupTest('Tickets Tests', 'tickets');
 $tickets->addTestCase(new Doctrine_Ticket_Njero_TestCase());
+$tickets->addTestCase(new Doctrine_Ticket_Ayoub_TestCase());
 $tickets->addTestCase(new Doctrine_Ticket_381_TestCase());
 $tickets->addTestCase(new Doctrine_Ticket_384_TestCase());
 $tickets->addTestCase(new Doctrine_Ticket_424B_TestCase());
@@ -128,12 +129,31 @@ $tickets->addTestCase(new Doctrine_Ticket_1335_TestCase());
 $tickets->addTestCase(new Doctrine_Ticket_1351_TestCase());
 $tickets->addTestCase(new Doctrine_Ticket_1365_TestCase());
 $tickets->addTestCase(new Doctrine_Ticket_1372_TestCase());
+$tickets->addTestCase(new Doctrine_Ticket_1380_TestCase());
 $tickets->addTestCase(new Doctrine_Ticket_1381_TestCase());
 $tickets->addTestCase(new Doctrine_Ticket_1383_TestCase());
 $tickets->addTestCase(new Doctrine_Ticket_1390_TestCase());
+$tickets->addTestCase(new Doctrine_Ticket_1395_TestCase());
 $tickets->addTestCase(new Doctrine_Ticket_1400_TestCase());
 $tickets->addTestCase(new Doctrine_Ticket_1419_TestCase());
 $tickets->addTestCase(new Doctrine_Ticket_1436_TestCase());
+$tickets->addTestCase(new Doctrine_Ticket_1441_TestCase());
+$tickets->addTestCase(new Doctrine_Ticket_1452_TestCase());
+$tickets->addTestCase(new Doctrine_Ticket_1454_TestCase());
+$tickets->addTestCase(new Doctrine_Ticket_1461_TestCase());
+$tickets->addTestCase(new Doctrine_Ticket_1465_TestCase());
+$tickets->addTestCase(new Doctrine_Ticket_1480_TestCase());
+$tickets->addTestCase(new Doctrine_Ticket_1483_TestCase());
+$tickets->addTestCase(new Doctrine_Ticket_1488_TestCase());
+$tickets->addTestCase(new Doctrine_Ticket_1507_TestCase());
+$tickets->addTestCase(new Doctrine_Ticket_1513_TestCase());
+$tickets->addTestCase(new Doctrine_Ticket_1520_TestCase());
+$tickets->addTestCase(new Doctrine_Ticket_1523_TestCase());
+$tickets->addTestCase(new Doctrine_Ticket_1527_TestCase());
+$tickets->addTestCase(new Doctrine_Ticket_1537_TestCase());
+$tickets->addTestCase(new Doctrine_Ticket_1540_TestCase());
+$tickets->addTestCase(new Doctrine_Ticket_1543_TestCase());
+$tickets->addTestCase(new Doctrine_Ticket_1545_TestCase());
 $test->addTestCase($tickets);
 
 // Connection Tests (not yet fully tested)
@@ -278,7 +298,7 @@ $behaviors->addTestCase(new Doctrine_SoftDelete_TestCase());
 $test->addTestCase($behaviors);
 
 // Validator Testing
-$validators = new GroupTest('Vavlidators Testing', 'validators');
+$validators = new GroupTest('Validators Testing', 'validators');
 $validators->addTestCase(new Doctrine_Validator_TestCase());
 $validators->addTestCase(new Doctrine_Validator_Future_TestCase());
 $validators->addTestCase(new Doctrine_Validator_Past_TestCase());
@@ -330,6 +350,7 @@ $query_tests->addTestCase(new Doctrine_Query_SelectExpression_TestCase());
 $query_tests->addTestCase(new Doctrine_Query_Registry_TestCase());
 $query_tests->addTestCase(new Doctrine_Query_RemoveQueryPart_TestCase());
 $query_tests->addTestCase(new Doctrine_Query_Copy_TestCase());
+$query_tests->addTestCase(new Doctrine_Query_HydrateNone_TestCase());
 $test->addTestCase($query_tests);
 
 // Record Tests
@@ -405,9 +426,4 @@ $unsorted->addTestCase(new Doctrine_NestedSet_MultiRoot_TestCase());
 $unsorted->addTestCase(new Doctrine_PessimisticLocking_TestCase());
 $test->addTestCase($unsorted);
 
-$s = microtime(true);
 $test->run();
-$e = microtime(true);
-
-echo 'test run took: ' . ($e - $s) . ' seconds' . PHP_EOL;
-echo "peak memory usage: " . memory_get_peak_usage() / 1024 . "KB" . PHP_EOL;

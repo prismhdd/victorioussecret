@@ -546,7 +546,8 @@ abstract class Doctrine_Query_Abstract
      *
      * @param array $params
      */
-    public function setParams(array $params = array()) {
+    public function setParams(array $params = array())
+    {
         $this->_params = $params;
     }
 
@@ -690,11 +691,12 @@ abstract class Doctrine_Query_Abstract
             $name = substr($oldAlias, 0, 1);
             $i    = ((int) substr($oldAlias, 1));
 
-            if ($i == 0) {
-                $i = 1;
+            // Fix #1530: It was reaching unexistent seeds index
+            if ( ! isset($this->_tableAliasSeeds[$name])) {
+                $this->_tableAliasSeeds[$name] = 1;
             }
 
-            $newIndex  = ($this->_tableAliasSeeds[$name] + $i);
+            $newIndex  = ($this->_tableAliasSeeds[$name] + (($i == 0) ? 1 : $i));
 
             return $name . $newIndex;
         }
@@ -782,10 +784,11 @@ abstract class Doctrine_Query_Abstract
      *                                  aliases are copied from
      * @return Doctrine_Hydrate         this object
      */
-    public function copyAliases(Doctrine_Query_Abstract $query)
+    public function copySubqueryInfo(Doctrine_Query_Abstract $query)
     {
-        $this->_tableAliasMap = $query->_tableAliasMap;
-        $this->_queryComponents     = $query->_queryComponents;
+        $this->_params =& $query->_params;
+        $this->_tableAliasMap =& $query->_tableAliasMap;
+        $this->_queryComponents =& $query->_queryComponents;
         $this->_tableAliasSeeds = $query->_tableAliasSeeds;
         return $this;
     }
@@ -955,13 +958,13 @@ abstract class Doctrine_Query_Abstract
             throw new Doctrine_Query_Exception('You must have at least one component specified in your from.');
         }
 
-        $this->_preQuery();
+        $params = $this->getParams($params);
+
+        $this->_preQuery($params);
 
         if ($hydrationMode !== null) {
             $this->_hydrator->setHydrationMode($hydrationMode);
         }
-
-        $params = $this->getParams($params);
 
         if ($this->_resultCache && $this->_type == self::SELECT) {
             $cacheDriver = $this->getResultCacheDriver();
@@ -1037,9 +1040,9 @@ abstract class Doctrine_Query_Abstract
      *
      * @return void
      */
-    protected function _preQuery()
+    protected function _preQuery($params = array())
     {
-        if ( ! $this->_preQueried && Doctrine_Manager::getInstance()->getAttribute('use_dql_callbacks')) {
+        if ( ! $this->_preQueried && $this->getConnection()->getAttribute('use_dql_callbacks')) {
             $this->_preQueried = true;
 
             $callback = $this->_getDqlCallback();
@@ -1050,7 +1053,7 @@ abstract class Doctrine_Query_Abstract
             }
 
             $copy = $this->copy();
-            $copy->getSqlQuery();
+            $copy->getSqlQuery($params);
 
             foreach ($copy->getQueryComponents() as $alias => $component) {
                 $table = $component['table'];

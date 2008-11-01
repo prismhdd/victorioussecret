@@ -14,6 +14,10 @@
 				<li class="<?php if (strpos($_SERVER['PHP_SELF'],'download.php') != false) print('active');?>"><a href="download.php">Download</a></li>
 				<li class="<?php if (strpos($_SERVER['PHP_SELF'],'library.php') != false) print('active');?>"><a href="library.php">Library</a></li>
 				<li class="<?php if (strpos($_SERVER['PHP_SELF'],'about.php') != false) print('active');?>"><a href="about.php">About Us</a></li>
+				<?php if ($_SESSION['user']) { ?>
+					<!-- This stuff shows up when the user is logged in -->
+					 <li class="<?php if (strpos($_SERVER['PHP_SELF'],'send_recommendation.php') != false) print('active');?>"><a href="recommendations/send_recommendation.php">Send Recommendation</a></li>
+				<?php } ?>
 			</ul>
 		</div>
 		<div id="login" class="boxed">

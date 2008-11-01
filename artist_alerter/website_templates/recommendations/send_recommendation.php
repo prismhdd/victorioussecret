@@ -48,7 +48,7 @@ if (isset($_GET['search_username'])) {
 ?>
 
 <div>
-	<p>Send recommendation</p>
+	<p>Send recommendation <a href="send_recommendation.php">Reset Form</a></p>
 	<?php if (!isset($_GET['to_user_id'])) { ?>
 			<p>Please search for the user that you want to send the recommendation to</p>
 			<form method="get">
@@ -62,20 +62,21 @@ if (isset($_GET['search_username'])) {
 					<ul>
 						<?php
 						foreach($users as $user) { ?>
-							<li><?php print $user['username'] ?></li>
+							<li><a href="send_recommendation.php?to_user_id=<?php print $user['user_id'] ?>&username=<?php print $user['username'] ?>"><?php print $user['username'] ?></a></li>
 						<?php } ?>
 					</ul>
 				<?php }
 			}
+			if (!isset($users) && isset($_GET['search_username'])) { ?>
+				<p>No users found, try again</p>
+			<?php
+			}
 	}
 		?>
+		
+		<?php if (isset($_GET['to_user_id'])) { ?>
+			to <?php print $_GET['username'] ?>
 	<form method="post">
-		to user
-		<select name="to_user_id">
-			<?php foreach($users as $user) { ?>
-				<option value="<?php print $user['user_id'] ?>"><?php print $user['email_address'] ?></option>
-			<?php } ?>			
-		</select>
 		from <?php print $_SESSION['user']['first_name'] ?>
 		
 		message
@@ -91,4 +92,6 @@ if (isset($_GET['search_username'])) {
 		
 		<input type="submit" />
 	</form>
+	
+	<?php } ?>
 </div>
