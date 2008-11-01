@@ -4,18 +4,13 @@ session_start();
  * For sending recommendations to users
  */
  
- if (!$_SESSION['user']) {
+ /*if (!$_SESSION['user']) {
  	die('You need to login to send recommendations');
- }
+ }*/
  
 require_once('../../database/config.php');
 $conn = Doctrine_Manager :: connection(DSN);
 $current_user_id = $_SESSION['user']['user_id'];
-//Get all of the users we can send recommendations to
-$users = Doctrine_Query::create()
-		          ->from('User u')
-		          // ->where('u.user_id!=?', $current_user_id); //when enabled this will not include the logged in user
-		          ->execute();
 
 //Get all of the albums we can recommend
 $user_albums = Doctrine_Query::create()
@@ -31,10 +26,49 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	$recommendation['album_id'] = $_POST['album_id'];
 	$recommendation->save();
 }
+
+if (isset($_GET['search_username'])) {
+	//Search for all the usernames that match the criteria
+	$search = Doctrine::getTable('User')
+	               ->getTemplate('Doctrine_Template_Searchable')
+	               ->getPlugin();
+		
+		$results = $search->search($_GET['search_username']);
+		foreach($results as $result) {
+			$user_ids[] = (int) $result['user_id'];
+		}
+		
+		if (count($user_ids) > 0) {
+			$users = Doctrine_Query::create()
+			          ->from('User u')
+			          ->whereIn('u.user_id', $user_ids)
+			          ->execute();
+		}
+}
 ?>
 
 <div>
-	Send recommendation
+	<p>Send recommendation</p>
+	<?php if (!isset($_GET['to_user_id'])) { ?>
+			<p>Please search for the user that you want to send the recommendation to</p>
+			<form method="get">
+				<input type="text" name="search_username" />
+				<input type="submit" />
+			</form>
+			<?php if (isset($users)) { 
+				if ($users->count() == 0) {?>
+					<p>No users found</p>
+				<?php } else { ?>
+					<ul>
+						<?php
+						foreach($users as $user) { ?>
+							<li><?php print $user['username'] ?></li>
+						<?php } ?>
+					</ul>
+				<?php }
+			}
+	}
+		?>
 	<form method="post">
 		to user
 		<select name="to_user_id">
