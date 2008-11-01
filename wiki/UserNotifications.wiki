@@ -1,0 +1,4 @@
+#summary How user notifications will work
+
+TODO
+discuss problem + solution of multiple notifications
