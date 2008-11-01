@@ -1,6 +1,6 @@
 <?php
 /*
- *  $Id: Table.php 4894 2008-09-08 21:45:43Z jwage $
+ *  $Id: Table.php 4957 2008-09-12 20:00:11Z jwage $
  *
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
@@ -28,7 +28,7 @@
  * @package     Doctrine
  * @subpackage  Table
  * @license     http://www.opensource.org/licenses/lgpl-license.php LGPL
- * @version     $Revision: 4894 $
+ * @version     $Revision: 4957 $
  * @link        www.phpdoctrine.org
  * @since       1.0
  */
@@ -1273,7 +1273,7 @@ class Doctrine_Table extends Doctrine_Configurable implements Countable
      * findAll
      * returns a collection of records
      *
-     * @param int $hydrationMode        Doctrine::FETCH_ARRAY or Doctrine::FETCH_RECORD
+     * @param int $hydrationMode        Doctrine::HYDRATE_ARRAY or Doctrine::HYDRATE_RECORD
      * @return Doctrine_Collection
      */
     public function findAll($hydrationMode = null)
@@ -1289,7 +1289,7 @@ class Doctrine_Table extends Doctrine_Configurable implements Countable
      *
      * @param string $dql               DQL after WHERE clause
      * @param array $params             query parameters
-     * @param int $hydrationMode        Doctrine::FETCH_ARRAY or Doctrine::FETCH_RECORD
+     * @param int $hydrationMode        Doctrine::HYDRATE_ARRAY or Doctrine::HYDRATE_RECORD
      * @return Doctrine_Collection
      *
      * @todo This actually takes DQL, not SQL, but it requires column names
@@ -1308,7 +1308,7 @@ class Doctrine_Table extends Doctrine_Configurable implements Countable
      *
      * @param string $dql               DQL after WHERE clause
      * @param array $params             query parameters
-     * @param int $hydrationMode        Doctrine::FETCH_ARRAY or Doctrine::FETCH_RECORD
+     * @param int $hydrationMode        Doctrine::HYDRATE_ARRAY or Doctrine::HYDRATE_RECORD
      * @return Doctrine_Collection
      */
     public function findByDql($dql, $params = array(), $hydrationMode = null)
