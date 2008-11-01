@@ -5,5 +5,7 @@
  */
 class User extends BaseUser
 {
-
+	public function setUp() {
+		$this->actAs('Searchable', array('fields' => array('username')));
+	}
 }

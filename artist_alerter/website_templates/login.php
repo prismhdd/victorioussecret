@@ -4,11 +4,11 @@ require_once('../database/config.php');
 	
 $conn = Doctrine_Manager :: connection(DSN);
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && !$_POST['createprofile']) {
-	$email_address = $_POST['emailAddress'];
+	$username = $_POST['username'];
 	$password = $_POST['password'];
 	$user = Doctrine_Query::create()
 		          ->from('User u')
-		          ->where('u.email_address=? AND u.password=?', array($email_address, md5($password)))
+		          ->where('u.username=? AND u.password=?', array($username, md5($password)))
 		          ->fetchOne();
 	if ($user) {		
 		session_start();
@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && !$_POST['createprofile']) {
 <form method="post" action="login.php?lastpage=<?php print $_SERVER['PHP_SELF'] ?>">
 		<fieldset>
 		<label for="inputtext1">User Name:</label>
-		<input id="inputtext1" name="emailAddress" type="text" value="<?php print $_GET['username'] ?>">
+		<input id="inputtext1" name="username" type="text" value="<?php print $_GET['username'] ?>">
 		<label for="inputtext2">Password:</label>
 		<input id="inputtext2" name="password" type="password">
 		<input id="inputsubmit1" name="inputsubmit1" value="Sign In" type="submit"><br/>
