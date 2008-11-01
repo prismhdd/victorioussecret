@@ -20,4 +20,4 @@ CREATE TABLE user_index (
 	position int8 NOT NULL
 ) WITHOUT OIDS;
 
---INSERT INTO users VALUES(nextval('user_seq'),'SYSTEM','SYSTEM','SYSTEM','SYSTEM','SYSTEM');
+INSERT INTO users VALUES(nextval('user_seq'),'SYSTEM','SYSTEM','SYSTEM','SYSTEM','SYSTEM');

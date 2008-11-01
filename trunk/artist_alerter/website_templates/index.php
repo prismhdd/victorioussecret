@@ -1,4 +1,10 @@
 <?php session_start() ?>
+<?php
+if (isset($_GET['logout'])) {
+	session_destroy();
+	header('Location: index.php');
+}
+?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html><head>
 <title>Artist Alert - SD&amp;D</title><link href="default.css" rel="stylesheet" type="text/css"></head>
