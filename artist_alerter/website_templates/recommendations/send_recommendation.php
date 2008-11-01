@@ -20,7 +20,7 @@ $users = Doctrine_Query::create()
 //Get all of the albums we can recommend
 $user_albums = Doctrine_Query::create()
 		          ->from('UserAlbum ua')
-		          ->where('ua.user_id=?', $current_user_id)
+		         ->where('ua.user_id=?', $current_user_id)
 		          ->execute();
 		          
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -49,7 +49,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		
 		for album
 		<select name="album_id">
-			<?php foreach($user_albums as $user_album) { ?>
+			<?php foreach($user_albums as $user_album) {?>
+				
 				<option value="<?php print $user_album['Album']['album_id'] ?>"><?php print $user_album['Album']['name'] ?></option>
 			<?php } ?>			
 		</select>

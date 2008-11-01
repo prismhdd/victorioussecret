@@ -9,7 +9,7 @@ abstract class BaseUserArtist extends Doctrine_Record
   {
     $this->setTableName('user_artists');
     $this->hasColumn('user_id', 'integer', 8, array('type' => 'integer', 'length' => 8, 'primary' => true));
-    $this->hasColumn('artist_id', 'integer', 8, array('type' => 'integer', 'length' => 8, 'notnull' => true));
+    $this->hasColumn('artist_id', 'integer', 8, array('type' => 'integer', 'length' => 8, 'primary' => true));
   }
 
 }
