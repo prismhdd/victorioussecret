@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="UserTest" file="/home/anthony/workspaces/personal/artist_alerter/tests/UserTest.php" tests="1" assertions="0" failures="0" errors="1" time="0.073313">
+    <testcase name="testRegisterNewUser" class="UserTest" file="/home/anthony/workspaces/personal/artist_alerter/tests/UserTest.php" line="12" assertions="0" time="0.073313">
+      <error type="Doctrine_Connection_Pgsql_Exception">testRegisterNewUser(UserTest)
+Doctrine_Connection_Pgsql_Exception: SQLSTATE[23505]: Unique violation: 7 ERROR:  duplicate key violates unique constraint "username_unique"
+
+/home/anthony/workspaces/personal/artist_alerter/database/doctrine/lib/Doctrine/Connection.php:1074
+/home/anthony/workspaces/personal/artist_alerter/database/doctrine/lib/Doctrine/Connection/Statement.php:244
+/home/anthony/workspaces/personal/artist_alerter/database/doctrine/lib/Doctrine/Connection.php:1039
+/home/anthony/workspaces/personal/artist_alerter/database/doctrine/lib/Doctrine/Connection.php:673
+/home/anthony/workspaces/personal/artist_alerter/database/doctrine/lib/Doctrine/Connection/UnitOfWork.php:589
+/home/anthony/workspaces/personal/artist_alerter/database/doctrine/lib/Doctrine/Connection/UnitOfWork.php:551
+/home/anthony/workspaces/personal/artist_alerter/database/doctrine/lib/Doctrine/Connection/UnitOfWork.php:78
+/home/anthony/workspaces/personal/artist_alerter/database/doctrine/lib/Doctrine/Record.php:1235
+/home/anthony/workspaces/personal/artist_alerter/tests/UserTest.php:21
+</error>
+    </testcase>
+  </testsuite>
+</testsuites>

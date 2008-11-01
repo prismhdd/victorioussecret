@@ -9,7 +9,7 @@ abstract class BaseUserAlbum extends Doctrine_Record
   {
     $this->setTableName('user_albums');
     $this->hasColumn('user_id', 'integer', 8, array('type' => 'integer', 'length' => 8, 'primary' => true));
-    $this->hasColumn('album_id', 'integer', 8, array('type' => 'integer', 'length' => 8, 'notnull' => true));
+    $this->hasColumn('album_id', 'integer', 8, array('type' => 'integer', 'length' => 8, 'primary' => true));
     $this->hasColumn('rating', 'integer', 2, array('type' => 'integer', 'length' => 2));
   }
   
