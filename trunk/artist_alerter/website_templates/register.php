@@ -14,6 +14,10 @@
 				<form method="POST">	      
                 <table id="signupfields">
                     <tr>
+                        <th align="left"><label for="username">Username:</label></th>
+                        <td><input id="username" type="text" name="username"/></td>
+                    </tr>
+                    <tr>
                         <th align="left"><label for="firstname">First Name:</label></th>
                         <td><input id="firstname" type="text" name="firstname"/></td>
                     </tr>
