@@ -3,7 +3,7 @@ require_once('../database/config.php');
 
 	
 $conn = Doctrine_Manager :: connection(DSN);
-if ($_SERVER['REQUEST_METHOD'] == 'POST' && !$_POST['createprofile']) {
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['inputsubmit1']) {
 	$username = $_POST['username'];
 	$password = $_POST['password'];
 	$user = Doctrine_Query::create()

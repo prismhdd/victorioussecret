@@ -11,6 +11,14 @@ session_start();
 require_once('../database/config.php');
 $conn = Doctrine_Manager :: connection(DSN);
 $current_user_id = $_SESSION['user']['user_id'];
+if (isset($_GET['id']) && isset($_GET['action']) && is_numeric($_GET['id'])) {
+	if ($_GET['action'] == 'remove')  {
+		Doctrine_Query::create()->delete()
+		          ->from('Recommendation r')
+		          ->where('r.from_user_id=? and r.recommendation_id=?', array($current_user_id, $_GET['id']))
+		          ->execute();
+	}
+}
 //Get all of the recommendations
 $recommendations = Doctrine_Query::create()
 		          ->from('Recommendation r')
@@ -32,8 +40,19 @@ $recommendations = Doctrine_Query::create()
 			 (<?php print $recommendations->count()?> Recommendations Found)
 			<ul>
 				<?php foreach($recommendations as $recommendation) { ?>
-						<li>(<?php print $recommendation['date_added'] ?>) Recomendation from <?php print $recommendation['FromUser']['first_name']?> for
-						<?php print $recommendation['Album']['name'] ?> </li>
+						<li><span style="font-weight:bold;">(<?php print $recommendation['date_added'] ?>)</span> Recommendation from 
+						<span style="font-weight:bold"><a href="view_user_info.php?id=
+						<?php print $recommendation['FromUser']['user_id'] ?>">
+						<?php print $recommendation['FromUser']['first_name']?></a></span> for
+						<span style="font-weight:bold"><a href="view_album_info.php?id=
+						<?php print $recommendation['Album']['album_id'] ?>">
+						<?php print $recommendation['Album']['name'] ?></a></span>
+						<a href="view_recommendations.php?id=<?php print $recommendation['recommendation_id']?>&
+						action=remove">(remove)</a> 
+						<br/>
+							<span>Message: <?php print $recommendation['note']?>
+							</span>
+						</li>
 				<?php } ?>
 			</ul>
 		</div>

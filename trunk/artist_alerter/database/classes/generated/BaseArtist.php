@@ -11,6 +11,7 @@ abstract class BaseArtist extends Doctrine_Record
     $this->hasColumn('artist_id', 'integer', 8, array('type' => 'integer', 'length' => 8, 'primary' => true, 'sequence' => 'artist'));
     $this->hasColumn('name', 'string', 512, array('type' => 'string', 'length' => '512', 'notnull' => true));
     $this->hasColumn('date_added', 'date', null, array('type' => 'date', 'notnull' => true, 'default' => 'now()'));
+    $this->hasColumn('added_by_user_id', 'integer', 8, array('type' => 'integer', 'length' => 8, 'notnull' => true));
   }
   
   public function setUp()
