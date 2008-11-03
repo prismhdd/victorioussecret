@@ -10,14 +10,11 @@
 	<?php require_once('sidebar.php') ?>
 	<div id="main">
 		<div id="welcome" class="post">
-			<h2 class="title">MyLibrary</h2>
-		</div>
-		
-		
+			<h2 class="title">Artist Info</h2>
+		</div>		
 	</div>
 </div>
 
 <?php require_once('footer.php'); ?>
-
 
 </body></html>
