@@ -1,0 +1,6 @@
+#summary Postgre SQL command
+
+== Installing Database ==
+  # \c [[Database Name]] (e.g. postgres as default)
+  # \cd [[Directory]] (no spaces)
+  # \i setup.sql
