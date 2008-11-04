@@ -3,7 +3,7 @@
 = Setting up the database =
   # Install PostgreSQL
   # Go to Start -> Programs -> PostgreSQL -> psql to postgres  (I don't know the exact location but it is called psql)
-  # type \cd c:\path\to\your\workspace\artist_alerter\database\sql   (the path cannot contain spaces)
+  # type \cd c:/path/to/your/workspace/artist_alerter/database/sql   (the path cannot contain spaces)
   # type \i setup.sql
 
 = users =
