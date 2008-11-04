@@ -44,6 +44,7 @@
 			   <?php
 					  if($_POST['createprofile']){
 					    
+					    $username = $_POST['username'];
 					    $fname = $_POST['firstname'];
 					    $lname = $_POST['lastname'];
 					    $email = $_POST['email'];
@@ -51,67 +52,74 @@
 					    $confirmpw = $_POST['confirmpw'];
 					    $error = 0;
 					    
-					    
-					    
+					    echo "<br>";
+					    // empty field checking
+					    if(!$username) {
+					      $error ++;
+					      echo $error . ". You didn't enter a user name!<br>";
+					    }
 					  	if(!$fname) {
 					      $error ++;
-					      echo $error . ". You didn't enter first name!<Br>\n";
+					      echo $error . ". You didn't enter first name!<br>";
 					    }
 					    if(!$lname) {
 					      $error ++;
-					      echo $error . ". You didn't enter last name!<Br>\n";
+					      echo $error . ". You didn't enter last name!<br>";
 					    }
 					    if(!$password) {
 					      $error ++;
-					      echo $error . ". You didn't enter a password!<Br>\n";
+					      echo $error . ". You didn't enter a password!<br>";
 					    }
 					    if(!$confirmpw) {
 					      $error ++;
-					      echo $error . ". You didn't enter a confirm password!<Br>\n";
+					      echo $error . ". You didn't enter a confirm password!<br>";
 					    }
 					    
-					    //password checking
+					    // password checking
 					    if($password != $confirmpw) {
 					      $error ++;
-					      echo $error . ". You should enter a same password!<Br>\n";
+					      echo $error . ". You should enter a same password!<br>";
 					    }
 					    
 					 	// checking query for duplicates
-					 	
 					 	$sql = Doctrine_Query::create()
 								  ->from('User u')
-						          ->where('u.email_address=?', $email);
-				    	
+						          ->where('u.username=?', $username);
 				    	$checking = $sql->fetchOne();
 				    	if ($checking) {
 				    		$error ++;
-				      		echo $error . ". The username '".$email."' already exist!<br>";
+				      		echo $error . ". The username '".$username."' already exist!<br>";
 				    	}
-				    	else
-				    		echo "what are you doing";
+				    	$sql = Doctrine_Query::create()
+								  ->from('User u')
+						          ->where('u.email_address=?', $email);
+				    	$checking = $sql->fetchOne();
+				    	if ($checking) {
+				    		$error ++;
+				      		echo $error . ". The email '".$email."' already exist!<br>";
+				    	}
 				    	
-					    
-					    // insert query to matching field
-					    if ($error == 0) {
-					      
-					      /* test output
-					      echo "Fist Name : $fname<Br>\n" ."Last Name : $lname<Br>\n" .
-					      		"User Name : $username<Br>\n" ."Email : $email<Br>\n" .
-								"Password : $password<Br>\n" ."Confirm : $confirmpw<Br>\n";
-					      */
-				      
-					      require_once('../database/config.php');
+				    	// create user if no errors
+				    	if ($error == 0) {
+					      	/* test output
+					      	echo "Fist Name : $fname<Br>\n" ."Last Name : $lname<Br>\n" .
+					      		 "User Name : $username<Br>\n" ."Email : $email<Br>\n" .
+								 "Password : $password<Br>\n" ."Confirm : $confirmpw<Br>\n";
+					      	*/
+					      	require_once('../database/config.php');
 							
 							$conn = Doctrine_Manager :: connection(DSN);
 							
 							$user = new User();
 							
+							$user['username'] = $username;
 							$user['first_name'] = $fname;
 							$user['last_name'] = $lname;
 							$user['password'] = md5($password);
 							$user['email_address'] = $email;
-							$user['username'] = 'test';
 					    	$user->save();
+					    	
+					    	echo "Your account has been created!";
 					    }
 					  }
 				?>           
