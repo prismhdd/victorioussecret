@@ -1,11 +1,10 @@
 /* ISSUES
  * 
- * extra empty artist in export.xml
- * can't overwrite export file
- * in save dialog box you have to type file name
- * should select all albums from an artist when artist is selected
- * document everything
- * iterate through directories properly  (mac)?
+ * can't overwrite export file(Could)
+ * in save dialog box you have to type file name(Could)
+ * document everything(Must)
+ * error for empty directory(Should)
+ * alphabetize artist list(Should)
  * 
  */
 
@@ -156,6 +155,7 @@ public class ScanDialog extends javax.swing.JFrame {
 			}.start();
 			buttonChoose.setEnabled(false);
 			buttonScan.setEnabled(false);
+			
 		} else {
 			labelProgress.setText("ERROR: Please choose a directory");
 		}
