@@ -18,6 +18,7 @@
 					<!-- This stuff shows up when the user is logged in -->
 					 <li class="<?php if (strpos($_SERVER['PHP_SELF'],'send_recommendation.php') != false) print('active');?>"><a href="send_recommendation.php">Send Recommendations</a></li>
 					 <li class="<?php if (strpos($_SERVER['PHP_SELF'],'view_recommendations.php') != false) print('active');?>"><a href="view_recommendations.php">View Recommendations</a></li>
+					 <li class="<?php if (strpos($_SERVER['PHP_SELF'],'view_user_info.php') != false) print('active');?>"><a href="view_user_info.php">User Info</a></li>					 
 					 <li><a href="index.php?logout=1">Logout</a></li>
 				<?php } ?>
 			</ul>

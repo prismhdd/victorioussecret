@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['inputsubmit1']) {
 		          ->fetchOne();
 	if ($user) {		
 		session_start();
-		$_SESSION['user'] = array('first_name' => $user['first_name'], 'user_id' => $user['user_id'], 'email_address' => $user['email_address']);
+		$_SESSION['user'] = array('first_name' => $user['first_name'], 'user_id' => $user['user_id'], 'email_address' => $user['email_address'], 'last_name' => $user['last_name'], 'password' => $password);
 		print '<META HTTP-EQUIV=REFRESH CONTENT="2; URL='. $_GET['lastpage'].'"> Redirecting to ' . $_GET['lastpage'];
 		session_write_close();
 	} else {
