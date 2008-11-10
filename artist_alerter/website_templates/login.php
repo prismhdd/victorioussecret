@@ -38,8 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['inputsubmit1']) {
 	
 	<!-- stuff for when the user is logged in -->
 	Welcome <?php
-		$user = $_SESSION['user'];
-		print $user['first_name']; 
+		print $_SESSION['user']['first_name']; 
 	 ?>
 	
 	
