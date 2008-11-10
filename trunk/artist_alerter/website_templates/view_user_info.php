@@ -1,4 +1,11 @@
-<?php session_start() ?>
+<?php session_start();
+require_once('../database/config.php');
+$conn = Doctrine_Manager :: connection(DSN);
+$user = Doctrine_Query::create()
+			->from('User u')
+			->where('u.user_id=?', $_SESSION['user']['user_id'])
+			->fetchOne();
+?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html><head>
 <title>Artist Alert - SD&amp;D</title><link href="default.css" rel="stylesheet" type="text/css"></head>
@@ -90,8 +97,11 @@
 					      echo $error . ". You have to enter a password to change your information!<br>";
 					    }
 					    
+					    $check1 = hexdec($user['password']);
+					    $check2 = hexdec(md5($oldpassword));
+					    
 					    // old password checking
-					    if($oldpassword != $user['password']) {
+					    if($check1!=$check2) {
 					      $error ++;
 					      echo $error . ". Password Incorrect!<br>";
 					    }
@@ -99,7 +109,7 @@
 					    // new password checking
 					    if($newpassword != $confirmpw) {
 					      $error ++;
-					      echo $error . ". New password confimation failed!<br>";
+					      echo $error . ". Please enter same password for confirmation!<br>";
 					    }
 					    
 					 	// checking query for duplicates
@@ -117,8 +127,8 @@
 				    	// create user if no errors
 				    	if ($error == 0) {
 					      	
-					      	require_once('../database/config.php');
-							$conn = Doctrine_Manager :: connection(DSN);
+					      	//require_once('../database/config.php');
+							
 							//$userTable = Doctrine::getTable('users');
 							//$who = $userTable->find($user);
 							
@@ -128,17 +138,15 @@
 							$user['email_address'] = $email;
 							
 							if ($newpassword) {
-								$user['password'] = $newpassword;
+								$user['password'] = md5($newpassword);
 							}
-							//$user->save();
 							
-							/*
 							try {
 								$user->save();
 							} catch (Doctrine_Connection_Pgsql_Exception $e) {
 								print $e;
 							}
-							*/		
+								
 					    	echo "Your account has been changed!";
 					    }
 					  }
