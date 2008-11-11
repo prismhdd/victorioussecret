@@ -11,7 +11,6 @@ abstract class BaseUserAlbum extends Doctrine_Record
     $this->hasColumn('user_id', 'integer', 8, array('type' => 'integer', 'length' => 8, 'primary' => true));
     $this->hasColumn('album_id', 'integer', 8, array('type' => 'integer', 'length' => 8, 'primary' => true));
     $this->hasColumn('rating', 'integer', 2, array('type' => 'integer', 'length' => 2));
-    $this->hasColumn('date_added', 'date', null, array('type' => 'date', 'notnull' => true, 'default' => 'now()'));
   }
   
   public function setUp() 
