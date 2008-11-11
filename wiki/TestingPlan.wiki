@@ -1,7 +1,3 @@
 #summary Testing Plan for Artist Alerter
 
-phpunit
-
-...
-
-TODO
+Please see http://victorioussecret.googlecode.com/files/testing_plan.doc
