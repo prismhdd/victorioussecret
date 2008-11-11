@@ -16,13 +16,6 @@ abstract class BaseUser extends Doctrine_Record
     $this->hasColumn('last_name', 'string', 50, array('type' => 'string', 'length' => '50'));
   }
   
-  public function setUp() {
-  	$this->hasMany('Artist', array('local' => 'user_id',         // <- these are the column names
-                                      'foreign' => 'artist_id',      // <- in the association table
-                                      'refClass' => 'UserArtist'));  // <- the following line is needed in many-to-many relations
-	$this->hasMany('Album', array('local' => 'user_id',         // <- these are the column names
-                                      'foreign' => 'album_id',      // <- in the association table
-                                      'refClass' => 'UserAlbum'));  // <- the following line is needed in many-to-many relations
-  }
+ 
 
 }

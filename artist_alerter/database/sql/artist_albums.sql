@@ -24,6 +24,7 @@ CREATE TABLE albums (
 CREATE TABLE user_artists (
 	user_id int8 NOT NULL CONSTRAINT user_id_fk REFERENCES users(user_id),
 	artist_id int8 NOT NULL CONSTRAINT artist_id_fk REFERENCES artists(artist_id),
+	date_added date NOT NULL DEFAULT now(),
 	CONSTRAINT user_artists_pk PRIMARY KEY (user_id, artist_id)
 ) WITHOUT OIDS;
 
@@ -32,5 +33,6 @@ CREATE TABLE user_albums (
 	user_id int8 NOT NULL CONSTRAINT user_id_fk REFERENCES users(user_id),
 	album_id int8 NOT NULL CONSTRAINT album_id_fk REFERENCES albums(album_id),
 	rating int2, --rating from the user for this album on a scale from 1-10
+	date_added date NOT NULL DEFAULT now(),
 	CONSTRAINT user_albums_pk PRIMARY KEY (user_id, album_id)
 ) WITHOUT OIDS;

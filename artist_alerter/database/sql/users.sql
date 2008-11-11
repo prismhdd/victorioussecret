@@ -9,7 +9,8 @@ CREATE TABLE users (
 	email_address VARCHAR(100) NOT NULL CONSTRAINT email_unique UNIQUE,
 	password CHAR(50) NOT NULL,
 	first_name VARCHAR(50) NOT NULL,
-	last_name VARCHAR(50)
+	last_name VARCHAR(50),
+	date_added date NOT NULL DEFAULT now()
 ) WITHOUT OIDS;
 
 CREATE TABLE user_index (
