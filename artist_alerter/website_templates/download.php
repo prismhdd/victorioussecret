@@ -10,7 +10,8 @@
 	<?php require_once('sidebar.php') ?>
 	<div id="main">
 		<div id="welcome" class="post">
-			<h2 class="title">Download</h2><a href="offline.exe">Uploading Application</a>
+			<h2 class="title">Download</h2>
+			<a href="offline.exe">Uploading Application</a>
 		</div>
 	</div>
 </div>
