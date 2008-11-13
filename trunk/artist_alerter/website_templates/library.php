@@ -1,4 +1,7 @@
-<?php session_start() ?>
+<?php session_start();
+require_once('../database/config.php');
+$conn = Doctrine_Manager :: connection(DSN);
+?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html><head>
 <title>Artist Alert - SD&amp;D</title><link href="default.css" rel="stylesheet" type="text/css"></head>
@@ -101,8 +104,52 @@
 					}
 					else {
 						foreach ($artists as $artist => $albums) {
+							$db_artist = Doctrine_Query::create()
+						        ->from('Artist a')
+						        ->where('a.name=?', array(trim($artist)))
+						        ->fetchOne();
+						     if (!$db_artist) {
+						     	//If we don't have it add it to the database'
+								$db_artist = new Artist();
+								$db_artist['name'] = trim($artist);
+								$db_artist['added_by_user_id'] = $_SESSION['user']['user_id'];
+								$db_artist->save();
+						    }
+						    $userartist = Doctrine_Query::create()
+						        ->from('UserArtist a')
+						        ->where('a.user_id=? and a.artist_id=?', array($_SESSION['user']['user_id'],$db_artist['artist_id']))
+						        ->fetchOne();
+					        if (!$userartist) {
+					        	$userartist = new UserArtist();
+					    		$userartist['user_id'] = $_SESSION['user']['user_id'];
+					    		$userartist['artist_id'] = $db_artist['artist_id'];
+					    		$userartist->save();
+					        }
+						    // test
 							echo "Artist: $artist<br>";
 							foreach ($albums as $album) {
+								$db_album = Doctrine_Query::create()
+							        ->from('Album a')
+							        ->where('a.name=? and a.artist_id=?', array(trim($album), $db_artist['artist_id']))
+							        ->fetchOne(); 
+							     if (!$db_album) {
+							     	//If we don't we have to add it to the database'
+									$db_album = new Album();
+									$db_album['name'] = trim($album);
+									$db_album['Artist'] = $db_artist;
+									$db_album['added_by_user_id'] = $_SESSION['user']['user_id'];
+									$db_album->save();
+							    }
+							    $useralbum = Doctrine_Query::create()
+							        ->from('UserAlbum a')
+							        ->where('a.user_id=? and a.album_id=?', array($_SESSION['user']['user_id'], $db_album['album_id']))
+							        ->fetchOne();
+							    if (!$useralbum) {
+							    	$useralbum = new UserAlbum();
+								    $useralbum['user_id'] = $_SESSION['user']['user_id'];
+								    $useralbum['album_id'] = $db_album['album_id'];
+								    $useralbum->save();
+							    }
 								echo "&nbsp;&nbsp;&nbsp;Album: $album<br />\n";
 							}
 						}
@@ -118,6 +165,5 @@
 </div>
 
 <?php require_once('footer.php'); ?>
-
 
 </body></html>

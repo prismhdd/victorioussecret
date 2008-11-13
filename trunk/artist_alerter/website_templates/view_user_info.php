@@ -6,12 +6,14 @@ $user = Doctrine_Query::create()
 			->where('u.user_id=?', $_SESSION['user']['user_id'])
 			->fetchOne();
 ?>
+
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html><head>
 <title>Artist Alert - SD&amp;D</title><link href="default.css" rel="stylesheet" type="text/css"></head>
 <body>
 
 <?php require_once('header.php'); ?>
+
 
 <div id="content">
 	<?php require_once('sidebar.php') ?>
@@ -33,7 +35,7 @@ $user = Doctrine_Query::create()
                         <td><input type="text" name="email" id="email" value="<?php print $user['email_address'] ?>"/></td>
                     </tr>
                     <tr>
-                        <th align="left"><label for="opword">Your Password:</label></th>
+                        <th align="left"><label for="opword">Your Password (*):</label></th>
                         <td><input  type="password" name="opword" id="pword"/></td>
                     </tr>
                     <tr>
@@ -57,11 +59,10 @@ $user = Doctrine_Query::create()
                     <tr>
 						<td><input type="submit" id="changeprofile" name="changeprofile" value="Change My Account Info"/></td>
 					</tr>
+					<p align="left">(*) Asterisk indicates required field.</p>
 			   </table>
-				<?php
-	   			    // Not completed - frequency & email alert
-					  
-					  if($_POST['changeprofile']){
+			   <?php
+					if($_POST['changeprofile']){
 					    
 					    $fname = $_POST['firstname'];
 					    $lname = $_POST['lastname'];
@@ -146,11 +147,11 @@ $user = Doctrine_Query::create()
 							} catch (Doctrine_Connection_Pgsql_Exception $e) {
 								print $e;
 							}
-								
-					    	echo "Your account has been changed!";
+					    	echo "Your account has been changed!"; 
+							echo '<META HTTP-EQUIV=Refresh CONTENT="0; URL=view_user_info.php">'; 
 					    }
 					  }
-				?>
+					  ?>
 			   </form>
 		</div>		
 	</div>
