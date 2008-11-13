@@ -15,6 +15,7 @@ abstract class BaseAlbum extends Doctrine_Record
     $this->hasColumn('added_by_user_id', 'integer', 8, array('type' => 'integer', 'length' => 8, 'notnull' => true));
     $this->hasColumn('url', 'string', 512, array('type' => 'string', 'length' => '512'));
     $this->hasColumn('preview_image', 'string', 512, array('type' => 'string', 'length' => '512'));
+    $this->hasColumn('release_date', 'string', 100, array('type' => 'string', 'length' => '100'));
   }
   
   public function setUp()

@@ -33,8 +33,14 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
 						<td><b>Artist Name:</b></td>
 						<td><a href="view_artist_info.php?id=<?php print $album['Artist']['artist_id']?>"><?php print $album['Artist']['name'] ?></a></td>
 					</tr>
+					<tr>
+						<td><b>Release Date:</b></td>
+						<td><?php print $album['release_date'] ?></td>
+					</tr>
 				</table>
-				<p> For more information please click <a href="<?php print $album['url']?>">here</a>, all information courtesy of iTunes</p>
+				<?php if ($album['url'] != '')  { ?> 
+					<p> For more information please click <a href="<?php print $album['url']?>">here</a>, all information courtesy of iTunes</p>
+				<?php } ?>
 			<?php } else { ?>
 				<p>Album not found</p>
 			<?php } ?>

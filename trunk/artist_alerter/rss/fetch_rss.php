@@ -52,6 +52,7 @@ foreach($artists as $artist => $albums) {
 								$db_album['Artist'] = $db_artist;
 								$db_album['url'] = $album_url;
 								$db_album['preview_image'] = $album_preview_image;
+								$db_album['release_date'] = $album['releasedate'];
 								$db_album['added_by_user_id'] = $system_user['user_id'];
 								$db_album->save();
 						     }

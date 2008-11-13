@@ -37,6 +37,10 @@ class ITunesRssFeed extends RssFeed {
 			//add album link
 			$this->artists[$this->current_artist]['album']['coverart'] = $this->current_data;
 		}
+		if ($this->current_tag == 'ITMS:RELEASEDATE') {
+			//add album link
+			$this->artists[$this->current_artist]['album']['releasedate'] = $this->current_data;
+		}
 		$this->current_tag = '';
 		$this->current_data = '';
 	}

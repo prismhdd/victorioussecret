@@ -18,6 +18,7 @@ CREATE TABLE albums (
 	url varchar(512),
 	preview_image varchar(512),
 	date_added date NOT NULL DEFAULT now(),
+	release_date varchar(100),
 	--The id of the user who added this album to the database	
 	added_by_user_id int8 NOT NULL CONSTRAINT added_by_user_id_fk REFERENCES users(user_id)
 ) WITHOUT OIDS;
