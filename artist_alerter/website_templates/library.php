@@ -94,7 +94,7 @@ $conn = Doctrine_Manager :: connection(DSN);
 					$data = fread($fp, filesize($file));
 					
 					$xml_parser = xml_parser_create();
-					xml_set_object($xml_parser, $file);
+					//xml_set_object($xml_parser, $file);
 					xml_set_element_handler($xml_parser, "start_element_handler", "end_element_handler");
 					xml_set_character_data_handler($xml_parser, "character_data_handler");
 					
