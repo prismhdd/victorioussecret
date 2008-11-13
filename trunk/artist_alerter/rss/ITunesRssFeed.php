@@ -26,11 +26,16 @@ class ITunesRssFeed extends RssFeed {
 			$this->current_artist = $this->current_data;
 		} 
 		if ($this->current_tag == 'ITMS:ALBUM') {
-			//If we encounter an album for an artist and we don't already have indexed we add it
-			if (!array_key_exists($this->current_artist, $this->artists)) {
-				$this->artists[$this->current_artist] = array ();
-			}
-			array_push($this->artists[$this->current_artist], $this->current_data);
+			//add album to the artist
+			$this->artists[$this->current_artist]['album']['album'] = $this->current_data;
+		}
+		if ($this->current_tag == 'ITMS:ALBUMLINK') {
+			//add album link
+			$this->artists[$this->current_artist]['album']['albumlink'] = $this->current_data;
+		}
+		if ($this->current_tag == 'ITMS:COVERART') {
+			//add album link
+			$this->artists[$this->current_artist]['album']['coverart'] = $this->current_data;
 		}
 		$this->current_tag = '';
 		$this->current_data = '';

@@ -24,7 +24,8 @@
 			</ul>
 		</div>
 		<div id="login" class="boxed">
-			<h2 class="title">MyLibrary</h2>
+			<a href="system_library.php">System Library</a>
+			<!--<h2 class="title">MyLibrary</h2>-->
 			<div class="content">
 				<?php require_once('login.php'); ?>
 			</div>
