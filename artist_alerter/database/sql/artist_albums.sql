@@ -15,6 +15,8 @@ CREATE TABLE albums (
 	album_id int8 NOT NULL DEFAULT nextval('album_seq') CONSTRAINT albums_pk PRIMARY KEY,
 	artist_id int8 NOT NULL CONSTRAINT artist_id_fk REFERENCES artists(artist_id) ON DELETE CASCADE,
 	name varchar(512) NOT NULL,
+	url varchar(512),
+	preview_image varchar(512),
 	date_added date NOT NULL DEFAULT now(),
 	--The id of the user who added this album to the database	
 	added_by_user_id int8 NOT NULL CONSTRAINT added_by_user_id_fk REFERENCES users(user_id)

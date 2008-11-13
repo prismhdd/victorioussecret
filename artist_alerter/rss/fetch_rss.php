@@ -5,7 +5,7 @@
 require_once ('ITunesRssFeed.php');
 require_once('../database/config.php');
 $conn = Doctrine_Manager :: connection(DSN);
-$feed = new ITunesRssFeed('http://ax.phobos.apple.com.edgesuite.net/WebObjects/MZStore.woa/wpa/MRSS/newreleases/sf=143441/limit=100/rss.xml');
+$feed = new ITunesRssFeed('http://ax.phobos.apple.com.edgesuite.net/WebObjects/MZStore.woa/wpa/MRSS/newreleases/sf=143441/limit=50/rss.xml');
 $artists = $feed->getArtists();
 //loads the system user for adding artists/albums
 $system_user = Doctrine_Query::create()
@@ -38,15 +38,20 @@ foreach($artists as $artist => $albums) {
 				//Now for each album that this artist has in the rss feed 
 					foreach($albums as $album) {
 						//First check if we have the album already
+							$album_name = $album['album'];
+							$album_url = $album['albumlink'];
+							$album_preview_image = $album['coverart'];
 							$db_album = Doctrine_Query::create()
 						        ->from('Album a')
-						        ->where('a.name=? and a.artist_id=?', array(trim($album), $db_artist['artist_id']))
+						        ->where('a.name=? and a.artist_id=?', array(trim($album_name), $db_artist['artist_id']))
 						        ->fetchOne(); 
 						     if (!$db_album) {
 						     	//If we don't we have to add it to the database'
 								$db_album = new Album();
-								$db_album['name'] = trim($album);
+								$db_album['name'] = trim($album_name);
 								$db_album['Artist'] = $db_artist;
+								$db_album['url'] = $album_url;
+								$db_album['preview_image'] = $album_preview_image;
 								$db_album['added_by_user_id'] = $system_user['user_id'];
 								$db_album->save();
 						     }
