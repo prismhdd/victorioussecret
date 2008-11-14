@@ -286,14 +286,14 @@ public class ResultsDialog extends javax.swing.JFrame {
 			while (artistItr.hasNext()) {
 				final String artist = artistItr.next();				
 				output.println("\t<artist>");
-				output.println("\t\t" + artist);
+				output.println("\t\t" + artist.replaceAll("&", "&amp;"));
 				output.println("\t\t<albums>");
 				final Iterator<String> albumItr = artists.get(artist)
 						.iterator();
 				while (albumItr.hasNext()) {
 					final String album = albumItr.next();
 					output.println("\t\t\t<album>");
-					output.println("\t\t\t\t" + album);
+					output.println("\t\t\t\t" + album.replaceAll("&", "&amp;"));
 					output.println("\t\t\t</album>");
 				}
 				output.println("\t\t</albums>");
