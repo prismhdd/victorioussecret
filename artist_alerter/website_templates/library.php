@@ -13,24 +13,14 @@ $s_user_album = Doctrine_Query::create()
 
 $user_lib = array();
 
-// test
-echo count($s_user_artist) . "<br>";
-echo count($s_user_album) . "<br>";
-
 if ($s_user_artist && $s_user_album) {
-	foreach($s_user_album as $user_ablum) {
-	$artist = $user_ablum['Album']['Artist']['name'];
-	// test output
-	echo "1artist = " . $artist . "<br>";
+	foreach($s_user_album as $user_album) {
+	$artist = $user_album['Album']['Artist']['name'];
 	$user_lib[$artist][] = $user_album['Album']['name'];
-	// test output - NO ALBUM NAME
-	echo "albumname = " . $user_album['Album']['name'] . "<br>";
 	}
 
 	foreach($s_user_artist as $user_artist) {
 		$artist = $user_artist['Artist']['name'];
-		//
-		echo "2artist = " . $artist . "<br>";
 		if (!array_key_exists($artist, $user_lib)) {
 			$user_lib[$artist] = array();
 		}
@@ -98,8 +88,8 @@ if ($s_user_artist && $s_user_album) {
 						global $d_count;
 						
 						$d_count += 1;
-//						echo "s_count : " . $s_count . "<br>";
-//						echo "d_count : " . $d_count . "<br>";
+						//echo "s_count : " . $s_count . "<br>";
+						//echo "d_count : " . $d_count . "<br>";
 						if ($s_count == $d_count) {
 							//echo "data : " . $data . "<br>";
 						    //$current_data = $data;
@@ -196,20 +186,28 @@ if ($s_user_artist && $s_user_album) {
 				}
 			?>
 			</form>
-			<?php foreach($user_lib as $key => $value) { ?>
-				<p>
+			<br>
+			<table border = "1" width = "100%">
+			<tr>
+				<td align = "center" width = "40%"><b> Artists </b></td>
+				<td align = "center" width = "60%"><b> Albums </b></td>
+			</tr>
+				<?php foreach($user_lib as $key => $value) { ?>
+			<tr>	
+				<td valign="top">
 					<?php print $key; ?>
-				</p>
+				</td>
+				<td>
 				<ul>
 					<?php foreach($value as $alb) { ?>
-						<li><?php print $alb ?> </li>
+						<li type="disc"><?php print $alb; ?> </li>
 					<?php }?>
 				</ul>
-			<?php }?>
+				</td>
+			</tr>
+			<?php }?>	
 		</div>
 	</div>
 </div>
-
 <?php require_once('footer.php'); ?>
-
 </body></html>
