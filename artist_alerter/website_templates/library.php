@@ -61,10 +61,6 @@ if ($s_user_artist && $s_user_album) {
 					$current_tag = '';
 					$current_data = '';
 					$current_artist = '';
-					//bug for data handler
-					//keep counts will help to match start_handle = char_handle
-					$s_count = 0;
-					$d_count = 0;
 					$artists = array();
 					
 					// function to handle the start tags 
@@ -72,53 +68,32 @@ if ($s_user_artist && $s_user_album) {
 					function start_element_handler($parser, $name, $attributes){
 					    global $current_tag;
 					    global $current_data;
-						global $current_artist;
-						global $artists;
-						global $s_count;
-						global $d_count;
-					    
-					    $s_count += 1;
+					    global $current_artist;
 					    $current_tag = $name;
+					    if ($name == 'ALBUMS')
+						   {
+						    	$current_artist = $current_data;
+						    	$current_data = '';
+						   }
 					}
 					
 					// function to handle the end tags 
 					function end_element_handler($parser, $name){
+						global $current_artist;
+						global $current_tag;
+						global $current_data;
+						global $artists;
+						    if ($current_tag == 'ALBUM') {
+						  		$artists[$current_artist][] = $current_data;
+							}
+						$current_tag = '';
+						$current_data = '';
 					}
 								
 					// function to handle the data between the tags 
 					function character_data_handler($parser, $data){
-						global $current_tag;
 					    global $current_data;
-						global $current_artist;
-						global $artists;
-						global $s_count;
-						global $d_count;
-						
-						$d_count += 1;
-						//echo "s_count : " . $s_count . "<br>";
-						//echo "d_count : " . $d_count . "<br>";
-						if ($s_count == $d_count) {
-							//echo "data : " . $data . "<br>";
-						    //$current_data = $data;
-							if ($current_tag == 'ARTIST')
-						    {
-						    	$current_artist = $data;
-						    	//echo "current artist : " . $current_artist . "<br>";
-						    }
-						    if ($current_tag == 'ALBUM') {
-						    	$current_data = $data;
-						    	//echo "current artist : " . $current_artist . "<br>";
-						    	//echo "current data : "	. $current_data . "<br>";				    	
-						    	if (!array_key_exists($current_artist, $artists)) {
-									$artists[$current_artist] = array ();
-								}
-								//echo $current_data . " added to " . $current_artist . " key<br>"; 
-								array_push($artists[$current_artist], $current_data);
-							}
-						}
-						else {
-							$d_count -= 1;
-						}
+						$current_data .= $data;
 					}
 					
 					if (!($fp = fopen($file, "r"))) {
