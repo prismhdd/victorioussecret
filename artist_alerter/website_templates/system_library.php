@@ -1,3 +1,4 @@
+<?php session_start() ?>
 <?php
 require_once('../database/config.php');
 $conn = Doctrine_Manager :: connection(DSN);
