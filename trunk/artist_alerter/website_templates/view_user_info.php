@@ -1,9 +1,14 @@
 <?php session_start();
 require_once('../database/config.php');
 $conn = Doctrine_Manager :: connection(DSN);
+if (isset($_GET['id']) && is_numeric($_GET['id'])) {
+	$id = $_GET['id'];
+} else {
+	$id = $_SESSION['user']['user_id'];
+}
 $user = Doctrine_Query::create()
 			->from('User u')
-			->where('u.user_id=?', $_SESSION['user']['user_id'])
+			->where('u.user_id=?', $id)
 			->fetchOne();
 ?>
 
@@ -20,6 +25,19 @@ $user = Doctrine_Query::create()
 	<div id="main">
 		<div id="welcome" class="post">
 			<h2 class="title">User Info</h2>
+			<!-- If the query parameter is set we just want to show the user's information -->
+			<?php if (isset($_GET['id'])) { ?>
+				<table>
+					<tr>
+						<td><b>Username:</b></td>
+						<td><?php print $user['username'] ?></td>
+					</tr>
+					<tr>
+						<td><b>First Name:</b></td>
+						<td><?php print $user['first_name'] ?></td>
+					</tr>
+				</table>
+			<?php } else { ?>
 			<form method="POST">	      
                 <table id="signupfields">
                     <tr>
@@ -153,6 +171,7 @@ $user = Doctrine_Query::create()
 					  }
 					  ?>
 			   </form>
+			   <?php } ?>
 		</div>		
 	</div>
 </div>

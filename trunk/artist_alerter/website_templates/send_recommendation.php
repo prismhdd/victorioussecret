@@ -109,7 +109,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 											<!-- if the user has some albums to recommend then list them -->
 											<select name="album_id">
 												<?php foreach($user_albums as $user_album) {?>
-													<option value="<?php print $user_album['Album']['album_id'] ?>"><?php print $user_album['Album']['name'] ?></option>
+													<option value="<?php print $user_album['Album']['album_id'] ?>"><?php print $user_album['Album']['Artist']['name'] ?> - <?php print $user_album['Album']['name'] ?></option>
 												<?php } ?>	
 											</select>
 										<?php } ?>
