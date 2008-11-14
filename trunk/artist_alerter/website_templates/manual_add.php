@@ -33,7 +33,7 @@
 					    $error = 0;					  
 					    
 					    $authVars['apiKey'] = 'de18f1962a7933c63b59d67a6c350237';
-					    // Pass the apiKey to the auth class to get a none fullAuth auth class
+					    //Pass the apiKey to the auth class to get a none fullAuth auth class
 					    $auth = new lastfmApiAuth('setsession', $authVars);
 					    
 					    $apiClass = new lastfmAPI();
