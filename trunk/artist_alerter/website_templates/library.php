@@ -1,7 +1,44 @@
 <?php session_start();
 require_once('../database/config.php');
 $conn = Doctrine_Manager :: connection(DSN);
+$s_user_artist = Doctrine_Query::create()
+			     ->from('UserArtist ua')
+			     ->where('ua.user_id=?', $_SESSION['user']['user_id'])
+			     ->execute();
+			     
+$s_user_album = Doctrine_Query::create()
+			     ->from('UserAlbum ualb')
+			     ->where('ualb.user_id=?', $_SESSION['user']['user_id'])
+			     ->execute();
+
+$user_lib = array();
+
+// test
+echo count($s_user_artist) . "<br>";
+echo count($s_user_album) . "<br>";
+
+if ($s_user_artist && $s_user_album) {
+	foreach($s_user_album as $user_ablum) {
+	$artist = $user_ablum['Album']['Artist']['name'];
+	// test output
+	echo "1artist = " . $artist . "<br>";
+	$user_lib[$artist][] = $user_album['Album']['name'];
+	// test output - NO ALBUM NAME
+	echo "albumname = " . $user_album['Album']['name'] . "<br>";
+	}
+
+	foreach($s_user_artist as $user_artist) {
+		$artist = $user_artist['Artist']['name'];
+		//
+		echo "2artist = " . $artist . "<br>";
+		if (!array_key_exists($artist, $user_lib)) {
+			$user_lib[$artist] = array();
+		}
+	}
+}
+
 ?>
+
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html><head>
 <title>Artist Alert - SD&amp;D</title><link href="default.css" rel="stylesheet" type="text/css"></head>
@@ -126,7 +163,7 @@ $conn = Doctrine_Manager :: connection(DSN);
 					    		$userartist->save();
 					        }
 						    // test
-							echo "Artist: $artist<br>";
+							//echo "Artist: $artist<br>";
 							foreach ($albums as $album) {
 								$db_album = Doctrine_Query::create()
 							        ->from('Album a')
@@ -150,7 +187,7 @@ $conn = Doctrine_Manager :: connection(DSN);
 								    $useralbum['album_id'] = $db_album['album_id'];
 								    $useralbum->save();
 							    }
-								echo "&nbsp;&nbsp;&nbsp;Album: $album<br />\n";
+								//echo "&nbsp;&nbsp;&nbsp;Album: $album<br />\n";
 							}
 						}
 					}
@@ -158,8 +195,17 @@ $conn = Doctrine_Manager :: connection(DSN);
 					fclose($fp);
 				}
 			?>
-			
 			</form>
+			<?php foreach($user_lib as $key => $value) { ?>
+				<p>
+					<?php print $key; ?>
+				</p>
+				<ul>
+					<?php foreach($value as $alb) { ?>
+						<li><?php print $alb ?> </li>
+					<?php }?>
+				</ul>
+			<?php }?>
 		</div>
 	</div>
 </div>
