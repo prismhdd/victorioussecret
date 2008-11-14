@@ -8,7 +8,7 @@ define('DSN', 'pgsql://' . $ini_array['username'] . ':'. $ini_array['password'].
 $username = '';
 $password = '';
 
-require_once(DOCTRINE_PATH . DIRECTORY_SEPARATOR . 'Doctrine.php');
+require_once(DOCTRINE_PATH . DIRECTORY_SEPARATOR . 'Doctrine.compiled.php');
 
 spl_autoload_register(array('Doctrine', 'autoload'));
 

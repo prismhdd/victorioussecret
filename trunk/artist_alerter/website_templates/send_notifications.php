@@ -96,7 +96,7 @@ function sendMail($from, $namefrom, $to, $nameto, $subject, $message) {
 //select * from user_artists ua, albums a where ua.artist_id=a.artist_id and a.album_id not in (select album_id from user_albums where user_id=2) and a.date_added >= '2008-11-02';
 $past_24hrs = date('Y-m-d', time() - 24*60*60);
 $new_albums =Doctrine_Query::create()
-						->select('artist_id, album_id, name')
+						->select('a.artist_id, a.album_id, a.name a.date_added')
 						->from('Album a')
 						->where('a.date_added >=?', $past_24hrs)
 						->execute();
@@ -108,10 +108,10 @@ $album_info_url = 'http://'.$_SERVER['SERVER_NAME']. dirname($_SERVER['PHP_SELF'
 foreach($new_albums as $new_album) {
 	
 	$query = Doctrine_Query::create()
-						->select('user_id')
+						->select('u.user_id, artist.artist_id')
 						->from('User u')
-						->leftJoin('u.Artist ua')
-						->where('ua.artist_id=? AND ? NOT IN (SELECT ualb.album_id FROM UserAlbum ualb WHERE ualb.user_id=u.user_id)',array($new_album['artist_id'],$new_album['album_id']));
+						->leftJoin('u.Artist artist')
+						->where('artist.artist_id=? AND ? NOT IN (SELECT ualb.album_id FROM UserAlbum ualb WHERE ualb.user_id=u.user_id)',array($new_album['artist_id'],$new_album['album_id']));
 	$users =  $query->execute();
 	if ($users->count() > 0)  {
 
@@ -132,7 +132,9 @@ foreach($new_albums as $new_album) {
 //do it by the date the user added that artist
 //first get all users that added stuff in the past 24 hours
 $new_user_artists = Doctrine_Query::create()
+						->select('ua.date_added, artist.artist_id')
 						->from('UserArtist ua')
+						->innerJoin('ua.Artist artist')
 						->where('ua.date_added>=?', $past_24hrs)
 						->execute();
 						
@@ -141,6 +143,7 @@ foreach($new_user_artists as $new_user_artist) {
 	//check if the artist has a new album
 	$new_artist = $new_user_artist['Artist'];
 		$new_albums = $query = Doctrine_Query::create()
+						->select('a.artist_id, a.album_id, a.date_added, a.name')
 						->from('Album a')
 						->where('a.artist_id=? AND a.album_id NOT IN (SELECT ualb.album_id FROM UserAlbum ualb WHERE ualb.user_id=?) AND a.date_added<?',array($new_artist['artist_id'],$new_user_artist['user_id'],$past_24hrs))
 						->execute();
@@ -157,6 +160,7 @@ $user_ids = array_keys($emails_to_send);
 
 foreach($user_ids as $user_id) {
 	$user =Doctrine_Query::create()
+						->select('u.email_address, u.user_id, u.first_name')
 						->from('User u')
 						->where('u.user_id=?', $user_id)
 						->fetchOne();
