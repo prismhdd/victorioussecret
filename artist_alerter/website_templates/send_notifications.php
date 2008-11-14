@@ -96,6 +96,7 @@ function sendMail($from, $namefrom, $to, $nameto, $subject, $message) {
 //select * from user_artists ua, albums a where ua.artist_id=a.artist_id and a.album_id not in (select album_id from user_albums where user_id=2) and a.date_added >= '2008-11-02';
 $past_24hrs = date('Y-m-d', time() - 24*60*60);
 $new_albums =Doctrine_Query::create()
+						->select('artist_id, album_id, name')
 						->from('Album a')
 						->where('a.date_added >=?', $past_24hrs)
 						->execute();
@@ -107,6 +108,7 @@ $album_info_url = 'http://'.$_SERVER['SERVER_NAME']. dirname($_SERVER['PHP_SELF'
 foreach($new_albums as $new_album) {
 	
 	$query = Doctrine_Query::create()
+						->select('user_id')
 						->from('User u')
 						->leftJoin('u.Artist ua')
 						->where('ua.artist_id=? AND ? NOT IN (SELECT ualb.album_id FROM UserAlbum ualb WHERE ualb.user_id=u.user_id)',array($new_album['artist_id'],$new_album['album_id']));

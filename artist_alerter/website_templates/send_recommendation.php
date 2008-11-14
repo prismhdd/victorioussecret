@@ -11,12 +11,6 @@ session_start();
 require_once('../database/config.php');
 $conn = Doctrine_Manager :: connection(DSN);
 $current_user_id = $_SESSION['user']['user_id'];
-
-//Get all of the albums we can recommend
-$user_albums = Doctrine_Query::create()
-		          ->from('UserAlbum ua')
-		         ->where('ua.user_id=?', $current_user_id)
-		          ->execute();
 		          
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	$recommendation = new Recommendation();
@@ -44,6 +38,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			          ->execute();
 		}
 }
+
+	//Get all of the albums we can recommend
+	$user_albums = Doctrine_Query::create()
+					  ->select('ua.user_id, album.name, artist.name')
+			          ->from('UserAlbum ua')
+			          ->innerJoin('ua.Album album')
+			          ->innerJoin('album.Artist artist')
+			         ->where('ua.user_id=?', $current_user_id)
+			         ->orderBy('artist.name ASC, album.name ASC')
+			          ->execute();
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html><head>
@@ -58,7 +62,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		<h2 class="title">Send Recommendations</h2>
 		<div>
 			<?php if (!isset($send)) {?>
-				<?php if ($user_albums->count() > 0 ) { ?>
+				<?php if (isset($user_albums) && $user_albums->count() > 0 ) { ?>
 					<!-- if the logged in user has albums to recommend allow them to continue -->
 					<?php if (!isset($_GET['to_user_id'])) { ?>
 							<p>Please search for the user that you want to send the recommendation to</p>

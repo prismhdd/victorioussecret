@@ -2,13 +2,20 @@
 require_once('../database/config.php');
 $conn = Doctrine_Manager :: connection(DSN);
 $s_user_artist = Doctrine_Query::create()
+  				 ->select('ua.user_id, artist.name')
 			     ->from('UserArtist ua')
+			     ->innerJoin('ua.Artist artist')
 			     ->where('ua.user_id=?', $_SESSION['user']['user_id'])
+			     ->orderBy('artist.name ASC')
 			     ->execute();
 			     
 $s_user_album = Doctrine_Query::create()
-			     ->from('UserAlbum ualb')
-			     ->where('ualb.user_id=?', $_SESSION['user']['user_id'])
+				 ->select('ua.user_id, album.name, artist.name')
+			     ->from('UserAlbum ua')
+			     ->innerJoin('ua.Album album')
+			     ->innerJoin('album.Artist artist')
+			     ->where('ua.user_id=?', $_SESSION['user']['user_id'])
+			     ->orderBy('artist.name ASC, album.name ASC')
 			     ->execute();
 
 $user_lib = array();
