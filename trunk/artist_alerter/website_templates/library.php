@@ -188,24 +188,25 @@ if ($s_user_artist && $s_user_album) {
 			</form>
 			<br>
 			<table border = "1" width = "100%">
-			<tr>
-				<td align = "center" width = "40%"><b> Artists </b></td>
-				<td align = "center" width = "60%"><b> Albums </b></td>
-			</tr>
+				<tr>
+					<td align = "center" width = "40%"><b> Artists </b></td>
+					<td align = "center" width = "60%"><b> Albums </b></td>
+				</tr>
 				<?php foreach($user_lib as $key => $value) { ?>
-			<tr>	
-				<td valign="top">
-					<?php print $key; ?>
-				</td>
-				<td>
-				<ul>
-					<?php foreach($value as $alb) { ?>
-						<li type="disc"><?php print $alb; ?> </li>
-					<?php }?>
-				</ul>
-				</td>
-			</tr>
+				<tr>	
+					<td valign="top">
+						<?php print $key; ?>
+					</td>
+					<td>
+						<ul>
+							<?php foreach($value as $alb) { ?>
+								<li type="disc"><?php print $alb; ?> </li>
+							<?php }?>
+						</ul>
+					</td>
+				</tr>
 			<?php }?>	
+			</table>
 		</div>
 	</div>
 </div>
