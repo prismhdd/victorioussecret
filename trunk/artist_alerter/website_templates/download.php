@@ -15,7 +15,12 @@
 			If you are unsure whether you already have Java, please visit 
 			<a href="http://java.com/en/download/installed.jsp?detect=jre&try=1">here.</a><br><br><br>
 			
-			<a href="">Insert links to JAR files</a>
+			<a href="OfflineApplication.jar">Click here to download</a>
+			
+			<p>
+				If you double click on the .jar file it should start up automatically, if not go to the console and run 
+				<span style="font-familiy:monspace;">java -jar OfflineApplication.jar</span>
+			</p>
 		</div>
 	</div>
 </div>
