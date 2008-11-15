@@ -165,6 +165,8 @@ if ($s_user_artist && $s_user_album) {
 					}
 					xml_parser_free($xml_parser);
 					fclose($fp);
+					echo "file uploaded.<br>";
+					echo '<META HTTP-EQUIV=Refresh CONTENT="0; URL=library.php">';
 				}
 			?>
 			</form>
@@ -187,7 +189,7 @@ if ($s_user_artist && $s_user_album) {
 						</ul>
 					</td>
 				</tr>
-			<?php }?>	
+			<?php } ?>	
 			</table>
 		</div>
 	</div>
