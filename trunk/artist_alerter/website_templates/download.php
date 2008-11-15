@@ -11,7 +11,11 @@
 	<div id="main">
 		<div id="welcome" class="post">
 			<h2 class="title">Download</h2>
-			<a href="offline.exe">Uploading Application</a>
+			In order to run this application, you will need to have Java installed on your computer. 
+			If you are unsure whether you already have Java, please visit 
+			<a href="http://java.com/en/download/installed.jsp?detect=jre&try=1">here.</a><br><br><br>
+			
+			<a href="">Insert links to JAR files</a>
 		</div>
 	</div>
 </div>
