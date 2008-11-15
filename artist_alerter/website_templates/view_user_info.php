@@ -64,6 +64,7 @@ $user = Doctrine_Query::create()
                         <th align="left"><label for="confirmpw">Confirm New Password:</label></th>
                         <td><input type="password" name="confirmpw" id="confirmpw"/></td>
                     </tr>
+                    <!-- Disabled for now 
                     <tr>
                     	<th align="left"><label for="frequency">Frequency of Updates:</label></th>
                     	<td><input type="radio" name="frequency" value="Daily"/>Daily<br>
@@ -73,7 +74,8 @@ $user = Doctrine_Query::create()
 					<tr>
                     	<th align="left"><label for="option">Do you want to get alerts<br>through your email address?</label></th>
                     	<td><input type="checkbox" name="option" value="emailalert"><br></td>
-                    </tr>                                             
+                    </tr>
+                    -->                                             
                     <tr>
 						<td><input type="submit" id="changeprofile" name="changeprofile" value="Change My Account Info"/></td>
 					</tr>

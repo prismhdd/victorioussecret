@@ -16,11 +16,11 @@
 				<table id="info_fields">
 					<tr>
 						<th align="left"><label for="artist">Artist:</label></th>
-                        <td><input id="artist" type="text" name="artist"/></td>
+                        <td><input id="artist" type="text" name="artist" value="<?php print $_POST['artist']?>"/></td>
                     </tr>
                     <tr>
 						<th align="left"><label for="album">Album:</label></th>
-						<td><input id="album" type="text" name="album"/></td>
+						<td><input id="album" type="text" name="album" value="<?php print $_POST['album']?>"/></td>
 					</tr>
 					<tr>
 						<td><input type="submit" id="manual_add" name="manual_add" value="Update Library"/></td>
@@ -54,15 +54,61 @@
 							'artist' => $artist
 						);						
 						
-						//Calls the search function on the given artist
+						//Calls the getInfo function on the given artist
 						$searchArtists = $apiClass->getPackage($auth, 'artist');
-					    $searchResults=$searchArtists->search($methodVars);
+					    $searchResults=$searchArtists->getInfo($methodVars);
 					    
-					    //A return of 0 means the artist is not in the last.fm database, potentially invalid
-					    if ($searchResults['totalResults']==0)
+					    if ($searchResults) {
+							//If the search results are valid add the artist
+							$db_artist = Doctrine_Query::create()
+						        ->from('Artist a')
+						        ->where('a.name=?', array(trim($artist)))
+						        ->fetchOne();
+						     if (!$db_artist) {
+						     	//If we don't have it add it to the database'
+								$db_artist = new Artist();
+								$db_artist['name'] = trim($artist);
+								$db_artist['added_by_user_id'] = $_SESSION['user']['user_id'];
+								$db_artist->save();
+						    }
+						    //Link the artist to the album
+						    $userartist = Doctrine_Query::create()
+						        ->from('UserArtist a')
+						        ->where('a.user_id=? and a.artist_id=?', array($_SESSION['user']['user_id'],$db_artist['artist_id']))
+						        ->fetchOne();
+					        if (!$userartist) {
+					        	$userartist = new UserArtist();
+					    		$userartist['user_id'] = $_SESSION['user']['user_id'];
+					    		$userartist['artist_id'] = $db_artist['artist_id'];
+					    		$userartist->save();
+					        }
+					        //add the album
+								$db_album = Doctrine_Query::create()
+							        ->from('Album a')
+							        ->where('a.name=? and a.artist_id=?', array(trim($album), $db_artist['artist_id']))
+							        ->fetchOne(); 
+							     if (!$db_album) {
+									$db_album = new Album();
+									$db_album['name'] = trim($album);
+									$db_album['Artist'] = $db_artist;
+									$db_album['added_by_user_id'] = $_SESSION['user']['user_id'];
+									$db_album->save();
+							    }
+							    //Add the link from the album to the user
+							    $useralbum = Doctrine_Query::create()
+							        ->from('UserAlbum a')
+							        ->where('a.user_id=? and a.album_id=?', array($_SESSION['user']['user_id'], $db_album['album_id']))
+							        ->fetchOne();
+							    if (!$useralbum) {
+							    	$useralbum = new UserAlbum();
+								    $useralbum['user_id'] = $_SESSION['user']['user_id'];
+								    $useralbum['album_id'] = $db_album['album_id'];
+								    $useralbum->save();
+							    }
+							    echo "Artist/Album added <a href='library.php'>Back to Library</a>";
+					    } else {
 					    	echo "Invalid artist!";
-					    else	//If the artist is valid, add to the database
-					    	echo $searchResults['totalResults'] . " results found";
+					    }
 					}
 				?>
             </form>		
