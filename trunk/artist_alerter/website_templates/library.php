@@ -47,6 +47,7 @@ if ($s_user_artist && $s_user_album) {
 	<div id="main">
 		<div id="welcome" class="post">
 			<h2 class="title">MyLibrary</h2>
+			<p><a href="manual_add.php">Manually Add New Artists/Albums</a></p>
 			<form method="POST" enctype="multipart/form-data">
 			<input type="hidden" name="upload" value="1">
 			<input type="file" name="file">
