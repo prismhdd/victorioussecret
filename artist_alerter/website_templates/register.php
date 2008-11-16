@@ -39,7 +39,11 @@ $conn = Doctrine_Manager :: connection(DSN); ?>
                     <tr>
                         <th align="left"><label for="confirmpw">Confirm Password:</label></th>
                         <td><input type="password" name="confirmpw" id="confirmpw"/></td>
-                    </tr>                                                          
+                    </tr>
+                    <tr>
+                        <th align="left"><label for="regcode">Registration Code:</label></th>
+                        <td><input type="password" name="regcode" id="regcode"/></td>
+                    </tr>       
                     <tr>
 						<td><input type="submit" id="createprofile" name="createprofile" value="Create My Account"/></td>
 					</tr>
@@ -53,6 +57,7 @@ $conn = Doctrine_Manager :: connection(DSN); ?>
 					    $email = $_POST['email'];
 					    $password = $_POST['pword'];
 					    $confirmpw = $_POST['confirmpw'];
+					    $regcode = $_POST['regcode'];
 					    $error = 0;
 					    
 					    echo "<br>";
@@ -76,6 +81,10 @@ $conn = Doctrine_Manager :: connection(DSN); ?>
 					    if(!$confirmpw) {
 					      $error ++;
 					      echo $error . ". You didn't enter a confirm password!<br>";
+					    }
+					    if (!$regcode && $regcode != 'sdd') {
+					    	$error++;
+					    	echo $error . ". You didn't enter a correct registration code!<br>";
 					    }
 					    
 					    // password checking
