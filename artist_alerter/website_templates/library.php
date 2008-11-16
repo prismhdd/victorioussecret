@@ -7,7 +7,7 @@ $s_user_artist = Doctrine_Query::create()
 			     ->innerJoin('ua.Artist artist')
 			     ->where('ua.user_id=?', $_SESSION['user']['user_id'])
 			     ->orderBy('artist.name ASC')
-			     ->execute();
+			     ->execute(array(), Doctrine::HYDRATE_ARRAY);
 			     
 $s_user_album = Doctrine_Query::create()
 				 ->select('ua.user_id, album.name, artist.name')
@@ -16,7 +16,7 @@ $s_user_album = Doctrine_Query::create()
 			     ->innerJoin('album.Artist artist')
 			     ->where('ua.user_id=?', $_SESSION['user']['user_id'])
 			     ->orderBy('artist.name ASC, album.name ASC')
-			     ->execute();
+			     ->execute(array(), Doctrine::HYDRATE_ARRAY);
 
 $user_lib = array();
 

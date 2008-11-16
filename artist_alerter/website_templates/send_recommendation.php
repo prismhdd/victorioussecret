@@ -47,7 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			          ->innerJoin('album.Artist artist')
 			         ->where('ua.user_id=?', $current_user_id)
 			         ->orderBy('artist.name ASC, album.name ASC')
-			          ->execute();
+			          ->execute(array(), Doctrine::HYDRATE_ARRAY);
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html><head>
@@ -62,7 +62,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		<h2 class="title">Send Recommendations</h2>
 		<div>
 			<?php if (!isset($send)) {?>
-				<?php if (isset($user_albums) && $user_albums->count() > 0 ) { ?>
+				<?php if ($user_albums ) { ?>
 					<!-- if the logged in user has albums to recommend allow them to continue -->
 					<?php if (!isset($_GET['to_user_id'])) { ?>
 							<p>Please search for the user that you want to send the recommendation to</p>
@@ -109,7 +109,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 									<tr>
 										<td>Album:</td>
 										<td>
-										<?php if ($user_albums->count() > 0) {?>
+										<?php if ($user_albums) {?>
 											<!-- if the user has some albums to recommend then list them -->
 											<select name="album_id">
 												<?php foreach($user_albums as $user_album) {?>

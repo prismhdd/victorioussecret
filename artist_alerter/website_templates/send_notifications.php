@@ -99,7 +99,7 @@ $new_albums =Doctrine_Query::create()
 						->select('a.artist_id, a.album_id, a.name a.date_added')
 						->from('Album a')
 						->where('a.date_added >=?', $past_24hrs)
-						->execute();
+						->execute(array(), Doctrine::HYDRATE_ARRAY);
 						
 $emails_to_send = array();
 
@@ -112,8 +112,8 @@ foreach($new_albums as $new_album) {
 						->from('User u')
 						->leftJoin('u.Artist artist')
 						->where('artist.artist_id=? AND ? NOT IN (SELECT ualb.album_id FROM UserAlbum ualb WHERE ualb.user_id=u.user_id)',array($new_album['artist_id'],$new_album['album_id']));
-	$users =  $query->execute();
-	if ($users->count() > 0)  {
+	$users =  $query->execute(array(), Doctrine::HYDRATE_ARRAY);
+	if ($users)  {
 
 		foreach($users as $user) {
 			$text = 'The artist \''. $new_album['Artist']['name'] .'\''; 
@@ -136,7 +136,7 @@ $new_user_artists = Doctrine_Query::create()
 						->from('UserArtist ua')
 						->innerJoin('ua.Artist artist')
 						->where('ua.date_added>=?', $past_24hrs)
-						->execute();
+						->execute(array(), Doctrine::HYDRATE_ARRAY);
 						
 foreach($new_user_artists as $new_user_artist) {
 	$user = $new_user_artist['User']; 
@@ -146,7 +146,7 @@ foreach($new_user_artists as $new_user_artist) {
 						->select('a.artist_id, a.album_id, a.date_added, a.name')
 						->from('Album a')
 						->where('a.artist_id=? AND a.album_id NOT IN (SELECT ualb.album_id FROM UserAlbum ualb WHERE ualb.user_id=?) AND a.date_added<?',array($new_artist['artist_id'],$new_user_artist['user_id'],$past_24hrs))
-						->execute();
+						->execute(array(), Doctrine::HYDRATE_ARRAY);
 		foreach($new_albums as $new_album) {
 			$text = 'The artist \''. $new_album['Artist']['name'] .'\''; 
 			$text .=  ' just released a new album entitled \''. $new_album['name'].'\'.';
@@ -163,7 +163,7 @@ foreach($user_ids as $user_id) {
 						->select('u.email_address, u.user_id, u.first_name')
 						->from('User u')
 						->where('u.user_id=?', $user_id)
-						->fetchOne();
+						->fetchOne(array(), Doctrine::HYDRATE_ARRAY);
 	print('Sending notification to ' .$user['email_address']);
 	print('<br/>');
 	$message = 'Hello, new albums have been released by your favorite artists:<br/>';
