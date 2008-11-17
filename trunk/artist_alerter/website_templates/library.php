@@ -115,10 +115,12 @@ if ($s_user_artist && $s_user_album) {
 					else {
 						foreach ($artists as $artist => $albums) {
 							$db_artist = Doctrine_Query::create()
+								->select('a.artist_id')
 						        ->from('Artist a')
 						        ->where('a.name=?', array(trim($artist)))
-						        ->fetchOne();
-						     if (!$db_artist) {
+						        ->fetchOne(array(), Doctrine::HYDRATE_ARRAY);
+						        //var_dump($db_artist);
+						     if (!$db_artist || count($db_artist) == 0) {
 						     	//If we don't have it add it to the database'
 								$db_artist = new Artist();
 								$db_artist['name'] = trim($artist);
@@ -126,42 +128,50 @@ if ($s_user_artist && $s_user_album) {
 								$db_artist->save();
 						    }
 						    $userartist = Doctrine_Query::create()
+						    	->select('count(*)')
 						        ->from('UserArtist a')
 						        ->where('a.user_id=? and a.artist_id=?', array($_SESSION['user']['user_id'],$db_artist['artist_id']))
-						        ->fetchOne();
-					        if (!$userartist) {
+						        ->fetchOne(array(), Doctrine::HYDRATE_ARRAY);
+					        if ($userartist['count'] == 0) {
 					        	$userartist = new UserArtist();
 					    		$userartist['user_id'] = $_SESSION['user']['user_id'];
 					    		$userartist['artist_id'] = $db_artist['artist_id'];
 					    		$userartist->save();
+					    		$userartist->free(); //we are done with it after we save
 					        }
-						    // test
 							//echo "Artist: $artist<br>";
 							foreach ($albums as $album) {
 								$db_album = Doctrine_Query::create()
+									->select('a.artist_id')
 							        ->from('Album a')
 							        ->where('a.name=? and a.artist_id=?', array(trim($album), $db_artist['artist_id']))
-							        ->fetchOne(); 
-							     if (!$db_album) {
+							        ->fetchOne(array(), Doctrine::HYDRATE_ARRAY);
+							        //var_dump($db_album); 
+							     if (!$db_album || count($db_album) == 0) {
 							     	//If we don't we have to add it to the database'
 									$db_album = new Album();
 									$db_album['name'] = trim($album);
-									$db_album['Artist'] = $db_artist;
+									$db_album['artist_id'] = $db_artist['artist_id'];
 									$db_album['added_by_user_id'] = $_SESSION['user']['user_id'];
 									$db_album->save();
 							    }
 							    $useralbum = Doctrine_Query::create()
+							    	->select('count(*)')
 							        ->from('UserAlbum a')
 							        ->where('a.user_id=? and a.album_id=?', array($_SESSION['user']['user_id'], $db_album['album_id']))
-							        ->fetchOne();
-							    if (!$useralbum) {
+							        ->fetchOne(array(), Doctrine::HYDRATE_ARRAY);
+							        //var_dump($useralbum);
+							    if ($useralbum['count'] == 0) {
 							    	$useralbum = new UserAlbum();
 								    $useralbum['user_id'] = $_SESSION['user']['user_id'];
 								    $useralbum['album_id'] = $db_album['album_id'];
 								    $useralbum->save();
+								    $useralbum->free(); //we are done with it after we save
 							    }
+							    //$db_album->free();
 								//echo "&nbsp;&nbsp;&nbsp;Album: $album<br />\n";
 							}
+							//$db_artist->free();
 						}
 					}
 					xml_parser_free($xml_parser);
