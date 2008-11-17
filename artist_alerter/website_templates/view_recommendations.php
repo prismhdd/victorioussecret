@@ -15,7 +15,7 @@ if (isset($_GET['id']) && isset($_GET['action']) && is_numeric($_GET['id'])) {
 	if ($_GET['action'] == 'remove')  {
 		Doctrine_Query::create()->delete()
 		          ->from('Recommendation r')
-		          ->where('r.from_user_id=? and r.recommendation_id=?', array($current_user_id, $_GET['id']))
+		          ->where('r.to_user_id=? and r.recommendation_id=?', array($current_user_id, $_GET['id']))
 		          ->execute();
 	}
 }

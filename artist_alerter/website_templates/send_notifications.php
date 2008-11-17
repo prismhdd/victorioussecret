@@ -96,25 +96,23 @@ function sendMail($from, $namefrom, $to, $nameto, $subject, $message) {
 //select * from user_artists ua, albums a where ua.artist_id=a.artist_id and a.album_id not in (select album_id from user_albums where user_id=2) and a.date_added >= '2008-11-02';
 $past_24hrs = date('Y-m-d', time() - 24*60*60);
 $new_albums =Doctrine_Query::create()
-						->select('a.artist_id, a.album_id, a.name a.date_added')
+						->select('a.artist_id, a.album_id, a.name, a.date_added, artist.name')
 						->from('Album a')
+						->innerJoin('Artist artist')
 						->where('a.date_added >=?', $past_24hrs)
 						->execute(array(), Doctrine::HYDRATE_ARRAY);
 						
 $emails_to_send = array();
 
 $album_info_url = 'http://'.$_SERVER['SERVER_NAME']. dirname($_SERVER['PHP_SELF']) .'/view_album_info.php';
-
 foreach($new_albums as $new_album) {
 	
 	$query = Doctrine_Query::create()
-						->select('u.user_id, artist.artist_id')
+						->select('u.user_id')
 						->from('User u')
-						->leftJoin('u.Artist artist')
-						->where('artist.artist_id=? AND ? NOT IN (SELECT ualb.album_id FROM UserAlbum ualb WHERE ualb.user_id=u.user_id)',array($new_album['artist_id'],$new_album['album_id']));
+						->where('u.Artist.artist_id=? AND ? NOT IN (SELECT ualb.album_id FROM UserAlbum ualb WHERE ualb.user_id=u.user_id)',array($new_album['artist_id'],$new_album['album_id']));
 	$users =  $query->execute(array(), Doctrine::HYDRATE_ARRAY);
 	if ($users)  {
-
 		foreach($users as $user) {
 			$text = 'The artist \''. $new_album['Artist']['name'] .'\''; 
 			$text .=  ' just released a new album entitled \''. $new_album['name'].'\'.';
@@ -124,40 +122,36 @@ foreach($new_albums as $new_album) {
 		}
 	}
 }
-
-
-
 						
 //for when a person adds a new artist and the artist has had a new album in the past month
 //do it by the date the user added that artist
 //first get all users that added stuff in the past 24 hours
 $new_user_artists = Doctrine_Query::create()
-						->select('ua.date_added, artist.artist_id')
+						->select('ua.date_added, artist.artist_id, artist.name')
 						->from('UserArtist ua')
 						->innerJoin('ua.Artist artist')
 						->where('ua.date_added>=?', $past_24hrs)
 						->execute(array(), Doctrine::HYDRATE_ARRAY);
 						
 foreach($new_user_artists as $new_user_artist) {
-	$user = $new_user_artist['User']; 
 	//check if the artist has a new album
-	$new_artist = $new_user_artist['Artist'];
-		$new_albums = $query = Doctrine_Query::create()
-						->select('a.artist_id, a.album_id, a.date_added, a.name')
-						->from('Album a')
-						->where('a.artist_id=? AND a.album_id NOT IN (SELECT ualb.album_id FROM UserAlbum ualb WHERE ualb.user_id=?) AND a.date_added<?',array($new_artist['artist_id'],$new_user_artist['user_id'],$past_24hrs))
-						->execute(array(), Doctrine::HYDRATE_ARRAY);
-		foreach($new_albums as $new_album) {
-			$text = 'The artist \''. $new_album['Artist']['name'] .'\''; 
-			$text .=  ' just released a new album entitled \''. $new_album['name'].'\'.';
-			$text .= ' For more details please click <a href="'.$album_info_url.'?id='.$new_album['album_id'].'">here</a>.'; 
-			 $emails_to_send[$user['user_id']][] = $text;
-			//print('Notification for '. $user['first_name'] .' in relation to the album '.$new_album['name'].'<br/>');
-		}
+	$new_albums = $query = Doctrine_Query::create()
+					->select('a.artist_id, a.album_id, a.date_added, a.name')
+					->from('Album a')
+					->where('a.artist_id=? AND a.album_id NOT IN (SELECT ualb.album_id FROM UserAlbum ualb WHERE ualb.user_id=?) AND a.date_added<?',array($new_user_artist['artist_id'],$new_user_artist['user_id'],$past_24hrs))
+					->execute(array(), Doctrine::HYDRATE_ARRAY);
+	foreach($new_albums as $new_album) {
+		$text = 'The artist \''. $new_user_artist['Artist']['name'] .'\''; 
+		$text .=  ' just released a new album entitled \''. $new_album['name'].'\'.';
+		$text .= ' For more details please click <a href="'.$album_info_url.'?id='.$new_album['album_id'].'">here</a>.'; 
+		 $emails_to_send[$new_user_artist['user_id']][] = $text;
+		//print('Notification for '. $user['first_name'] .' in relation to the album '.$new_album['name'].'<br/>');
+	}
 }
 
 $user_ids = array_keys($emails_to_send);
-
+//var_dump($emails_to_send);
+//var_dump($user_ids);
 foreach($user_ids as $user_id) {
 	$user =Doctrine_Query::create()
 						->select('u.email_address, u.user_id, u.first_name')
@@ -168,5 +162,6 @@ foreach($user_ids as $user_id) {
 	print('<br/>');
 	$message = 'Hello, new albums have been released by your favorite artists:<br/>';
 	$message .= implode($emails_to_send[$user_id],"\n<br/>");
+	//print($message);
 	sendMail('teamvictorioussecret@gmail.com', 'Artist Alert',$user['email_address'], $user['first_name'], '[Artist Alerter] New Albums Released', $message);
 }
