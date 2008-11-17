@@ -115,30 +115,11 @@ public class ResultsDialog extends javax.swing.JFrame {
 		{
 			listModelB.addElement(albumIterator.next());
 		}
-		/*
-		for (int i = 0; i < value.length; i++) {
-			listModelB.addElement(value[i]);
-		}*/
+
 		listAlbums = new JList(listModelB);
 		
 		paneArtists.setViewportView(listArtists);
 
-		
-
-		
-		// listAlbums.setModel(new javax.swing.AbstractListModel()
-		// {
-		// String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4",
-		// "Item 5" };
-		//
-		// public int getSize() {
-		// return strings.length;
-		// }
-		//
-		// public Object getElementAt(int i) {
-		// return strings[i];
-		// }
-		// });
 		listAlbums.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
 		paneAlbums.setViewportView(listAlbums);
 
@@ -248,13 +229,7 @@ public class ResultsDialog extends javax.swing.JFrame {
 	 *            the command line arguments
 	 * @throws FileNotFoundException
 	 */
-	// public static void main(String args[]) {
-	// java.awt.EventQueue.invokeLater(new Runnable() {
-	// public void run() {
-	// new UI_Results(reader).setVisible(true);
-	// }
-	// });
-	// }
+
 	@SuppressWarnings("static-access")
 	private void buttonExportActionPerformed(java.awt.event.ActionEvent evt,
 			Map<String, Collection<String>> artists)
@@ -262,15 +237,11 @@ public class ResultsDialog extends javax.swing.JFrame {
 
 		JFileChooser saver = new JFileChooser();
 		saver.setFileSelectionMode(JFileChooser.SAVE_DIALOG);
-		// saver.setSelectedFile(new File("export.xml"));
+
 		saver.showSaveDialog(getParent());
 
-		// while(saver.getSelectedFile() == saver.CANCEL_OPTION)
-		// saver.showSaveDialog(getParent());
 		File file = saver.getSelectedFile();
 
-		// System.out.println(file.getName());
-		// File file = new File("export.xml");
 		try {
 			file.createNewFile();
 		} catch (IOException e) {
