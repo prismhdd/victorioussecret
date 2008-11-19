@@ -13,11 +13,5 @@ abstract class BaseUserArtist extends Doctrine_Record
     $this->hasColumn('date_added', 'date', null, array('type' => 'date', 'notnull' => true, 'default' => 'now()'));
   }
   
-  public function setUp() {
-  	$this->hasOne('Artist as Artist', array('local' => 'artist_id',
-                                                    'foreign' => 'artist_id'));
-    $this->hasOne('User as User', array('local' => 'user_id',
-                                                    'foreign' => 'user_id'));
-  }
 
 }

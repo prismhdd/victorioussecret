@@ -5,5 +5,12 @@
  */
 class Album extends BaseAlbum
 {
-
+  public function setUp()
+  {
+  	$this->hasOne('Artist as Artist', array('local' => 'artist_id',
+                                                    'foreign' => 'artist_id'));
+    $this->hasMany('User', array('local' => 'album_id',       // <- these are the column names
+                                     'foreign' => 'user_id',      // <- in the association table
+                                     'refClass' => 'UserAlbum')); // <- the following line is needed in many-to-many relations!
+  }
 }

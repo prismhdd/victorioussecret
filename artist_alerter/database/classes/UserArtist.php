@@ -5,5 +5,11 @@
  */
 class UserArtist extends BaseUserArtist
 {
+  public function setUp() {
+  	$this->hasOne('Artist as Artist', array('local' => 'artist_id',
+                                                    'foreign' => 'artist_id'));
+    $this->hasOne('User as User', array('local' => 'user_id',
+                                                    'foreign' => 'user_id'));
+  }
 
 }

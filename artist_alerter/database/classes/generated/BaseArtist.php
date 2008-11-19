@@ -14,13 +14,6 @@ abstract class BaseArtist extends Doctrine_Record
     $this->hasColumn('added_by_user_id', 'integer', 8, array('type' => 'integer', 'length' => 8, 'notnull' => true));
   }
   
-  public function setUp()
-    {
-        $this->hasMany('Album as Albums', array('local' => 'artist_id',
-                                                        'foreign' => 'artist_id'));
-		$this->hasMany('User', array('local' => 'artist_id',       // <- these are the column names
-                                     'foreign' => 'user_id',      // <- in the association table
-                                     'refClass' => 'UserArtist')); // <- the following line is needed in many-to-many relations!
-    }
+
 
 }
