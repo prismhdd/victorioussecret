@@ -5,5 +5,11 @@
  */
 class Recommendation extends BaseRecommendation
 {
-
+  public function setUp()
+  {
+  	$this->hasOne('Album as Album', array('local' => 'album_id',
+                                                    'foreign' => 'album_id'));
+	$this->hasOne('User as FromUser', array('local' => 'from_user_id',
+                                                    'foreign' => 'user_id'));
+  }
 }

@@ -5,5 +5,12 @@
  */
 class UserAlbum extends BaseUserAlbum
 {
-
+  
+  public function setUp() 
+  {
+  	$this->hasOne('Album as Album', array('local' => 'album_id',
+                                                    'foreign' => 'album_id'));
+    $this->hasOne('User as User', array('local' => 'user_id',
+                                                    'foreign' => 'user_id'));
+  }
 }
