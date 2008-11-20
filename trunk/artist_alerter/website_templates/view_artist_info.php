@@ -1,7 +1,7 @@
 <?php session_start();
 require_once('../database/config.php');
 $conn = Doctrine_Manager :: connection(DSN);
-
+//Loads the information for a certain artist
 if (isset($_GET['id']) && is_numeric($_GET['id'])) {
 	$artist = Doctrine_Query::create()
 					->from('Artist a')

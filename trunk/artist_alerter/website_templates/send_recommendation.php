@@ -2,6 +2,9 @@
 session_start();
 /*
  * For sending recommendations to users
+ * the way it works is first the user searches for another user by their username
+ * then when they click on a user to send the recommendation to it will show them a form
+ * to enter a message and select an album
  */
  
  if (!$_SESSION['user']) {
@@ -13,6 +16,7 @@ $conn = Doctrine_Manager :: connection(DSN);
 $current_user_id = $_SESSION['user']['user_id'];
 		          
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+	//we are posting to the web server, so save the recommendation
 	$recommendation = new Recommendation();
 	$recommendation['note'] = $_POST['message'];
 	$recommendation['from_user_id'] = $_SESSION['user']['user_id'];
@@ -57,6 +61,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <?php require_once('header.php'); ?>
 
 <div id="content">
+
 	<?php require_once('sidebar.php') ?>
 	<div id="main">
 		<h2 class="title">Send Recommendations</h2>

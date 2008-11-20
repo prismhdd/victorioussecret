@@ -4,6 +4,7 @@ require_once('../database/config.php');
 
 $conn = Doctrine_Manager :: connection(DSN);
 
+//Sends mail using GMAIL
 function sendMail($from, $namefrom, $to, $nameto, $subject, $message) {	
 	/*  your configuration here  */
 	$smtpServer = "ssl://smtp.gmail.com"; //does not accept STARTTLS
@@ -95,6 +96,8 @@ function sendMail($from, $namefrom, $to, $nameto, $subject, $message) {
 
 //select * from user_artists ua, albums a where ua.artist_id=a.artist_id and a.album_id not in (select album_id from user_albums where user_id=2) and a.date_added >= '2008-11-02';
 $past_24hrs = date('Y-m-d', time() - 24*60*60);
+
+//select new albums in the past 24 hours
 $new_albums =Doctrine_Query::create()
 						->select('a.artist_id, a.album_id, a.name, a.date_added, artist.name')
 						->from('Album a')
@@ -107,6 +110,7 @@ $emails_to_send = array();
 $album_info_url = 'http://'.$_SERVER['SERVER_NAME']. dirname($_SERVER['PHP_SELF']) .'/view_album_info.php';
 foreach($new_albums as $new_album) {
 	
+	//for each new album get a list of users that should receive the recommendation
 	$query = Doctrine_Query::create()
 						->select('u.user_id')
 						->from('User u')
@@ -114,6 +118,7 @@ foreach($new_albums as $new_album) {
 	$users =  $query->execute(array(), Doctrine::HYDRATE_ARRAY);
 	if ($users)  {
 		foreach($users as $user) {
+			//for each user construct the email notification to go out
 			$text = 'The artist \''. $new_album['Artist']['name'] .'\''; 
 			$text .=  ' just released a new album entitled \''. $new_album['name'].'\'.';
 			$text .= ' For more details please click <a href="'.$album_info_url.'?id='.$new_album['album_id'].'">here</a>.'; 
@@ -153,6 +158,7 @@ $user_ids = array_keys($emails_to_send);
 //var_dump($emails_to_send);
 //var_dump($user_ids);
 foreach($user_ids as $user_id) {
+	//for every user we found a new album for get their email address and send them an email
 	$user =Doctrine_Query::create()
 						->select('u.email_address, u.user_id, u.first_name')
 						->from('User u')
