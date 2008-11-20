@@ -2,21 +2,21 @@
 
 
 =Woojoon=
-creating an account
-modifying preferences
-uploading the xml file
+  #creating an account
+  #modifying preferences
+  #uploading the xml file
 
 =Charlie=
-how to view library
-known issues/reporting issues
-introduction - purpose of the site
+  #how to view library
+  #known issues/reporting issues
+  #introduction - purpose of the site
 
 =Anthony=
-sending recommendations
-viewing recommendations
-what a notification looks like (screenshot)
+  #sending recommendations
+  #viewing recommendations
+  #what a notification looks like (screenshot)
 
 =Willy=
-downloading the offline application
-troubleshooting for offline application
-how to use offline application
+  #downloading the offline application
+  #troubleshooting for offline application
+  #how to use offline application
