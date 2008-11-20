@@ -1,7 +1,7 @@
 <?php session_start();
 require_once('../database/config.php');
 $conn = Doctrine_Manager :: connection(DSN);
-
+//Loads the information for a certain album
 if (isset($_GET['id']) && is_numeric($_GET['id'])) {
 	$album = Doctrine_Query::create()
 					->from('Album a')

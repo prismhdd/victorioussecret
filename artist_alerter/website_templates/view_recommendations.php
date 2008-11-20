@@ -13,13 +13,14 @@ $conn = Doctrine_Manager :: connection(DSN);
 $current_user_id = $_SESSION['user']['user_id'];
 if (isset($_GET['id']) && isset($_GET['action']) && is_numeric($_GET['id'])) {
 	if ($_GET['action'] == 'remove')  {
+		//Deletes a recommendation that the user has
 		Doctrine_Query::create()->delete()
 		          ->from('Recommendation r')
 		          ->where('r.to_user_id=? and r.recommendation_id=?', array($current_user_id, $_GET['id']))
 		          ->execute();
 	}
 }
-//Get all of the recommendations
+//Get all of the recommendations that a user has
 $recommendations = Doctrine_Query::create()
 		          ->from('Recommendation r')
 		          ->where('r.to_user_id=?', $current_user_id)

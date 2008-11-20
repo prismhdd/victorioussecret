@@ -1,5 +1,6 @@
 <?php session_start() ?>
 <?php
+//just fetches every artist/album that we have in our database
 require_once('../database/config.php');
 $conn = Doctrine_Manager :: connection(DSN);
 $artists = Doctrine_Query::create()
