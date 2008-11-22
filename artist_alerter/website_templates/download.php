@@ -12,7 +12,7 @@
 		<div id="welcome" class="post">
 			<h2 class="title">Download</h2>
 			In order to run this application, you will need to have Java installed on your computer. 
-			If you are unsure whether you already have Java, please visit 
+			If you are unsure whether you already have Java or need the latest version, please visit 
 			<a href="http://java.com/en/download/installed.jsp?detect=jre&try=1">here.</a><br><br><br>
 			
 			<a href="OfflineApplication.jar">Click here to download</a>
@@ -24,17 +24,15 @@
 			
 			<h2>Read Me</h2>
 			<div>
-			                                                                     
-                                                                     
-                              <pre>                                       
-                                             
+			<pre>                                    
 Artist Alerter v0.1
 
 INSTALLATION INSTRUCTIONS:
 	-Go to Download page on website
 	-Click 'Click here to download'
 	-Doubleclick on .jar file, the program should start automatically
-		-If the program doesn't start, go into the console and run 'java -jar OfflineApplication.jar'
+		-If the program doesn't start, go into the console and run 
+		'java -jar OfflineApplication.jar'
 
 OPERATING INSTRUCTIONS:
 	-To select files to upload, click the 'Choose Directory' button 
@@ -60,7 +58,8 @@ KNOWN BUGS:
 TROUBLESHOOTING:
 
 	The offline application won't run!
-		-In order for the .jar file to execute properly, you need to have java installed on your computer.
+		-In order for the .jar file to execute properly, 
+		 you need to have java installed on your computer.
 		-Please visit http://java.sun.com/ to download this
 
 	I clicked 'Export', but my file won't save!

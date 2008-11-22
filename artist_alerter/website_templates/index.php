@@ -16,14 +16,16 @@ if (isset($_GET['logout'])) {
 	<?php require_once('sidebar.php') ?>
 	<div id="main">
 		<div id="welcome" class="post">
-			<h2 class="title">Your Music Source</h2>
-			
-			
-We plan on developing a web-app that allows a user to better follow releases from their favorite artists. 
-After scanning a users music library, our solution will compare upcoming releases to the current library 
-and inform the user of potentially interesting albums. Integration with internet music websites such as Pandora 
-or Last.fm could increase the amount of artist information available. Keeping the system as user-friendly as 
-possible is a high priority in order increase usability.
+			<h2 class="title">Your Music Source</h2>			
+				The <b>Artist Alert</b> idea spawned from mounting frustrations over staying up-to-date with favorite artists.  
+				As your music collection grows and the number of artists increases, so does the amount of time you need to 
+				spend on keeping track of new releases. 
+				<br/><br/>
+				<b>Artist Alert</b> significantly reduces the time and effort required 
+				on the part of fans so they can spend more time enjoying their music.  Once <b>Artist Alert</b> discovers 
+				your music collection, you will automatically be notified of any new albums that may interest you. 
+				<br/><br/>
+				<a href=intro.php>New to Artist Alert? Click here</a>
 		</div>		
 	</div>
 </div>
