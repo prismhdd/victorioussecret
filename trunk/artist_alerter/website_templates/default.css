@@ -1,3 +1,5 @@
+/*CSS file to easily maintain consistent styling throughout the website*/
+
 * {
 	margin: 0;
 	padding: 0;
@@ -6,7 +8,8 @@
 body {
 	margin: 0;
 	font: normal small Verdana, Arial, Helvetica, sans-serif;
-	color: #666666;
+	color: #616161;
+	text-align: justify;
 }
 
 h1, h2, h3 {
@@ -43,6 +46,7 @@ ul {
 	margin: 0;
 	padding: 0;
 	list-style-type: none;
+	margin-left: 3em;
 }
 
 blockquote {
@@ -51,17 +55,13 @@ blockquote {
 	font-style: italic;
 }
 
-ul {
-	margin-left: 3em;
-}
-
 ol {
 	margin-left: 3em;
 }
 
 a {
 	text-decoration: none;
-	color: #6183A6;
+	color: #385B88;
 }
 
 a:hover {
@@ -97,6 +97,9 @@ a:hover {
 	width: 550px;
 	margin-top: 20px;
 }
+#main a {
+	font-weight: bold;
+}
 
 #sidebar {
 	float: left;
@@ -110,6 +113,7 @@ a:hover {
 #login label {
 	font-size: x-small;
 	font-weight: bold;
+	text-align: left;
 }
 
 #login input {
@@ -151,12 +155,19 @@ a:hover {
 	color: #385B88;
 }
 
-#menu a:hover, #menu .active a {
+#menu .active a {
 	background: #656EA1;
 	text-decoration: none;
 	font-weight: bold;
 	color: #ffffff;
 	text-transform:uppercase;
+}
+
+#menu a:hover{
+	background: #818DD2;
+	text-decoration: none;
+	font-weight: bold;
+	color: #ffffff;
 }
 
 #updates ul {
@@ -167,6 +178,7 @@ a:hover {
 #updates h3 {
 	margin: 0;
 	font: bold x-small Verdana, Arial, Helvetica, sans-serif;
+	text-align: left;
 }
 
 #updates p {
