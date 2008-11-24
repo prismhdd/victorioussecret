@@ -1,9 +1,28 @@
 # Final Presentation Information
 
   * 4 Minutes explaining the goal
+    * (Marketing portion) Summary of vision statement and business case
+    * Overview of the competition and why we are better
+      * What the competition is and why we beat them
+    * Interaction diagram of sending notifications
   * 4 Minutes explaining individual contributions and how it relates to the overall goal
+    * Charlie
+    * Willy
+    * Woojoon
+    * Anthony
   * 4 Minutes of a Live Demo!
-
+    * Visit the homepage (Willy)
+    * Visit download page (Charlie)
+    * Have Offline Application already running
+      * Scanning a directory - (10 different artists, 3 artists with more than one album, 7 artists with one album of those 10, 3 will have new albums, 7 won't, couple of artists are not in our database yet) (Charlie)
+      * Showing the results dialog (Charlie)
+      * Exporting the XML file (Charlie)
+    * Creating an Account  (Woojoon)
+    * Uploading the XML file (Woojoon)
+    * Checking notifications (manually go to send_notifications.php) (Anthony)
+    * Sending Recommendation from the box computer (switch output) (Anthony)
+    * View the recommendation (Willy)
+    * Manually adding (Willy)
 
 =Requirements=
   * 15 Minutes (20 Minutes Max, extra 5 minutes for questions)
