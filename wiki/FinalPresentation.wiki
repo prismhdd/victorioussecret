@@ -1,26 +1,26 @@
 #Final Presentation Information
 
-* 4 Minutes explaining the goal
-* 4 Minutes explaining individual contributions and how it relates to the overall goal
-* 4 Minutes of a Live Demo!
+  * 4 Minutes explaining the goal
+  * 4 Minutes explaining individual contributions and how it relates to the overall goal
+  * 4 Minutes of a Live Demo!
 
 
 =Requirements=
-* 15 Minutes (20 Minutes Max, extra 5 minutes for questions)
-* Smooth
-* Fun and Original and Interesting
-* Everyone needs to participate
-* Half marketing/Half Technical (Selling the product)
-* Features of the product
-* What makes our product great/better than the competition
-* Show what's cool (it is a show off)
-* Demo (Action!) - Credible Data
-* Technical Piece
-* What patterns
-* Development Style
-* Group Dynamics
-* Creative Process
-* Technical Challenges and how we over came them
-* Original plans versus the final product, and why they are different
-* Development Experience creating the product
-* Individually want to hear what we got out of the class, lessons learned (learned how to work with a group, mastered a new language, do UI, larger project with more scope, project management tools)
+  * 15 Minutes (20 Minutes Max, extra 5 minutes for questions)
+  * Smooth
+  * Fun and Original and Interesting
+  * Everyone needs to participate
+  * Half marketing/Half Technical (Selling the product)
+  * Features of the product
+  * What makes our product great/better than the competition
+  * Show what's cool (it is a show off)
+  * Demo (Action!) - Credible Data
+  * Technical Piece
+  * What patterns
+  * Development Style
+  * Group Dynamics
+  * Creative Process
+  * Technical Challenges and how we over came them
+  * Original plans versus the final product, and why they are different
+  * Development Experience creating the product
+  * Individually want to hear what we got out of the class, lessons learned (learned how to work with a group, mastered a new language, do UI, larger project with more scope, project management tools)
