@@ -1,10 +1,10 @@
 # Final Presentation Information
 
   * 4 Minutes explaining the goal
-    * (Marketing portion) Summary of vision statement and business case
-    * Overview of the competition and why we are better
+    * (Marketing portion) Summary of vision statement and business case (Charlie, Willy)
+    * Overview of the competition and why we are better (Woojoon)
       * What the competition is and why we beat them
-    * Interaction diagram of sending notifications
+    * Interaction diagram of sending notifications (Anthony)
   * 4 Minutes explaining individual contributions and how it relates to the overall goal
     * Charlie
     * Willy
