@@ -12,12 +12,12 @@
     * Anthony
   * 4 Minutes of a Live Demo!
     * Visit the homepage (Willy)
+    * Creating an Account  (Woojoon)
     * Visit download page (Charlie)
     * Have Offline Application already running
       * Scanning a directory - (10 different artists, 3 artists with more than one album, 7 artists with one album of those 10, 3 will have new albums, 7 won't, couple of artists are not in our database yet) (Charlie)
       * Showing the results dialog (Charlie)
       * Exporting the XML file (Charlie)
-    * Creating an Account  (Woojoon)
     * Uploading the XML file (Woojoon)
     * Checking notifications (manually go to send_notifications.php) (Anthony)
     * Sending Recommendation from the box computer (switch output) (Anthony)
