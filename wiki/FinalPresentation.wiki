@@ -24,6 +24,10 @@
     * View the recommendation (Willy)
     * Manually adding (Willy)
 
+What needs to be open
+  * laptop - presentation, offline application, teamvictorioussecret@gmail.com email account open, website open
+  * box computer - send_notifications.php script
+
 =Requirements=
   * 15 Minutes (20 Minutes Max, extra 5 minutes for questions)
   * Smooth
