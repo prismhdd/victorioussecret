@@ -15,6 +15,7 @@
   # sending recommendations
   # viewing recommendations
   # what a notification looks like (screenshot)
+  # how to setup the server (deployment setup)
 
 =Willy=
   # downloading the offline application
