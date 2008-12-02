@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['inputsubmit1']) {
 	} else {
 		//If they enter wrong information let them know
 		$error = 'Invalid Credentials';
-		header('Location: '. $_GET['lastpage'] . '?error=' . $error . '&username=' . $email_address );
+		header('Location: '. $_GET['lastpage'] . '?error=' . $error . '&username=' . $username );
 	}
 }
 ?>
