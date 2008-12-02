@@ -18,19 +18,19 @@ $conn = Doctrine_Manager :: connection(DSN); ?>
                 <table id="signupfields">
                     <tr>
                         <th align="left"><label for="username">Username:</label></th>
-                        <td><input id="username" type="text" name="username"/></td>
+                        <td><input id="username" type="text" name="username" value="<?php print($_POST['username'])?>"/></td>
                     </tr>
                     <tr>
                         <th align="left"><label for="firstname">First Name:</label></th>
-                        <td><input id="firstname" type="text" name="firstname"/></td>
+                        <td><input id="firstname" type="text" name="firstname" value="<?php print($_POST['firstname'])?>"/></td>
                     </tr>
 					<tr>
                         <th align="left"><label for="lastname">Last Name:</label></th>
-                        <td><input id="lastname" type="text" name="lastname"/></td>
+                        <td><input id="lastname" type="text" name="lastname" value="<?php print($_POST['lastname'])?>"/></td>
                     </tr>
                     <tr>
                         <th align="left"><label for="email" dir="ltr">Email:</label></th>
-                        <td><input type="text" name="email" id="email"/></td>
+                        <td><input type="text" name="email" id="email" value="<?php print($_POST['email'])?>"/></td>
                     </tr>
                     <tr>
                         <th align="left"><label for="pword">Password:</label></th>
@@ -82,7 +82,7 @@ $conn = Doctrine_Manager :: connection(DSN); ?>
 					      $error ++;
 					      echo $error . ". You didn't enter a confirm password!<br>";
 					    }
-					    if (!$regcode && $regcode != 'sdd') {
+					    if (!$regcode || $regcode != 'sdd') {
 					    	$error++;
 					    	echo $error . ". You didn't enter a correct registration code!<br>";
 					    }
